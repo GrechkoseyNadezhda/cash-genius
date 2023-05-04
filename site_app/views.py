@@ -2,6 +2,9 @@ from django.shortcuts import render
 from rest_framework.views import Response
 from rest_framework.decorators import api_view
 
+from .serializers import ArticleSerializer
+from .models import Article
+
 
 @api_view(['GET'])
 def main_page(request):
@@ -15,7 +18,10 @@ def about(request):
 
 @api_view(['GET'])
 def financial_guide(request):
-    return Response()
+    if request.method == 'GET':
+        articles = Article.objects.all()
+        serializer = ArticleSerializer(articles, context={'request': request}, many=True)
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
