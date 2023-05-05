@@ -15,6 +15,7 @@ export const loadFromDB = (
         let result = res;
         for (let field of fields) result = result[field];
         setState(result);
+        // console.log(res);
       })
       .catch((err) => dispatch(setError(err.message)))
       .finally(() => dispatch(setPending(false)));

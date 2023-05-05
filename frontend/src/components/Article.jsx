@@ -6,6 +6,8 @@ export const Article = ({ post }) => {
       <h4>{post.title}</h4>
       <h5>{post.author}</h5>
       <p>{post.content}</p>
+      <p>{post.date_added}</p>
+      <img src={`${post.image}`} alt="" />
     </Link>
   );
 };

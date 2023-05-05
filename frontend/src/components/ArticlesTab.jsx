@@ -13,13 +13,7 @@ export const ArticlesTab = () => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const loader = useMemo(() => {
-    return loadFromDB(
-      getAllArticles,
-      setArticles,
-      ["data", "data"],
-      dispatch,
-      page
-    );
+    return loadFromDB(getAllArticles, setArticles, ["data"], dispatch, page);
   }, [dispatch, page]);
 
   useEffect(() => {
@@ -38,7 +32,7 @@ export const ArticlesTab = () => {
       <p>{error}</p>
       {pending && <p>Loading data...</p>}
       <p>Language: {lang}</p>
-      {articles.length > 0 && (
+      {articles?.length > 0 && (
         <>
           <button onClick={clickHandler}>
             {t("pages.page")} {page}
