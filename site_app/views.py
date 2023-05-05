@@ -25,7 +25,7 @@ def financial_guide(request):
 
 
 @api_view(['GET'])
-def category(request):
+def category(request, category_slug=None):
     return Response()
 
 
