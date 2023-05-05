@@ -9,9 +9,7 @@ export async function getMainInfo() {
 }
 
 export async function getAllArticles(page) {
-  return await axIstance.get("posts", {
-    params: { page: page },
-  });
+  return await axIstance.get("financial_guide");
 }
 
 export async function getArticleById(artId) {
