@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework.views import Response
 from rest_framework.decorators import api_view
 
 from .serializers import ArticleSerializer
-from .models import Article
+from .models import Article, Category
 
 
 @api_view(['GET'])
@@ -26,7 +26,13 @@ def financial_guide(request):
 
 @api_view(['GET'])
 def category(request, category_slug=None):
-    return Response()
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        articles = Article.objects.filter(category=category).order_by('date_added')
+
+        serializer = ArticleSerializer(articles, context={'request': request}, many=True)
+
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
