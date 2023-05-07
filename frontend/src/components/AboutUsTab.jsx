@@ -45,25 +45,12 @@ export const AboutUsTab = () => {
                         className={css.teamLink}
                         target="_blank"
                         rel="noopener noreferrer">
-                        <svg width="22" height="22">
-                            <use href={`${icons}#icon-mdi_linkedin`} />
+                        <svg className={css.teamIcon} width="24" height="24">
+                            {/* <use href={iconLn} /> */}
+                            < use href={`${icons}#icon-linkedin`} />
                         </svg>
                         </a>
-                        {/* <p>{ln}</p> */}
-                        {/* <a
-        href={linkGh}
-        style={{
-          display: 'inline-block',
-          marginTop: '15px',
-          fontSize: '18px',
-          textDecorationLine: 'underline',
-        }}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {linkGh ? linkGh : <BsGithub />}
-      </a> */}
-                        
+                                               
                       </div>
                     </li>
                   );
@@ -78,11 +65,16 @@ export const AboutUsTab = () => {
                       <img src={src} alt={name} width="116"  />
                       <p className={css.teamName}>{name}</p>
                         <p className={css.teamRole}>{role}</p>
-                        {/* <p>{ln}</p> */}
-                        <svg width="22" height="22">
-                            <use href={`${icons}#icon-mdi_linkedin`} />
+                        <a href={ln} 
+                        className={css.teamLink}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <svg className={css.teamIcon} width="24" height="24">
+                            {/* <use href={iconLn} /> */}
+                            < use href={`${icons}#icon-linkedin`} />
                         </svg>
-                      </div>
+                        </a>
+                                             </div>
                     </li>
                   );
                 })}

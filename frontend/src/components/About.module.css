@@ -1,5 +1,11 @@
 .container {
   width: 360px;
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    /* display: flex;
+    align-items: baseline;
+    gap: 0; */
+  }
 }
 
 .teamTitle {
@@ -64,11 +70,13 @@
 }
 
 .teamLink{
-  :hover {
-    /* color: #ffe;  */
-    stroke: #5488af; 
-   }
-}
+  fill: #4a4c4c;
+ }
+
+.teamLink:hover{
+  fill:#f5c92a;
+ }
+
 .team {
     list-style: none;
   display: flex;
@@ -89,6 +97,11 @@
   padding-right: 13px;
   margin-top: 32px;
   margin-bottom: 72px;
+  @media screen and (min-width: 1440px) {
+    
+    align-items: baseline;
+    gap: 139px; 
+  }
 }
 
 .logo{
