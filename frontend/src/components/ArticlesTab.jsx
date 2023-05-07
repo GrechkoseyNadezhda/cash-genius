@@ -7,7 +7,7 @@ import { loadFromDB } from "../loadFromDB";
 import { Article } from "./Article";
 
 export const ArticlesTab = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(["articles"]);
   const { lang, error, pending } = useSelector(selectGlobal);
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
@@ -28,14 +28,14 @@ export const ArticlesTab = () => {
 
   return (
     <div>
-      {t("articles.title")}
+      {t("title")}
       <p>{error}</p>
       {pending && <p>Loading data...</p>}
       <p>Language: {lang}</p>
       {articles?.length > 0 && (
         <>
           <button onClick={clickHandler}>
-            {t("pages.page")} {page}
+            {t("page")} {page}
           </button>
 
           <ul>

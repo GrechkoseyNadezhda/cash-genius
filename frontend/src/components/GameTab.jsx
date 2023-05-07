@@ -7,7 +7,7 @@ import { loadFromDB } from "../loadFromDB";
 export const GameTab = () => {
   const [mainInfo, setMainInfo] = useState("");
   const { error, lang, pending } = useSelector(selectGlobal);
-  const { t } = useTranslation();
+  const { t } = useTranslation(["game"]);
   const dispatch = useDispatch();
   const loader = useMemo(
     () => loadFromDB(getMainInfo, setMainInfo, ["statusText"], dispatch),
@@ -16,11 +16,13 @@ export const GameTab = () => {
   useEffect(() => loader(), [loader]);
   return (
     <div>
-      <p>{t("rules.title")}</p>
+      <p>{t("title")}</p>
       <p>{error}</p>
       {pending && <p>Loading data...</p>}
       <p>Data from server: {mainInfo}</p>
-      <p>Language: {lang}</p>
+      <p>
+        {t("language")}: {lang}
+      </p>
     </div>
   );
 };

@@ -7,7 +7,7 @@ import { loadFromDB } from "../loadFromDB";
 
 export const AboutUsTab = () => {
   const [aboutInfo, setAboutInfo] = useState("");
-  const { t } = useTranslation();
+  const { t } = useTranslation(["about"]);
   const { lang, error, pending } = useSelector(selectGlobal);
   const dispatch = useDispatch();
   const loader = useMemo(
@@ -18,7 +18,7 @@ export const AboutUsTab = () => {
 
   return (
     <div>
-      <p> {t("about.title")}</p>
+      <p> {t("title")}</p>
       <p>{error}</p>
       {pending && <p>Loading data...</p>}
       <p>Data from server: {aboutInfo}</p>

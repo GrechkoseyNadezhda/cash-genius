@@ -12,19 +12,19 @@ export const Home = () => {
   const linkStyle = {
     paddingRight: "12px",
   };
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation(["header"]);
   const dispatch = useDispatch();
   return (
     <>
       <header>
         <nav>
           <Link style={linkStyle} to="/">
-            {t("navigation.game")}
+            {t("game")}
           </Link>
           <Link style={linkStyle} to="/articles">
-            {t("navigation.articles")}
+            {t("articles")}
           </Link>
-          <Link to="/about"> {t("navigation.about")}</Link>
+          <Link to="/about"> {t("about")}</Link>
         </nav>
         <div>
           {Object.keys(lngs).map((lng) => (
