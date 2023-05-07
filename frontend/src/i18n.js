@@ -35,7 +35,10 @@ i18n
             title: "All RULES here!",
           },
           about: {
-            title: "All ABOUT US here!",
+            title1: "About project",
+            text: "Cash Genius is a non-commercial project created by the participants of the IT BootCamp 2023 program held by the Kharkiv Information Technology Cluster Public Union. The goals of the project are to spread knowledge about finances and increase the financial literacy of teenagers and adults.",
+            title2: "Get to know our team",
+            title3: "Our partners",
           },
           page404: {
             title: "PAGE NOT FOUND!",
@@ -62,7 +65,10 @@ i18n
             title: "Усі ПРАВИЛА тут!",
           },
           about: {
-            title: "Усі ПРО НАС тут!",
+            title1: "Про проєкт",
+            text: "Cash Genius — некомерційний проєкт, створений учасниками програми IT BootCamp 2023, що проводилася Громадською спілкою «Харківський кластер інформаційних технологій». Цілі проєкту — поширення знань про фінанси та підвищення фінансової грамотності підлітків та дорослих.",
+            title2: "Познайомтеся з нашою командою",
+            title3: "Наші партнери",
           },
           page404: {
             title: "ТАКОЇ СТОРІНКИ НЕМАЄ!",
