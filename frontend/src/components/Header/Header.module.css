@@ -1,3 +1,7 @@
 .headContainer {
   outline: 1px solid red;
 }
+
+.burger {
+  fill: #1b1d1c;
+}
