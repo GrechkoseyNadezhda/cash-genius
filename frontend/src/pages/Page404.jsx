@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-
 import css from "./Page404.module.css";
 import icon404 from "../images/404.svg";
 

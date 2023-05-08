@@ -15,7 +15,7 @@ import icons from '../images/symbol-defs.svg';
 
 export const AboutUsTab = () => {
   const [aboutInfo, setAboutInfo] = useState("");
-  const { t } = useTranslation();
+  const { t } = useTranslation(["about"]);
   const { lang, error, pending } = useSelector(selectGlobal);
   const dispatch = useDispatch();
   const loader = useMemo(
@@ -78,9 +78,7 @@ export const AboutUsTab = () => {
                     </li>
                   );
                 })}
-            </ul>
-          
-    
+            </ul>   
       <h2 className={css.teamTitle}> {t("about.title3")}</h2>
       <div className={css.partners}>
       <img className={css.logo} src={iconClu} alt="iconClu" width="156" height="71"/>
@@ -89,6 +87,7 @@ export const AboutUsTab = () => {
       <img className={css.logo} src={iconOlearis} alt="iconGoIt" width="156" height="71"/>
       </div>
       {/* <p>{error}</p>
+
       {pending && <p>Loading data...</p>}
       <p>Data from server: {aboutInfo}</p>
       <p>Language: {lang}</p> */}
