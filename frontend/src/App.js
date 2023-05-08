@@ -16,8 +16,8 @@ export const App = () => {
           <Route path="articles" element={<ArticlesTab />} />
           <Route path="about" element={<AboutUsTab />} />
           <Route path="/articles/:articleId" element={<ArtDetails />} />
+          <Route path="*" element={<Page404 />} />
         </Route>
-        <Route path="*" element={<Page404 />} />
       </Routes>
     </Suspense>
   );
