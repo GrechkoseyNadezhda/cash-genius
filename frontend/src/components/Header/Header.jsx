@@ -14,32 +14,38 @@ export const Header = () => {
   };
   return (
     <header className={"container " + css.headContainer}>
-      {/* <nav>
-        <Link to="/">{t("game")}</Link>
-        <Link to="/articles">{t("articles")}</Link>
-        <Link to="/about"> {t("about")}</Link>
-      </nav> */}
-      <span>Cash Genius</span>
-      <ul>
-        <li>
-          <svg width="20" height="16">
-            <use href={`${icons}#icon-United-States-of-America-US`}></use>
-          </svg>
-        </li>
+      <span className={css.logo}>Cash Genius</span>
+      <div className={css.langBurger}>
+        <ul className={css.langBar}>
+          <li
+            onClick={() => {
+              i18n.changeLanguage("en");
+              dispatch(setLanguage("en"));
+            }}
+          >
+            <svg className={css.icon} width="20" height="16">
+              <use href={`${icons}#icon-United-States-of-America-US`}></use>
+            </svg>
+          </li>
 
-        <li>
-          <svg width="20" height="16">
-            <use href={`${icons}#icon-Ukr-flag`}></use>
-          </svg>
-        </li>
-        <li>
-          <svg className={css.burger} width="32" height="32">
-            <use href="./b2.svg"></use>
-          </svg>
-        </li>
-      </ul>
+          <li
+            onClick={() => {
+              i18n.changeLanguage("ua");
+              dispatch(setLanguage("ua"));
+            }}
+          >
+            <svg className={css.icon} width="20" height="16">
+              <use href={`${icons}#icon-Ukr-flag`}></use>
+            </svg>
+          </li>
+        </ul>
 
-      <div>
+        <svg className={css.icon} width="32" height="32">
+          <use href={`${icons}#icon-menu`}></use>
+        </svg>
+      </div>
+
+      {/* <div>
         {Object.keys(lngs).map((lng) => (
           <button
             key={lng}
@@ -55,7 +61,13 @@ export const Header = () => {
             {lngs[lng].langName}
           </button>
         ))}
-      </div>
+      </div> */}
     </header>
   );
 };
+
+/* <nav>
+        <Link to="/">{t("game")}</Link>
+        <Link to="/articles">{t("articles")}</Link>
+        <Link to="/about"> {t("about")}</Link>
+      </nav> */
