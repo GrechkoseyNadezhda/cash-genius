@@ -1,0 +1,47 @@
+.container {
+    width: 360px;
+    @media screen and (min-width: 1440px) {
+      width: 1440px;
+      /* display: flex;
+      align-items: baseline;
+      gap: 0; */
+    }
+  }
+
+  .title{
+    font-family: 'Cormorant Garamond';
+font-style: normal;
+font-weight: 700;
+font-size: 50px;
+line-height: 1.22;
+
+
+text-align: center;
+
+color: #D9D9D9;
+  }
+
+  .text{
+  font-family: 'Georgia';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 1.62;
+
+text-align: center;
+
+color: #4A4C4C;
+  }
+
+  .number{
+    font-family: 'Georgia';
+font-style: normal;
+font-weight: 700;
+font-size: 50px;
+line-height: 0.64;
+
+/* or 64% */
+text-align: center;
+
+color: #004835;
+  }

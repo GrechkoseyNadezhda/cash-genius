@@ -1,0 +1,110 @@
+.container {
+  width: 360px;
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    /* display: flex;
+    align-items: baseline;
+    gap: 0; */
+  }
+}
+
+.teamTitle {
+  max-width: 234px;
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.2;
+  text-align: center;
+
+  color: #1b1d1c;
+  margin: 0 auto;
+  margin-top: 72px;
+}
+
+.teamText {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.62;
+
+  color: #4a4c4c;
+
+  padding: 0 16px;
+  margin-top: 32px;
+}
+
+.teamInfo {
+  width: 156px;
+  height: 291px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.teamName {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.19;
+
+  color: #1b1d1c;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  padding: 0 9px;
+}
+
+.teamRole {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+
+  color: #4a4c4c;
+  margin-bottom: 16px;
+  padding: 0 12px;
+}
+
+.teamLink{
+  fill: #4a4c4c;
+ }
+
+.teamLink:hover{
+  fill:#f5c92a;
+ }
+
+.team {
+    list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 16px;
+  row-gap: 32px;
+  padding-left: 13px;
+  padding-right: 13px;
+  margin-top: 32px;
+}
+
+.partners{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 16px;
+  row-gap: 24px;
+  padding-left: 13px;
+  padding-right: 13px;
+  margin-top: 32px;
+  margin-bottom: 72px;
+  @media screen and (min-width: 1440px) {
+    
+    align-items: baseline;
+    gap: 139px; 
+  }
+}
+
+.logo{
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.04);
+border-radius: 8px;
+}
