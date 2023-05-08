@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import { AboutUsTab } from "./components/AboutUsTab";
+import { AboutUsTab } from "./components/About/AboutUsTab";
 import { ArticlesTab } from "./components/ArticlesTab";
 import { GameTab } from "./components/GameTab";
 import { Home } from "./pages/Home";
-import { Page404 } from "./pages/Page404";
+import { Page404 } from "./pages/Page404/Page404";
 import { ArtDetails } from "./components/ArtDetails";
 import { Suspense } from "react";
 
