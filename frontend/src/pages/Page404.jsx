@@ -4,6 +4,7 @@ import icon404 from "../images/404.svg";
 
 export const Page404 = () => {
   const { t } = useTranslation();
+
   return (
     <div className={css.container}>
       <h1 className={css.title}>Cash Genius</h1>
