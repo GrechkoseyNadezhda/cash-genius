@@ -29,15 +29,16 @@ export const Header = () => {
 
         <li>
           <svg width="20" height="16">
-            <use href={`${icons}#icon-Group`}></use>
+            <use href={`${icons}#icon-Ukr-flag`}></use>
+          </svg>
+        </li>
+        <li>
+          <svg className={css.burger} width="32" height="32">
+            <use href="./b2.svg"></use>
           </svg>
         </li>
       </ul>
-      <button>
-        <svg className={css.burger} width="32" height="32">
-          <use href={`${icons}#icon-Frame-2555`}></use>
-        </svg>
-      </button>
+
       <div>
         {Object.keys(lngs).map((lng) => (
           <button
