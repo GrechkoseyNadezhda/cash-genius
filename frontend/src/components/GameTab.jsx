@@ -15,7 +15,7 @@ export const GameTab = () => {
   );
   useEffect(() => loader(), [loader]);
   return (
-    <div>
+    <div className="container">
       <p>{t("title")}</p>
       <p>{error}</p>
       {pending && <p>Loading data...</p>}

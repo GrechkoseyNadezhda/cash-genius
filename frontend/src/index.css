@@ -15,12 +15,16 @@ body {
   font-family: "Cormorant Garamond", "Georgia", sans-serif;
   text-decoration: none;
   margin: 0;
-  padding: 0;
+  padding: 56px 0 0 0;
   background: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  margin: 0;
+  padding: 0;
+}
 .container {
   margin: 0 auto;
   padding: 0 16px;
