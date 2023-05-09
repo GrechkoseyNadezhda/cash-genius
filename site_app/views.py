@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from rest_framework.views import Response
 from rest_framework.decorators import api_view
 
@@ -42,9 +42,4 @@ def article(request, pk):
         serializer = ArticleSerializer(article, context={'request': request})
 
     return Response(serializer.data)
-
-
-@api_view(['GET', 'POST'])
-def article_create(request):
-    return Response()
 
