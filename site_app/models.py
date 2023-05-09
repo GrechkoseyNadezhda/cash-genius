@@ -12,8 +12,8 @@ class Category(models.Model):
 
 
 class EnglishArticle(models.Model):
-    title = models.CharField(max_length=120, null=True, blank=True)
-    content = models.TextField(null=True, blank=True)
+    title = models.CharField(max_length=120)
+    content = models.TextField()
 
     def __str__(self):
         return self.title
