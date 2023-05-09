@@ -21,9 +21,11 @@ const globalSlice = createSlice({
       state.pending = payload;
     },
     openModal(state) {
+      document.body.classList.add("modalOpen");
       state.modalMenuOpened = true;
     },
     closeModal(state) {
+      document.body.classList.remove("modalOpen");
       state.modalMenuOpened = false;
     },
   },

@@ -18,6 +18,8 @@ export const ModalMenu = () => {
       dispatch(closeModal());
     }
   };
+
+  const closeMenuModal = (e) => dispatch(closeModal());
   useEffect(() => {
     document.addEventListener("keydown", onEscapeHandler);
 
@@ -33,10 +35,7 @@ export const ModalMenu = () => {
     >
       <nav className={css.mobileNavigation}>
         <ul>
-          <li
-            className={css.navMenuItems}
-            onClick={() => dispatch(closeModal())}
-          >
+          <li className={css.navMenuItems} onClick={closeMenuModal}>
             <Link to="/" className={css.link}>
               <svg className={`${css.icon} `} width="32" height="32">
                 <use href={`${icons}#icon-Game`}></use>
@@ -44,10 +43,7 @@ export const ModalMenu = () => {
               Гра
             </Link>
           </li>
-          <li
-            className={css.navMenuItems}
-            onClick={() => dispatch(closeModal())}
-          >
+          <li className={css.navMenuItems} onClick={closeMenuModal}>
             <Link to="/articles" className={css.link}>
               <svg className={`${css.icon} `} width="32" height="32">
                 <use href={`${icons}#icon-Gid`}></use>
@@ -55,10 +51,7 @@ export const ModalMenu = () => {
               Фінансовий гід
             </Link>
           </li>
-          <li
-            className={css.navMenuItems}
-            onClick={() => dispatch(closeModal())}
-          >
+          <li className={css.navMenuItems} onClick={closeMenuModal}>
             <Link to="/about" className={css.link}>
               <svg className={`${css.icon} `} width="32" height="32">
                 <use href={`${icons}#icon-About-Us`}></use>
@@ -67,7 +60,7 @@ export const ModalMenu = () => {
             </Link>
           </li>
         </ul>
-        <button type="button" onClick={() => dispatch(closeModal())}>
+        <button type="button" onClick={closeMenuModal}>
           <svg className={`${css.icon} ${css.close}`} width="32" height="32">
             <use href={`${icons}#icon-closecircle`}></use>
           </svg>
