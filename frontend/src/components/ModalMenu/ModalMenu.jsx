@@ -32,12 +32,12 @@ export const ModalMenu = () => {
       onClick={clickOnBackdropHandler}
     >
       <nav className={css.mobileNavigation}>
-        <ul className="navMenu">
+        <ul>
           <li
             className={css.navMenuItems}
             onClick={() => dispatch(closeModal())}
           >
-            <Link to="/">
+            <Link to="/" className={css.link}>
               <svg className={`${css.icon} `} width="32" height="32">
                 <use href={`${icons}#icon-Game`}></use>
               </svg>
@@ -48,7 +48,7 @@ export const ModalMenu = () => {
             className={css.navMenuItems}
             onClick={() => dispatch(closeModal())}
           >
-            <Link to="/articles">
+            <Link to="/articles" className={css.link}>
               <svg className={`${css.icon} `} width="32" height="32">
                 <use href={`${icons}#icon-Gid`}></use>
               </svg>
@@ -59,7 +59,7 @@ export const ModalMenu = () => {
             className={css.navMenuItems}
             onClick={() => dispatch(closeModal())}
           >
-            <Link to="/about">
+            <Link to="/about" className={css.link}>
               <svg className={`${css.icon} `} width="32" height="32">
                 <use href={`${icons}#icon-About-Us`}></use>
               </svg>
