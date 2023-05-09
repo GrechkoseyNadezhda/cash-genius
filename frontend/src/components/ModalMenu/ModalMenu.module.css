@@ -41,14 +41,3 @@
   gap: 8px;
   align-items: center;
 }
-
-/* .navMenuItems:first-child::before {
-}
-
-.navMenuItems:nth-child(2n) {
-  color: yellow;
-}
-
-.navMenuItems:last-child {
-  color: blue;
-} */
