@@ -33,7 +33,7 @@ class Article(models.Model):
     content = models.TextField()
     date_added = models.DateField(auto_now_add=True)
     date_updated = models.DateField(auto_now=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     english_version = models.ForeignKey(EnglishArticle, on_delete=models.SET_NULL, null=True, blank=True)
     tags = models.ManyToManyField(Tag, blank=True)
