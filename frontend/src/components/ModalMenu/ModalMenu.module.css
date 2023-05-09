@@ -1,0 +1,44 @@
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.mobileNavigation {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  height: 800px;
+  width: 280px;
+  padding-top: 64px;
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.navMenuItems {
+  font-family: Cormorant Garamond;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  display: flex;
+}
+
+/* .navMenuItems:first-child::before {
+}
+
+.navMenuItems:nth-child(2n) {
+  color: yellow;
+}
+
+.navMenuItems:last-child {
+  color: blue;
+} */

@@ -1,19 +1,24 @@
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setLanguage } from "../../redux/globalSlice";
+import { openModal, setLanguage } from "../../redux/globalSlice";
 import css from "./Header.module.css";
 import icons from "../../images/symbol-defs.svg";
+import { selectGlobal } from "../../redux/selectors";
+import { ModalMenu } from "../ModalMenu/ModalMenu";
 
 export const Header = () => {
   const { t, i18n } = useTranslation(["header"]);
   const dispatch = useDispatch();
-  const lngs = {
-    en: { langName: "English" },
-    ua: { langName: "Українська" },
+  const { modalMenuOpened } = useSelector(selectGlobal);
+
+  const openModalMenu = () => {
+    dispatch(openModal());
   };
+
   return (
     <header className={"container " + css.headContainer}>
+      {modalMenuOpened && <ModalMenu />}
       <span className={css.logo}>Cash Genius</span>
       <div className={css.langBurger}>
         <ul className={css.langBar}>
@@ -39,12 +44,12 @@ export const Header = () => {
             </svg>
           </li>
         </ul>
-
-        <svg className={css.icon} width="32" height="32">
-          <use href={`${icons}#icon-menu`}></use>
-        </svg>
+        <button type="button" onClick={openModalMenu}>
+          <svg className={css.icon} width="32" height="32">
+            <use href={`${icons}#icon-menu`}></use>
+          </svg>
+        </button>
       </div>
-
       {/* <div>
         {Object.keys(lngs).map((lng) => (
           <button
