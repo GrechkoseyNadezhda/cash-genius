@@ -22,26 +22,34 @@ export const Header = () => {
       <span className={css.logo}>Cash Genius</span>
       <div className={css.langBurger}>
         <ul className={css.langBar}>
-          <li
-            onClick={() => {
-              i18n.changeLanguage("en");
-              dispatch(setLanguage("en"));
-            }}
-          >
-            <svg className={css.icon} width="20" height="16">
-              <use href={`${icons}#icon-United-States-of-America-US`}></use>
-            </svg>
+          <li>
+            <button
+              type="button"
+              className={css.icon}
+              onClick={() => {
+                i18n.changeLanguage("en");
+                dispatch(setLanguage("en"));
+              }}
+            >
+              <svg className={css.icon} width="20" height="16">
+                <use href={`${icons}#icon-United-States-of-America-US`}></use>
+              </svg>
+            </button>
           </li>
 
-          <li
-            onClick={() => {
-              i18n.changeLanguage("ua");
-              dispatch(setLanguage("ua"));
-            }}
-          >
-            <svg className={css.icon} width="20" height="16">
-              <use href={`${icons}#icon-Ukr-flag`}></use>
-            </svg>
+          <li>
+            <button
+              type="button"
+              className={css.icon}
+              onClick={() => {
+                i18n.changeLanguage("ua");
+                dispatch(setLanguage("ua"));
+              }}
+            >
+              <svg className={css.icon} width="20" height="16">
+                <use href={`${icons}#icon-Ukr-flag`}></use>
+              </svg>
+            </button>
           </li>
         </ul>
         <button type="button" onClick={openModalMenu}>
