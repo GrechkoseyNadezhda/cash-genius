@@ -37,7 +37,11 @@ def category(request, category_slug=None):
 
 @api_view(['GET'])
 def article(request, pk):
-    return Response()
+    if request.method == 'GET':
+        article = get_object_or_404(Article, pk=pk)
+        serializer = ArticleSerializer(article, context={'request': request})
+
+    return Response(serializer.data)
 
 
 @api_view(['GET', 'POST'])
