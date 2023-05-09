@@ -15,7 +15,7 @@
   background-color: white;
   height: 800px;
   width: 280px;
-  padding-top: 64px;
+  padding-top: 52px;
 }
 
 .close {
@@ -29,7 +29,17 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
+  display: block;
+  border-bottom: 1px solid #d8d8d8;
+  padding-left: 16px;
+}
+
+.link {
   display: flex;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  gap: 8px;
+  align-items: center;
 }
 
 /* .navMenuItems:first-child::before {
