@@ -24,8 +24,8 @@ export const ArticlesTab = () => {
 
   return (
     <div>
-      {t("title")}
-      {/* <p>{error}</p> */}
+      <h1>{t("title")}</h1>
+      <p>{error}</p>
       {pending && <p>Loading data...</p>}
       <Categories />
       <ArticlesList />

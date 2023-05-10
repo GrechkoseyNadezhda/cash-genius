@@ -1,0 +1,12 @@
+.categories {
+  border: 1px solid black;
+}
+
+.categoryItem:first-child .categoryIcon {
+  width: 0;
+  height: 0;
+}
+.categoryIcon {
+  width: 32px;
+  height: 32px;
+}

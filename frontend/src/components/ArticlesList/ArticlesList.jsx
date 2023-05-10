@@ -1,7 +1,7 @@
 export const ArticlesList = () => {
   return (
     <ul>
-      <li>Усі статті</li>
+      <li>ПРЕВЬЮ СТАТЕЙ</li>
     </ul>
   );
 };
