@@ -12,8 +12,8 @@ class Category(models.Model):
 
 
 class EnglishArticle(models.Model):
-    title = models.CharField(max_length=120, null=True, blank=True)
-    content = models.TextField(null=True, blank=True)
+    title = models.CharField(max_length=120)
+    content = models.TextField()
 
     def __str__(self):
         return self.title
@@ -29,13 +29,13 @@ class Tag(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=120)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='images')
     content = models.TextField()
     date_added = models.DateField(auto_now_add=True)
     date_updated = models.DateField(auto_now=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
-    english_version = models.ForeignKey(EnglishArticle, on_delete=models.SET_NULL, null=True, blank=True)
+    english_version = models.ForeignKey(EnglishArticle, on_delete=models.SET_NULL, null=True, blank=True) # TODO Змінити поле на ван ту ван філд
     tags = models.ManyToManyField(Tag, blank=True)
 
     def __str__(self):
