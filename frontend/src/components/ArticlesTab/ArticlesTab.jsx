@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllArticles } from "../redux/operations";
-import { selectGlobal } from "../redux/selectors";
-import { loadFromDB } from "../loadFromDB";
-import { Article } from "./Article";
+import { getAllArticles } from "../../redux/operations";
+import { selectGlobal } from "../../redux/selectors";
+import { loadFromDB } from "../../loadFromDB";
+import { Article } from "../Article/Article";
+import { Categories } from "../Categories/Categories";
+import { ArticlesList } from "../ArticlesList/ArticlesList";
 
 export const ArticlesTab = () => {
   const { t } = useTranslation(["articles"]);
@@ -20,33 +22,16 @@ export const ArticlesTab = () => {
     return loader();
   }, [loader, page]);
 
-  const clickHandler = () => {
-    setPage((prevPage) => {
-      return prevPage === 1 ? 2 : 1;
-    });
-  };
-
   return (
     <div>
-      {t("title")}
+      <h1>{t("title")}</h1>
       <p>{error}</p>
       {pending && <p>Loading data...</p>}
-      <p>Language: {lang}</p>
-      {articles?.length > 0 && (
-        <>
-          <button onClick={clickHandler}>
-            {t("page")} {page}
-          </button>
+      <Categories />
+      <ArticlesList />
 
-          <ul>
-            {articles.map((post) => (
-              <li key={post.pk}>
-                <Article post={post} />
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
+      {/* <p>Language: {lang}</p> */}
+      {/* {articles?.length > 0 && <></>} */}
     </div>
   );
 };

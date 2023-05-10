@@ -36,7 +36,6 @@ export const Header = () => {
           </li>
           <li>
             <Link to="/about" className={css.menuItem}>
-              {" "}
               {t("about")}
             </Link>
           </li>
