@@ -14,7 +14,7 @@ i18n
       caches: ["localStorage"],
     },
     fallbackLng: "ua",
-    ns: ["header", "game", "articles", "about"],
+    ns: ["header", "game", "articles", "about", "footer"],
     backend: {
       loadPath: "/assets/locales/{{ns}}/{{lng}}.json",
     },
