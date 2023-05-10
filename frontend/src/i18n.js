@@ -8,16 +8,18 @@ i18n
   .use(Backend)
   .use(initReactI18next)
   .init({
-    debug: false,
+    debug: true,
     detection: {
       order: ["localStorage", "navigator"],
       caches: ["localStorage"],
     },
     fallbackLng: "ua",
+    interpolation: {
+      escapeValue: false, // not needed for react as it escapes by default
+    },
     ns: ["header", "game", "articles", "about"],
     backend: {
       loadPath: "/assets/locales/{{ns}}/{{lng}}.json",
     },
   });
-
 export default i18n;

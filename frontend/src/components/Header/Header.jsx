@@ -19,68 +19,67 @@ export const Header = () => {
   return (
     <header className={"container " + css.headContainer}>
       {modalMenuOpened && <ModalMenu />}
-      <span className={css.logo}>Cash Genius</span>
-      <div className={css.langBurger}>
-        <ul className={css.langBar}>
+      <Link to="/">
+        <span className={css.logo}>Cash Genius</span>
+      </Link>
+      <nav className={css.navigation}>
+        <ul className={css.mainNav}>
           <li>
-            <button
-              type="button"
-              className={css.icon}
-              onClick={() => {
-                i18n.changeLanguage("en");
-                dispatch(setLanguage("en"));
-              }}
-            >
-              <svg className={css.icon} width="20" height="16">
-                <use href={`${icons}#icon-United-States-of-America-US`}></use>
-              </svg>
-            </button>
+            <Link to="/" className={css.menuItem}>
+              {t("game")}
+            </Link>
           </li>
-
           <li>
-            <button
-              type="button"
-              className={css.icon}
-              onClick={() => {
-                i18n.changeLanguage("ua");
-                dispatch(setLanguage("ua"));
-              }}
-            >
-              <svg className={css.icon} width="20" height="16">
-                <use href={`${icons}#icon-Ukr-flag`}></use>
-              </svg>
-            </button>
+            <Link to="/articles" className={css.menuItem}>
+              {t("articles")}
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className={css.menuItem}>
+              {" "}
+              {t("about")}
+            </Link>
           </li>
         </ul>
-        <button type="button" onClick={openModalMenu}>
-          <svg className={css.icon} width="32" height="32">
-            <use href={`${icons}#icon-menu`}></use>
-          </svg>
-        </button>
-      </div>
-      {/* <div>
-        {Object.keys(lngs).map((lng) => (
-          <button
-            key={lng}
-            style={{
-              fontWeight: i18n.resolvedLanguage === lng ? "bold" : "normal",
-            }}
-            type="submit"
-            onClick={() => {
-              i18n.changeLanguage(lng);
-              dispatch(setLanguage(lng));
-            }}
-          >
-            {lngs[lng].langName}
+        <div className={css.langBurger}>
+          <ul className={css.langBar}>
+            <li>
+              <button
+                type="button"
+                className={css.icon}
+                onClick={() => {
+                  i18n.changeLanguage("en");
+                  dispatch(setLanguage("en"));
+                }}
+              >
+                <svg className={css.flagsIcons}>
+                  <use href={`${icons}#icon-United-States-of-America-US`}></use>
+                </svg>
+              </button>
+            </li>
+
+            <li>
+              <button
+                type="button"
+                className={css.icon}
+                onClick={() => {
+                  i18n.changeLanguage("ua");
+                  dispatch(setLanguage("ua"));
+                }}
+              >
+                <svg className={css.flagsIcons}>
+                  <use href={`${icons}#icon-Ukr-flag`}></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+          <button type="button" onClick={openModalMenu} className={css.burger}>
+            <svg className={css.icon} width="32" height="32">
+              <use href={`${icons}#icon-menu`}></use>
+            </svg>
           </button>
-        ))}
-      </div> */}
+        </div>
+      </nav>
     </header>
   );
 };
-
-/* <nav>
-        <Link to="/">{t("game")}</Link>
-        <Link to="/articles">{t("articles")}</Link>
-        <Link to="/about"> {t("about")}</Link>
-      </nav> */
