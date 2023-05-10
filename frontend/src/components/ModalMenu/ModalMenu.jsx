@@ -5,6 +5,7 @@ import { closeModal } from "../../redux/globalSlice";
 import icons from "../../images/symbol-defs.svg";
 import css from "./ModalMenu.module.css";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const ModalMenu = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ export const ModalMenu = () => {
       document.removeEventListener("keydown", onEscapeHandler);
     };
   });
+  const { t, i18n } = useTranslation(["header"]);
   return createPortal(
     <div
       className={css.modalBackdrop}
@@ -40,7 +42,7 @@ export const ModalMenu = () => {
               <svg className={`${css.icon} `} width="32" height="32">
                 <use href={`${icons}#icon-Game`}></use>
               </svg>
-              Гра
+              {t("game")}
             </Link>
           </li>
           <li className={css.navMenuItems} onClick={closeMenuModal}>
@@ -48,7 +50,7 @@ export const ModalMenu = () => {
               <svg className={`${css.icon} `} width="32" height="32">
                 <use href={`${icons}#icon-Gid`}></use>
               </svg>
-              Фінансовий гід
+              {t("articles")}
             </Link>
           </li>
           <li className={css.navMenuItems} onClick={closeMenuModal}>
@@ -56,7 +58,7 @@ export const ModalMenu = () => {
               <svg className={`${css.icon} `} width="32" height="32">
                 <use href={`${icons}#icon-About-Us`}></use>
               </svg>
-              Про нас
+              {t("about")}
             </Link>
           </li>
         </ul>
