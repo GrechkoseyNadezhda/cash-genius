@@ -4,6 +4,8 @@ import { getAboutInfo } from "../../redux/operations";
 import { selectGlobal } from "../../redux/selectors";
 import { loadFromDB } from "../../loadFromDB";
 
+// import { Loader } from "../../components/Loader/Loader";
+
 import { useTranslation } from "react-i18next";
 import css from "./Page404.module.css";
 import icon404 from "../../images/partners/404.svg";
@@ -22,12 +24,11 @@ export const Page404 = () => {
 
   return (
     <div className={css.container}>
-      {/* <header>HEADER</header> */}
       <h1 className={css.title}>Cash Genius</h1>
       <p className={css.text}>{t("text1")}</p>
       <p className={css.text}> {t("text2")}</p>
       <img className={css.number} src={icon404} alt="icon404" />
-      {/* <footer>FOOTER</footer> */}
+      {/* <Loader /> */}
     </div>
   );
 };
