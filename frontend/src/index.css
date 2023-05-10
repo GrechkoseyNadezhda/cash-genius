@@ -43,6 +43,9 @@ body.modalOpen {
   }
 }
 @media screen and (min-width: 1440px) {
+  #root {
+    padding-top: 132px;
+  }
   .container {
     padding: 0 72px;
     max-width: 1440px;
