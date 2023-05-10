@@ -26,13 +26,7 @@ export const Page404 = () => {
       <h1 className={css.title}>Cash Genius</h1>
       <p className={css.text}>{t("text1")}</p>
       <p className={css.text}> {t("text2")}</p>
-      <img
-        className={css.number}
-        src={icon404}
-        alt="icon404"
-        width="112"
-        height="45"
-      />
+      <img className={css.number} src={icon404} alt="icon404" />
       {/* <footer>FOOTER</footer> */}
     </div>
   );
