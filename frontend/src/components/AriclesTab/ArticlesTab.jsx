@@ -25,6 +25,9 @@ export const ArticlesTab = () => {
       {t("title")}
       {/* <p>{error}</p> */}
       {pending && <p>Loading data...</p>}
+      {/* <Categories />
+      <Article /> */}
+
       {/* <p>Language: {lang}</p> */}
       {/* {articles?.length > 0 && <></>} */}
     </div>
