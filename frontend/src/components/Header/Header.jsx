@@ -19,7 +19,10 @@ export const Header = () => {
   return (
     <header className={"container " + css.headContainer}>
       {modalMenuOpened && <ModalMenu />}
-      <span className={css.logo}>Cash Genius</span>
+      <Link to="/">
+        <span className={css.logo}>Cash Genius</span>
+      </Link>
+
       <nav className={css.navigation}>
         <ul className={css.mainNav}>
           <li>
