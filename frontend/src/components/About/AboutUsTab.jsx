@@ -15,7 +15,7 @@ import icons from "../../images/symbol-defs.svg";
 
 export const AboutUsTab = () => {
   const [aboutInfo, setAboutInfo] = useState("");
-  const { t } = useTranslation(["about"]);
+  const { t, i18n } = useTranslation(["about"]);
   const { lang, error, pending } = useSelector(selectGlobal);
   const dispatch = useDispatch();
   const loader = useMemo(
