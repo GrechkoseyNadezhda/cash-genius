@@ -22,17 +22,23 @@ export const Header = () => {
       <Link to="/">
         <span className={css.logo}>Cash Genius</span>
       </Link>
-
       <nav className={css.navigation}>
         <ul className={css.mainNav}>
           <li>
-            <Link to="/">{t("game")}</Link>
+            <Link to="/" className={css.menuItem}>
+              {t("game")}
+            </Link>
           </li>
           <li>
-            <Link to="/articles">{t("articles")}</Link>
+            <Link to="/articles" className={css.menuItem}>
+              {t("articles")}
+            </Link>
           </li>
           <li>
-            <Link to="/about"> {t("about")}</Link>
+            <Link to="/about" className={css.menuItem}>
+              {" "}
+              {t("about")}
+            </Link>
           </li>
         </ul>
         <div className={css.langBurger}>
@@ -74,30 +80,6 @@ export const Header = () => {
           </button>
         </div>
       </nav>
-
-      {/* <div>
-        {Object.keys(lngs).map((lng) => (
-          <button
-            key={lng}
-            style={{
-              fontWeight: i18n.resolvedLanguage === lng ? "bold" : "normal",
-            }}
-            type="submit"
-            onClick={() => {
-              i18n.changeLanguage(lng);
-              dispatch(setLanguage(lng));
-            }}
-          >
-            {lngs[lng].langName}
-          </button>
-        ))}
-      </div> */}
     </header>
   );
 };
-
-/* <nav>
-        <Link to="/">{t("game")}</Link>
-        <Link to="/articles">{t("articles")}</Link>
-        <Link to="/about"> {t("about")}</Link>
-      </nav> */
