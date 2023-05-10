@@ -11,19 +11,26 @@ html {
 }
 
 body {
-  min-height: 100vh;
+  height: 100%;
+  width: 100%;
   font-family: "Cormorant Garamond", "Georgia", sans-serif;
   text-decoration: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 0;
   background: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  width: 100%;
+body.modalOpen {
+  position: fixed;
 }
+
+#root {
+  margin: 0;
+  padding-top: 56px;
+}
+
 .container {
   margin: 0 auto;
   padding: 0 16px;
