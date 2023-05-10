@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllArticles } from "../../redux/operations";
 import { selectGlobal } from "../../redux/selectors";
 import { loadFromDB } from "../../loadFromDB";
-import { Article } from "../Article";
+import { Article } from "../Article/Article";
+import { Categories } from "../Categories/Categories";
+import { ArticlesList } from "../ArticlesList/ArticlesList";
 
 export const ArticlesTab = () => {
   const { t } = useTranslation(["articles"]);
@@ -25,8 +27,8 @@ export const ArticlesTab = () => {
       {t("title")}
       {/* <p>{error}</p> */}
       {pending && <p>Loading data...</p>}
-      {/* <Categories />
-      <Article /> */}
+      <Categories />
+      <ArticlesList />
 
       {/* <p>Language: {lang}</p> */}
       {/* {articles?.length > 0 && <></>} */}

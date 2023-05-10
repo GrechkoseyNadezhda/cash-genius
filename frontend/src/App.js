@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { AboutUsTab } from "./components/About/AboutUsTab";
-import { ArticlesTab } from "./components/AriclesTab/ArticlesTab.jsx";
+import { ArticlesTab } from "./components/ArticlesTab/ArticlesTab.jsx";
 import { GameTab } from "./components/GameTab";
 import { Home } from "./pages/Home";
 import { Page404 } from "./pages/Page404/Page404";
