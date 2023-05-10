@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { AboutUsTab } from "./components/About/AboutUsTab";
 import { ArticlesTab } from "./components/ArticlesTab";
 import { GameTab } from "./components/GameTab";

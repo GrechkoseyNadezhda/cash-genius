@@ -1,10 +1,19 @@
 .container {
-  width: 360px;
-  @media screen and (min-width: 1440px) {
-    width: 1440px;
-    /* display: flex;
-    align-items: baseline;
-    gap: 0; */
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0 0px;
+    max-width: 768px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    padding: 0 72px;
+    max-width: 1440px;
   }
 }
 
@@ -23,6 +32,7 @@
 }
 
 .teamText {
+  width: 91%;
   font-family: "Georgia";
   font-style: normal;
   font-weight: 400;
@@ -31,20 +41,25 @@
 
   color: #4a4c4c;
 
-  padding: 0 16px;
   margin-top: 32px;
 }
 
 .teamInfo {
-  width: 156px;
+  width: 43%;
+  /* width: calc((100%-48px) / 2); */
   height: 291px;
   border: 1px solid #d9d9d9;
   border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   padding-top: 20px;
 }
 
 .teamName {
+  max-width: 78%;
   font-family: "Cormorant Garamond";
   font-style: normal;
   font-weight: 700;
@@ -58,6 +73,7 @@
 }
 
 .teamRole {
+  max-width: 80%;
   font-family: "Georgia";
   font-style: normal;
   font-weight: 400;
@@ -66,45 +82,54 @@
 
   color: #4a4c4c;
   margin-bottom: 16px;
-  padding: 0 12px;
+  /* padding: 0 9px; */
 }
 
-.teamLink{
+.teamLink {
   fill: #4a4c4c;
- }
+}
 
-.teamLink:hover{
-  fill:#f5c92a;
- }
+.teamLink:hover {
+  fill: #f5c92a;
+}
 
 .team {
-    list-style: none;
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
   column-gap: 16px;
   row-gap: 32px;
-  padding-left: 13px;
-  padding-right: 13px;
+  /* padding-left: 13px;
+  padding-right: 13px; */
   margin-top: 32px;
 }
 
-.partners{
+.partners {
   display: flex;
   flex-wrap: wrap;
   column-gap: 16px;
   row-gap: 24px;
-  padding-left: 13px;
-  padding-right: 13px;
+  /* justify-content: space-around; */
+  /* padding-left: 13px;
+  padding-right: 13px; */
   margin-top: 32px;
   margin-bottom: 72px;
-  @media screen and (min-width: 1440px) {
-    
+}
+
+@media screen and (min-width: 1440px) {
+  .partners {
     align-items: baseline;
-    gap: 139px; 
+    gap: 139px;
   }
 }
 
-.logo{
+.logo {
+  height: 71px;
+  width: 43%;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.04);
-border-radius: 8px;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
