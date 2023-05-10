@@ -1,47 +1,99 @@
 .container {
-    width: 360px;
-    @media screen and (min-width: 1440px) {
-      width: 1440px;
-      /* display: flex;
-      align-items: baseline;
-      gap: 0; */
-    }
+  /* margin: 0 auto; */
+  padding: 0 16px;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0 0px;
+    max-width: 768px;
   }
-
-  .title{
-    font-family: 'Cormorant Garamond';
-font-style: normal;
-font-weight: 700;
-font-size: 50px;
-line-height: 1.22;
-
-
-text-align: center;
-
-color: #D9D9D9;
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    padding: 0 72px;
+    max-width: 1440px;
   }
+}
 
-  .text{
-  font-family: 'Georgia';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 1.62;
+.title {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.22;
 
-text-align: center;
+  text-align: center;
 
-color: #4A4C4C;
+  color: #d9d9d9;
+
+  padding-top: 177px;
+}
+
+@media screen and (min-width: 1440px) {
+  .title {
+    font-size: 120px;
+    line-height: 1.21;
+
+    padding-top: 188px;
   }
+}
 
-  .number{
-    font-family: 'Georgia';
-font-style: normal;
-font-weight: 700;
-font-size: 50px;
-line-height: 0.64;
+.text {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.62;
 
-/* or 64% */
-text-align: center;
+  text-align: center;
 
-color: #004835;
+  color: #4a4c4c;
+
+  max-width: 80%;
+  /* max-width: 282px; */
+}
+
+@media screen and (min-width: 1440px) {
+  .text {
+    font-size: 20px;
+    line-height: 1.5;
+
+    min-width: 878px;
+    max-width: 879px;
   }
+}
+
+.number {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 0.64;
+
+  text-align: center;
+
+  color: #004835;
+
+  margin-top: 16px;
+  margin-bottom: 177px;
+}
+
+@media screen and (min-width: 1440px) {
+  .number {
+    font-family: "Georgia";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 100px;
+    line-height: 0.32;
+
+    margin-top: 40px;
+    margin-bottom: 189px;
+  }
+}

@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { AboutUsTab } from "./components/About/AboutUsTab";
 import { ArticlesTab } from "./components/ArticlesTab";
 import { GameTab } from "./components/GameTab";
@@ -16,8 +16,9 @@ export const App = () => {
           <Route path="articles" element={<ArticlesTab />} />
           <Route path="about" element={<AboutUsTab />} />
           <Route path="/articles/:articleId" element={<ArtDetails />} />
+          <Route path="/404" element={<Page404 />} />
+          <Route path="*" element={<Navigate to="/404" replace />} />
         </Route>
-        <Route path="*" element={<Page404 />} />
       </Routes>
     </Suspense>
   );
