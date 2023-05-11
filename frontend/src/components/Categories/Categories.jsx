@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import icons from "../../images/symbol-defs.svg";
@@ -6,7 +6,7 @@ import { loadFromDB } from "../../loadFromDB";
 import { getAllArticles } from "../../redux/operations";
 import css from "./Categories.module.css";
 
-export const Categories = ({ loadArticles }) => {
+export const Categories = ({ loadArticles, showCategories }) => {
   const { t } = useTranslation(["categories"]);
   const keys = [
     "all",
@@ -64,18 +64,48 @@ export const Categories = ({ loadArticles }) => {
   };
 
   const getArticlesByCategory = (num) => {
-    console.log(requests[num]);
     loader(requests[num]);
-    console.log(articles);
-    loadArticles(articles);
+    const screenWidth = window.innerWidth;
+    const categoriesList = document.querySelector("[data-categories]");
+    const articlesList = document.querySelector("[data-articles]");
+    if (screenWidth < 768) {
+      categoriesList.classList.add("visually-hidden");
+      articlesList.classList.remove("visually-hidden");
+    }
+    // loadArticles(articles);
   };
+
+  const categoriesList = document.querySelector("[data-categories]");
+
+  useEffect(() => {
+    loader("financial_guide");
+  }, []);
 
   useEffect(() => {
     loadArticles(articles);
-  }, [articles, loadArticles]);
+  }, [articles, loadArticles, categoriesList]);
+  let screenWidth = window.innerWidth;
+  const [width, setWidth] = useState(screenWidth);
+
+  // Function to handle the resize event
+  function handleResize() {
+    screenWidth = window.innerWidth;
+    setWidth(screenWidth);
+    // You can perform any additional logic or actions here
+  }
+
+  // Add event listener for the resize event
+  window.addEventListener("resize", handleResize);
+
+  useEffect(() => {
+    if (width >= 768) {
+      const categoriesList = document.querySelector("[data-categories]");
+      categoriesList.classList.remove("visually-hidden");
+    }
+  }, [width]);
 
   return (
-    <ul className={css.categories}>
+    <ul className={css.categories} data-categories>
       {/* <p>{articles[0]}</p> */}
       {keys.map((key, i) => (
         <li

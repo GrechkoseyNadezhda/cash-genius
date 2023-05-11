@@ -7,7 +7,7 @@ import icons from "../../images/symbol-defs.svg";
 import { selectGlobal } from "../../redux/selectors";
 import { ModalMenu } from "../ModalMenu/ModalMenu";
 
-export const Header = () => {
+export const Header = ({ reset }) => {
   const { t, i18n } = useTranslation(["header"]);
   const dispatch = useDispatch();
   const { modalMenuOpened } = useSelector(selectGlobal);
@@ -30,7 +30,7 @@ export const Header = () => {
             </Link>
           </li>
           <li>
-            <Link to="/articles" className={css.menuItem}>
+            <Link to="/articles" className={css.menuItem} onClick={reset}>
               {t("articles")}
             </Link>
           </li>
