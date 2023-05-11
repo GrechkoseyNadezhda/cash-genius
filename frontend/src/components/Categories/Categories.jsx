@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import icons from "../../images/symbol-defs.svg";
@@ -28,7 +28,7 @@ export const Categories = ({ loadArticles }) => {
     "osobistij-byudzhet",
     "simejnij-byudzhet",
     "bankivskij-depozit",
-    "sinvesticiyi-v-cinni-paperi",
+    "investiciyi-v-cinni-paperi",
     "strahuvannya",
     "shkidlivi-perekonannya",
     "podatki-pilgi",
@@ -52,25 +52,36 @@ export const Categories = ({ loadArticles }) => {
   ];
   const [articles, setArticles] = useState([]);
   const dispatch = useDispatch();
-  const getArticlesByCategory = (event) => {
-    console.log(event.currentTarget);
-    return loadFromDB(
+  const loader = (category) => {
+    const loady = loadFromDB(
       getAllArticles,
-      requests[2],
+      category,
       setArticles,
       ["data"],
       dispatch
     );
+    loady();
   };
+
+  const getArticlesByCategory = (num) => {
+    console.log(requests[num]);
+    loader(requests[num]);
+    console.log(articles);
+    loadArticles(articles);
+  };
+
+  useEffect(() => {
+    loadArticles(articles);
+  }, [articles, loadArticles]);
 
   return (
     <ul className={css.categories}>
-      <p>{articles[0]}</p>
+      {/* <p>{articles[0]}</p> */}
       {keys.map((key, i) => (
         <li
           key={i}
           className={css.categoryItem}
-          onClick={getArticlesByCategory}
+          onClick={() => getArticlesByCategory(i)}
         >
           <button>
             <svg className={css.categoryIcon}>

@@ -26,7 +26,7 @@ export const ArticlesTab = () => {
   useEffect(() => {
     const screenWidth = window.innerWidth;
     if (screenWidth < 768) return;
-    return loader();
+    loader();
   }, [loader]);
 
   const updateArticles = (newArticles) => {
