@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import icons from "../../images/symbol-defs.svg";
@@ -6,7 +6,7 @@ import { loadFromDB } from "../../loadFromDB";
 import { getAllArticles } from "../../redux/operations";
 import css from "./Categories.module.css";
 
-export const Categories = ({ setArticles }) => {
+export const Categories = ({ loadArticles }) => {
   const { t } = useTranslation(["categories"]);
   const keys = [
     "all",
@@ -50,20 +50,13 @@ export const Categories = ({ setArticles }) => {
     "icon-STS-Ukr",
     "icon-PFU",
   ];
-
+  const [articles, setArticles] = useState([]);
   const dispatch = useDispatch();
-  const getArticlesByCategory = useMemo(
-    (num) => {
-      return loadFromDB(
-        getAllArticles,
-        requests[num],
-        setArticles,
-        ["data"],
-        dispatch
-      );
-    },
-    [dispatch]
-  );
+  const getArticlesByCategory = (num) => {
+    loadFromDB(getAllArticles, requests[num], setArticles, ["data"], dispatch);
+    console.log(articles);
+  };
+
   return (
     <ul className={css.categories}>
       {keys.map((key, i) => (

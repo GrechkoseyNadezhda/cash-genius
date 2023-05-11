@@ -29,12 +29,16 @@ export const ArticlesTab = () => {
     return loader();
   }, [loader]);
 
+  const updateArticles = (newArticles) => {
+    setArticles(newArticles);
+  };
+
   return (
     <div>
       <h1>{t("title")}</h1>
       <p>{error}</p>
       {pending && <p>Loading data...</p>}
-      <Categories  />
+      <Categories loadArticles={updateArticles} />
       {articles.length > 0 && <ArticlesList artList={articles} />}
 
       {/* <p>Language: {lang}</p> */}
