@@ -13,7 +13,7 @@ export const GameTab = () => {
     () => loadFromDB(getMainInfo, setMainInfo, ["statusText"], dispatch),
     [dispatch]
   );
-  useEffect(() => loader(), [loader]);
+  // useEffect(() => loader(), [loader]);
   return (
     <div className="container">
       <p>{t("title")}</p>

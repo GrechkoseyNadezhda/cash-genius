@@ -22,7 +22,7 @@ export const AboutUsTab = () => {
     () => loadFromDB(getAboutInfo, setAboutInfo, ["statusText"], dispatch),
     [dispatch]
   );
-  useEffect(() => loader(), [loader]);
+  // useEffect(() => loader(), [loader]);
 
   return (
     <div className={css.container}>
