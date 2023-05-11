@@ -52,16 +52,27 @@ export const Categories = ({ loadArticles }) => {
   ];
   const [articles, setArticles] = useState([]);
   const dispatch = useDispatch();
-  const getArticlesByCategory = (num) => {
-    loadFromDB(getAllArticles, requests[num], setArticles, ["data"], dispatch);
-    console.log(articles);
+  const getArticlesByCategory = (event) => {
+    console.log(event.currentTarget);
+    return loadFromDB(
+      getAllArticles,
+      requests[2],
+      setArticles,
+      ["data"],
+      dispatch
+    );
   };
 
   return (
     <ul className={css.categories}>
+      <p>{articles[0]}</p>
       {keys.map((key, i) => (
-        <li key={i} className={css.categoryItem}>
-          <button onClick={getArticlesByCategory(i)}>
+        <li
+          key={i}
+          className={css.categoryItem}
+          onClick={getArticlesByCategory}
+        >
+          <button>
             <svg className={css.categoryIcon}>
               <use href={`${icons}#${svgIcons[i]}`}></use>
             </svg>
