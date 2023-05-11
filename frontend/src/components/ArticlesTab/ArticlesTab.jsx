@@ -16,7 +16,7 @@ export const ArticlesTab = () => {
   const loader = useMemo(() => {
     return loadFromDB(
       getAllArticles,
-      "bankivskij-depozit",
+      "financial_guide",
       setArticles,
       ["data"],
       dispatch
@@ -34,7 +34,7 @@ export const ArticlesTab = () => {
       <h1>{t("title")}</h1>
       <p>{error}</p>
       {pending && <p>Loading data...</p>}
-      <Categories setArticles={setArticles} />
+      <Categories  />
       {articles.length > 0 && <ArticlesList artList={articles} />}
 
       {/* <p>Language: {lang}</p> */}
