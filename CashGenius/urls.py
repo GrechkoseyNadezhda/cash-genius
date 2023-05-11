@@ -20,5 +20,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('site_app.urls')),
 ]
+
+urlpatterns += i18n_patterns(
+    path("i18n/", include("django.conf.urls.i18n")),
+    path('', include('site_app.urls')),
+    prefix_default_language=False,
+)
