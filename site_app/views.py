@@ -25,7 +25,8 @@ def financial_guide(request):
         nextPage = 1
         previousPage = 1
         articles = Article.objects.all()
-        paginator = Paginator(articles, 10)
+        num_articles = str(request.GET.get('num_articles'))
+        paginator = Paginator(articles, num_articles)
         page = request.GET.get('page')
 
         try:
@@ -47,8 +48,6 @@ def financial_guide(request):
                          'nextlink': f'/posts/?page={nextPage}',
                          'prevlink': f'/posts/?page={previousPage}'}
                         )
-
-
 
 
 @api_view(['GET'])
