@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.views import Response
 from rest_framework.decorators import api_view
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .serializers import ArticleSerializer
 from .models import Article, Category
@@ -20,9 +20,35 @@ def about(request):
 @api_view(['GET'])
 def financial_guide(request):
     if request.method == 'GET':
+
+        data = []
+        nextPage = 1
+        previousPage = 1
         articles = Article.objects.all()
-        serializer = ArticleSerializer(articles, context={'request': request}, many=True)
-    return Response(serializer.data)
+        paginator = Paginator(articles, 10)
+        page = request.GET.get('page')
+
+        try:
+            data = paginator.page(page)
+        except PageNotAnInteger:
+            data = paginator.page(1)
+        except EmptyPage:
+            data = paginator.page(paginator.num_pages)
+
+        serializer = ArticleSerializer(data, context={'request': request}, many=True)
+        if data.has_next():
+            nextPage = data.next_page_number()
+        if data.has_previous():
+            previousPage = data.previous_page_number()
+
+        return Response({'data': serializer.data,
+                         'count': paginator.count,
+                         'numpages': paginator.num_pages,
+                         'nextlink': f'/posts/?page={nextPage}',
+                         'prevlink': f'/posts/?page={previousPage}'}
+                        )
+
+
 
 
 @api_view(['GET'])
