@@ -434,7 +434,7 @@
     </symbol>
   </defs>
   <symbol id="left-arrow" viewBox="0 0 19 14">
-    <path fill="none" d="M7.07 1L1 7.07L7.07 13.14M18 7.07H1.17" stroke="#4A4C4C" stroke-width="1.5"
+    <path fill="none" d="M7.07 1L1 7.07L7.07 13.14M18 7.07H1.17" stroke="currentColor" stroke-width="1.5"
       stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
   </symbol>
 

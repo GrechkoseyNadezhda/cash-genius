@@ -27,6 +27,11 @@
   cursor: pointer;
   width: 19px;
   height: 14px;
+  color: #4a4c4c;
+}
+
+.backArrow:hover {
+  color: #f5c92a;
 }
 
 .artCard {
