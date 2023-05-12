@@ -15,14 +15,14 @@ import icons from "../../images/symbol-defs.svg";
 
 export const AboutUsTab = () => {
   const [aboutInfo, setAboutInfo] = useState("");
-  const { t } = useTranslation(["about"]);
+  const { t, i18n } = useTranslation(["about"]);
   const { lang, error, pending } = useSelector(selectGlobal);
   const dispatch = useDispatch();
   const loader = useMemo(
     () => loadFromDB(getAboutInfo, setAboutInfo, ["statusText"], dispatch),
     [dispatch]
   );
-  useEffect(() => loader(), [loader]);
+  // useEffect(() => loader(), [loader]);
 
   return (
     <div className={css.container}>

@@ -8,7 +8,7 @@ i18n
   .use(Backend)
   .use(initReactI18next)
   .init({
-    debug: true,
+    debug: false,
     detection: {
       order: ["localStorage", "navigator"],
       caches: ["localStorage"],
@@ -17,7 +17,7 @@ i18n
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
-    ns: ["header", "game", "articles", "about", "footer"],
+    ns: ["header", "game", "articles", "about", "footer", "categories"],
     backend: {
       loadPath: "/assets/locales/{{ns}}/{{lng}}.json",
     },

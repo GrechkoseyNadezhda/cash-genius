@@ -1,0 +1,74 @@
+.articlesWrapper {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .articlesList {
+    display: block;
+  }
+}
+
+.title {
+  font-family: Cormorant Garamond;
+  font-size: 20px;
+  line-height: 24px;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  padding: 16px 8px;
+  margin-bottom: 33px;
+}
+
+.backArrow {
+  position: absolute;
+  top: 86px;
+  left: 27px;
+  cursor: pointer;
+  width: 19px;
+  height: 14px;
+  color: #4a4c4c;
+}
+
+.backArrow:hover {
+  color: #f5c92a;
+}
+
+.artCard {
+  display: block;
+  border: 1px solid #bdbdbd;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+.artCard:hover {
+  border: 1px solid #f5c92a;
+}
+
+.artCard:hover .artTitle {
+  color: #f5c92a;
+}
+
+.picture {
+  display: block;
+  border-radius: 8px 8px 0px 0px;
+  margin-bottom: 12px;
+}
+
+.date {
+  margin-left: 12px;
+  margin-bottom: 12px;
+  font-family: Georgia;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.artTitle {
+  font-family: Cormorant Garamond;
+  font-size: 20px;
+  line-height: 24px;
+  margin-left: 12px;
+}

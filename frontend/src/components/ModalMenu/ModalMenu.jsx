@@ -28,7 +28,7 @@ export const ModalMenu = () => {
       document.removeEventListener("keydown", onEscapeHandler);
     };
   });
-  const { t, i18n } = useTranslation(["header"]);
+  const { t } = useTranslation(["header"]);
   return createPortal(
     <div
       className={css.modalBackdrop}

@@ -5,6 +5,8 @@ import { selectGlobal } from "../../redux/selectors";
 import { loadFromDB } from "../../loadFromDB";
 
 // import { Loader } from "../../components/Loader/Loader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { useTranslation } from "react-i18next";
 import css from "./Page404.module.css";
@@ -21,6 +23,11 @@ export const Page404 = () => {
     [dispatch]
   );
   useEffect(() => loader(), [loader]);
+  useEffect(() => {
+    if (error) {
+      toast(error);
+    }
+  }, [error]);
 
   return (
     <div className={css.container}>
@@ -29,6 +36,19 @@ export const Page404 = () => {
       <p className={css.text}> {t("text2")}</p>
       <img className={css.number} src={icon404} alt="icon404" />
       {/* <Loader /> */}
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };
