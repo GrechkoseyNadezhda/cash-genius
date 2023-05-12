@@ -1,2 +1,47 @@
-{"title": "ALL ABOUT THE GAME",
-"language": "Language"}
+{
+  "title": "ALL ABOUT THE GAME",
+  "language": "Language",
+  "mainTitle": "Game",
+  "subtitle": "A real-life simulator for mastering time and money management skills",
+  "link": "Play in Telegram",
+  "benefits": {
+    "title": "Empty",
+    "titleCard1": "Empty",
+    "titleCard2": "Empty",
+    "titleCard3": "Empty",
+    "descriptionCard1": "Empty",
+    "descriptionCard2": "Empty",
+    "descriptionCard3": "Empty"
+  },
+  "charactersTitle": "Characters",
+  "character0": {
+    "name": "Adele",
+    "description": "Rich kid",
+    "level": "Easy level",
+    "family": "Rich family",
+    "friends": "Many friends",
+    "money": "Pocket money: UAH 5,000",
+    "property": "Property: smartphone, laptop",
+    "strength": "Strength: family support"
+  },
+  "character1": {
+    "name": "Eugene",
+    "description": "Regular guy",
+    "level": "Medium level",
+    "family": "Regular family",
+    "friends": "Several friends",
+    "money": "Pocket money: UAH 1,500",
+    "property": "Property: laptop",
+    "strength": "Strength: health"
+  },
+  "character2": {
+    "name": "Michael",
+    "description": "Poor kid",
+    "level": "Hard level",
+    "family": "Poor single-parent family",
+    "friends": "One friend",
+    "money": "Pocket money: UAH 400",
+    "property": "Property: cellphone",
+    "strength": "Strength: motivation"
+  }
+}

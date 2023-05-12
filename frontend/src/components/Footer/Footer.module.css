@@ -1,5 +1,7 @@
 .footer {
   background-color: #004835;
+  padding-top: 16px;
+  padding-bottom: 27px;
 }
 
 .logo {
@@ -8,9 +10,9 @@
   font-weight: 700;
   line-height: 24px;
   color: #f5f5f5;
-  justify-content: center;
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .logo::before {
@@ -21,4 +23,92 @@
   background-size: cover;
   background-repeat: no-repeat;
   margin-right: 12px;
+}
+
+.contactTitle {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: calc(24 / 20);
+  color: #f5f5f5;
+  margin-bottom: 4px;
+}
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.contactIcon {
+  width: 28px;
+  height: 28px;
+}
+
+.contactMail {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: calc(18 / 16);
+  color: #f5f5f5;
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+  }
+
+  .logo {
+    font-size: 32px;
+    line-height: calc(39 / 32);
+    margin-bottom: 0;
+  }
+
+  .logo::before {
+    width: 70px;
+    height: 70px;
+    margin-right: 16px;
+  }
+
+  .contactIcon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .logo {
+    font-size: 40px;
+    line-height: calc(48 / 40);
+  }
+
+  .logo::before {
+    width: 70px;
+    height: 70px;
+    margin-right: 16px;
+  }
+
+  .contactLink {
+    gap: 8px;
+  }
+
+  .contactTitle {
+    font-size: 24px;
+    line-height: calc(29 / 24);
+    margin-bottom: 5px;
+  }
+
+  .contactIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contactMail {
+    font-size: 20px;
+    line-height: calc(23 / 20);
+  }
 }
