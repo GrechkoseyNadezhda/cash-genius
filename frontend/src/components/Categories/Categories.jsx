@@ -72,30 +72,31 @@ export const Categories = ({ loadArticles, showCategories }) => {
       categoriesList.classList.add("visually-hidden");
       articlesList.classList.remove("visually-hidden");
     }
-    // loadArticles(articles);
   };
 
-  const categoriesList = document.querySelector("[data-categories]");
+  // const categoriesList = document.querySelector("[data-categories]");
 
   useEffect(() => {
     loader("financial_guide");
+    document.addEventListener("resize", handleResize);
+    return () => {
+      document.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   useEffect(() => {
     loadArticles(articles);
-  }, [articles, loadArticles, categoriesList]);
+  }, [articles, loadArticles]);
+
   let screenWidth = window.innerWidth;
   const [width, setWidth] = useState(screenWidth);
 
-  // Function to handle the resize event
   function handleResize() {
     screenWidth = window.innerWidth;
     setWidth(screenWidth);
-    // You can perform any additional logic or actions here
   }
 
-  // Add event listener for the resize event
-  window.addEventListener("resize", handleResize);
+  // window.addEventListener("resize", handleResize);
 
   useEffect(() => {
     if (width >= 768) {
@@ -113,12 +114,17 @@ export const Categories = ({ loadArticles, showCategories }) => {
           className={css.categoryItem}
           onClick={() => getArticlesByCategory(i)}
         >
-          <button>
+          <div className={css.categoryButton}>
+            {/* <div className={css.iconName}> */}
             <svg className={css.categoryIcon}>
               <use href={`${icons}#${svgIcons[i]}`}></use>
             </svg>
-            {t(key)}
-          </button>
+            <span className={css.name}>{t(key)}</span>
+            {/* </div> */}
+            <svg className={css.categoryArrow}>
+              <use href={`${icons}#right-arrow`}></use>
+            </svg>
+          </div>
         </li>
       ))}
     </ul>

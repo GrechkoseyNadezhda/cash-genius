@@ -428,5 +428,9 @@
         d="M12.56 20.107l7.547-7.547M20.107 20.107l-7.547-7.547M16.333 29.667c7.333 0 13.333-6 13.333-13.333s-6-13.333-13.333-13.333c-7.333 0-13.333 6-13.333 13.333s6 13.333 13.333 13.333z">
       </path>
     </symbol>
+    <symbol id="right-arrow" viewBox="0 0 32 32">
+      <path fill="none" d="M13.5996 20.8L18.3996 16L13.5996 11.2" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
   </defs>
 </svg>

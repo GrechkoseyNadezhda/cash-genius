@@ -40,11 +40,11 @@ export const ArticlesTab = () => {
   // };
 
   return (
-    <>
-      <h1>{t("title")}</h1>
+    <div className="container">
+      <p>{error}</p>
+      {pending && <p>Loading data...</p>}
+      <h1 className={css.title}>{t("title")}</h1>
       <div className={css.finPageWrapper}>
-        <p>{error}</p>
-        {pending && <p>Loading data...</p>}
         {/* {showCategories && ( */}
         <Categories
           loadArticles={updateArticles}
@@ -56,6 +56,6 @@ export const ArticlesTab = () => {
         {/* <p>Language: {lang}</p> */}
         {/* {articles?.length > 0 && <></>} */}
       </div>
-    </>
+    </div>
   );
 };

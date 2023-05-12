@@ -1,3 +1,13 @@
+.title {
+  font-family: Cormorant Garamond;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: calc(29 / 24);
+  text-align: center;
+  padding-top: 72px;
+  padding-bottom: 32px;
+}
+
 .finPageWrapper {
   display: flex;
 }
