@@ -12,6 +12,7 @@ export const ArticlesTab = () => {
   const { t } = useTranslation(["articles"]);
   const { error, pending } = useSelector(selectGlobal);
   const [articles, setArticles] = useState([]);
+  const [category, setCategory] = useState(null);
   // const [showCategories, setShowcategories] = useState(true);
   // const [page, setPage] = useState(1);
   // const dispatch = useDispatch();
@@ -35,23 +36,27 @@ export const ArticlesTab = () => {
   const updateArticles = (newArticles) => {
     setArticles(newArticles);
   };
-  // const updateShowCategories = (toggle) => {
-  //   setShowcategories(toggle);
-  // };
+  const updateCategory = (category) => {
+    setCategory(category);
+  };
 
   return (
     <div className="container">
       <p>{error}</p>
       {pending && <p>Loading data...</p>}
+
       <h1 className={css.title}>{t("title")}</h1>
       <div className={css.finPageWrapper}>
         {/* {showCategories && ( */}
         <Categories
           loadArticles={updateArticles}
+          loadCategory={updateCategory}
           // showCategories={updateShowCategories}
         />
         {/* )} */}
-        {articles.length > 0 && <ArticlesList artList={articles} />}
+        {articles.length > 0 && (
+          <ArticlesList artList={articles} category={category} />
+        )}
 
         {/* <p>Language: {lang}</p> */}
         {/* {articles?.length > 0 && <></>} */}

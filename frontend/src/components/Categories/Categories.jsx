@@ -6,7 +6,7 @@ import { loadFromDB } from "../../loadFromDB";
 import { getAllArticles } from "../../redux/operations";
 import css from "./Categories.module.css";
 
-export const Categories = ({ loadArticles, showCategories }) => {
+export const Categories = ({ loadArticles, loadCategory }) => {
   const { t } = useTranslation(["categories"]);
   const keys = [
     "all",
@@ -64,7 +64,21 @@ export const Categories = ({ loadArticles, showCategories }) => {
   };
 
   const getArticlesByCategory = (num) => {
+    const addActiveCategory = (nunber) => {
+      const listItems = categoriesList.getElementsByTagName("li");
+
+      for (let i = 0; i < listItems.length; i++) {
+        if (i === num) {
+          listItems[i].classList.add("active");
+          console.log(listItems[i]);
+        } else {
+          listItems[i].classList.remove("active");
+        }
+      }
+    };
     loader(requests[num]);
+    loadCategory(keys[num]);
+    console.log(keys[num]);
     const screenWidth = window.innerWidth;
     const categoriesList = document.querySelector("[data-categories]");
     const articlesList = document.querySelector("[data-articles]");
@@ -72,12 +86,14 @@ export const Categories = ({ loadArticles, showCategories }) => {
       categoriesList.classList.add("visually-hidden");
       articlesList.classList.remove("visually-hidden");
     }
+    addActiveCategory(num);
   };
 
   // const categoriesList = document.querySelector("[data-categories]");
 
   useEffect(() => {
     loader("financial_guide");
+    loadCategory("all");
     document.addEventListener("resize", handleResize);
     return () => {
       document.removeEventListener("resize", handleResize);
