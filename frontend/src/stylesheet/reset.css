@@ -42,12 +42,3 @@ button {
 li {
   display: block;
 }
-
-link {
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: none;
-  display: block;
-}

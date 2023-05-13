@@ -35,14 +35,15 @@ export const ArticlesList = ({ artList, category }) => {
 
   const backToCategories = () => {
     const categoriesList = document.querySelector("[data-categories]");
-    //  const categHidden = categoriesList.classList.contains("visually-hidden");
     const articlesList = document.querySelector("[data-articles]");
-
+    const listItems = categoriesList.getElementsByTagName("li");
+    for (let i = 0; i < listItems.length; i++) {
+      listItems[i].classList.remove("active");
+    }
     articlesList.classList.add("visually-hidden");
     categoriesList.classList.remove("visually-hidden");
   };
 
-  // console.log(artList);
   return (
     <div className={css.articlesWrapper} data-articles>
       {/* {width >= 768 && ( */}
@@ -51,7 +52,6 @@ export const ArticlesList = ({ artList, category }) => {
       </svg>
 
       <h2 className={css.title}>{t(category)}</h2>
-
       <ul className={css.articlesList}>
         {artList?.map((article) => (
           <li key={article.pk} className={css.artCard}>
@@ -60,6 +60,7 @@ export const ArticlesList = ({ artList, category }) => {
                 <img src={article.image} alt="" className={css.picture} />
                 <p className={css.date}>{article.date_added}</p>
                 <h3 className={css.artTitle}>{article.title}</h3>
+                <p className={css.content}>{article.content}</p>
               </div>
             </Link>
           </li>

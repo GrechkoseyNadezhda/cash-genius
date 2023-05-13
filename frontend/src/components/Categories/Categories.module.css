@@ -3,6 +3,7 @@
   border: 1px solid #d9d9d9;
   border-radius: 8px;
   align-self: flex-start;
+  display: block;
 }
 
 .categoryItem {
@@ -42,10 +43,25 @@
 }
 .name {
   flex-grow: 1;
+  font-family: Cormorant Garamond;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: calc(20 / 16);
 }
 
 .categoryArrow {
   width: 32px;
   height: 32px;
   color: "#4A4C4C";
+}
+
+@media screen and (min-width: 768px) {
+  .categories {
+    /* flex-grow: 1; */
+    width: 222px;
+  }
+
+  .name {
+    line-height: 24px;
+  }
 }

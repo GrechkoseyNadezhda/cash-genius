@@ -20,6 +20,7 @@ body {
   background: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 body.modalOpen {
@@ -34,6 +35,7 @@ body.modalOpen {
 .container {
   margin: 0 auto;
   padding: 0 16px;
+  box-sizing: border-box;
 }
 
 @media screen and (min-width: 768px) {
@@ -43,6 +45,10 @@ body.modalOpen {
   .container {
     padding: 0 32px;
     max-width: 768px;
+  }
+
+  .active span {
+    font-size: 20px;
   }
 }
 @media screen and (min-width: 1440px) {

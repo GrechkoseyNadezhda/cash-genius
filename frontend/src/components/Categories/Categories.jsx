@@ -64,13 +64,12 @@ export const Categories = ({ loadArticles, loadCategory }) => {
   };
 
   const getArticlesByCategory = (num) => {
-    const addActiveCategory = (nunber) => {
+    const addActiveCategory = () => {
       const listItems = categoriesList.getElementsByTagName("li");
 
       for (let i = 0; i < listItems.length; i++) {
         if (i === num) {
           listItems[i].classList.add("active");
-          console.log(listItems[i]);
         } else {
           listItems[i].classList.remove("active");
         }
