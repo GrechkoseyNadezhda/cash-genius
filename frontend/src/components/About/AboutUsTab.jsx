@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAboutInfo } from "../../redux/operations";
 import { selectGlobal } from "../../redux/selectors";
 import { loadFromDB } from "../../loadFromDB";
+import { Loader } from "../../components/Loader/Loader";
 
 import { team, teamUkr } from "./teamMembers.js";
 import css from "./About.module.css";
@@ -26,6 +27,7 @@ export const AboutUsTab = () => {
 
   return (
     <div className={css.container}>
+      {pending && <Loader />}
       <h2 className={css.teamTitle}> {t("title1")}</h2>
       <p className={css.teamText}> {t("text")}</p>
       <h2 className={css.teamTitle}> {t("title2")}</h2>
@@ -35,18 +37,6 @@ export const AboutUsTab = () => {
           team.map(({ name, role, src, id, ln }) => {
             return (
               <li key={id} className={css.teamInfo}>
-                {/* <div className={css.teamInfo}> */}
-                {/* <img src={src} alt={name} width="116" /> */}
-                {/* <img
-                  srcset="
-                  ./img/1photomob1x.jpg  116w,
-                  ./img/1phototab1x.jpg  173w,
-                  ./img/1photodesk1x.jpg 312w,
-                "
-                  sizes="(min-width:1440px) 312px, (min-width:768px) 173px, (min-width:480px) 116px, 100vw"
-                  src={src}
-                  alt={name}
-                /> */}
                 <picture>
                   <source
                     media="(max-width: 767px)"
@@ -86,8 +76,6 @@ export const AboutUsTab = () => {
           teamUkr.map(({ name, role, src, id, ln }) => {
             return (
               <li key={id} className={css.teamInfo}>
-                {/* <div className={css.teamInfo}> */}
-                {/* <img src={src} alt={name} width="116" /> */}
                 <picture>
                   <source
                     media="(max-width: 767px)"
@@ -128,16 +116,6 @@ export const AboutUsTab = () => {
           <img src={iconClu} alt="iconClu" width="156" height="71" />
         </li>
         <li className={css.logo}>
-          {/* <img
-            srcset="
-                  ./img/1photomob1x.jpg  116w,
-                  ./img/1phototab1x.jpg  173w,
-                  ./img/1photodesk1x.jpg 312w,
-                "
-            sizes="(min-width:1440px) 312px, (min-width:768px) 173px, (min-width:480px) 116px, 100vw"
-            src={src}
-            alt={name}
-          /> */}
           <img src={iconGoIt} alt="iconGoIt" width="156" height="71" />
         </li>
         <li className={css.logo}>

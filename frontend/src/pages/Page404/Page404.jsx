@@ -31,11 +31,11 @@ export const Page404 = () => {
 
   return (
     <div className={css.container}>
+      {pending && <Loader />}
       <h1 className={css.title}>Cash Genius</h1>
       <p className={css.text}>{t("text1")}</p>
       <p className={css.text}> {t("text2")}</p>
       <img className={css.number} src={icon404} alt="icon404" />
-      <Loader />
 
       <ToastContainer
         position="top-right"
