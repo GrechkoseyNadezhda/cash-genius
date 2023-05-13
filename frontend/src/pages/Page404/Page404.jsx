@@ -4,7 +4,7 @@ import { getAboutInfo } from "../../redux/operations";
 import { selectGlobal } from "../../redux/selectors";
 import { loadFromDB } from "../../loadFromDB";
 
-// import { Loader } from "../../components/Loader/Loader";
+import { Loader } from "../../components/Loader/Loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -25,7 +25,7 @@ export const Page404 = () => {
   useEffect(() => loader(), [loader]);
   useEffect(() => {
     if (error) {
-      toast(error);
+      toast.error(error);
     }
   }, [error]);
 
@@ -35,7 +35,7 @@ export const Page404 = () => {
       <p className={css.text}>{t("text1")}</p>
       <p className={css.text}> {t("text2")}</p>
       <img className={css.number} src={icon404} alt="icon404" />
-      {/* <Loader /> */}
+      <Loader />
 
       <ToastContainer
         position="top-right"

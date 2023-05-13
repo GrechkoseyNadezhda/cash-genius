@@ -7,15 +7,15 @@ import { loadFromDB } from "../../loadFromDB";
 
 import { team, teamUkr } from "./teamMembers.js";
 import css from "./About.module.css";
-import iconClu from "../../images/partners/clu.svg";
-import iconGoIt from "../../images/partners/goit.svg";
-import iconAlevel from "../../images/partners/alevel.svg";
+import iconClu from "../../images/partners/Kharkiv-It-Cluster-logo.svg";
+import iconGoIt from "../../images/partners/GoIt-logo.svg";
+import iconAlevel from "../../images/partners/A-level-logo.svg";
 import iconOlearis from "../../images/partners/olearis.svg";
 import icons from "../../images/symbol-defs.svg";
 
 export const AboutUsTab = () => {
   const [aboutInfo, setAboutInfo] = useState("");
-  const { t, i18n } = useTranslation(["about"]);
+  const { t } = useTranslation(["about"]);
   const { lang, error, pending } = useSelector(selectGlobal);
   const dispatch = useDispatch();
   const loader = useMemo(
@@ -36,22 +36,38 @@ export const AboutUsTab = () => {
             return (
               <li key={id} className={css.teamInfo}>
                 {/* <div className={css.teamInfo}> */}
-                <img src={src} alt={name} width="116" />
+                {/* <img src={src} alt={name} width="116" /> */}
                 {/* <img
                   srcset="
-                  ./img/1photomob1x.jpg  450w,
-                  ./img/1photomob2x.jpg  900w,
-                  ./img/1phototab1x.jpg  354w,
-                  ./img/1phototab2x.jpg  708w,
-                  ./img/1photodesk1x.jpg 270w,
-                  ./img/1photodesk2x.jpg 540w
+                  ./img/1photomob1x.jpg  116w,
+                  ./img/1phototab1x.jpg  173w,
+                  ./img/1photodesk1x.jpg 312w,
                 "
-                  sizes="(min-width:1200px) 270px, (min-width:768px) 354px, (min-width:480px) 450px, 100vw"
-                  src="img/img1.jpg"
-                  alt="Product Designer"
+                  sizes="(min-width:1440px) 312px, (min-width:768px) 173px, (min-width:480px) 116px, 100vw"
+                  src={src}
+                  alt={name}
                 /> */}
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset={src.m}
+                    width="116"
+                  />
+                  <source
+                    media="(min-width: 768px) and (max-width: 1439px)"
+                    srcset={src.p}
+                    width="173"
+                  />
+                  <source
+                    media="(min-width: 1440px)"
+                    srcset={src.d}
+                    width="312"
+                  />
+                  <img src={src.d} alt={name} />
+                </picture>
                 <p className={css.teamName}>{name}</p>
                 <p className={css.teamRole}>{role}</p>
+
                 <a
                   href={ln}
                   className={css.teamLink}
@@ -62,7 +78,6 @@ export const AboutUsTab = () => {
                     <use href={`${icons}#icon-linkedin`} />
                   </svg>
                 </a>
-                {/* </div> */}
               </li>
             );
           })}
@@ -72,7 +87,25 @@ export const AboutUsTab = () => {
             return (
               <li key={id} className={css.teamInfo}>
                 {/* <div className={css.teamInfo}> */}
-                <img src={src} alt={name} width="116" />
+                {/* <img src={src} alt={name} width="116" /> */}
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset={src.m}
+                    width="116"
+                  />
+                  <source
+                    media="(min-width: 768px) and (max-width: 1439px)"
+                    srcset={src.p}
+                    width="173"
+                  />
+                  <source
+                    media="(min-width: 1440px)"
+                    srcset={src.d}
+                    width="312"
+                  />
+                  <img src={src.d} alt={name} />
+                </picture>
                 <p className={css.teamName}>{name}</p>
                 <p className={css.teamRole}>{role}</p>
                 <a
@@ -82,11 +115,9 @@ export const AboutUsTab = () => {
                   rel="noopener noreferrer"
                 >
                   <svg className={css.teamIcon} width="24" height="24">
-                    {/* <use href={iconLn} /> */}
                     <use href={`${icons}#icon-linkedin`} />
                   </svg>
                 </a>
-                {/* </div> */}
               </li>
             );
           })}
@@ -95,11 +126,18 @@ export const AboutUsTab = () => {
       <ul className={css.partners}>
         <li className={css.logo}>
           <img src={iconClu} alt="iconClu" width="156" height="71" />
-          {/* <svg className={css.icon} width="156" height="71">
-            <use href={`${iconClu}`} />
-          </svg> */}
         </li>
         <li className={css.logo}>
+          {/* <img
+            srcset="
+                  ./img/1photomob1x.jpg  116w,
+                  ./img/1phototab1x.jpg  173w,
+                  ./img/1photodesk1x.jpg 312w,
+                "
+            sizes="(min-width:1440px) 312px, (min-width:768px) 173px, (min-width:480px) 116px, 100vw"
+            src={src}
+            alt={name}
+          /> */}
           <img src={iconGoIt} alt="iconGoIt" width="156" height="71" />
         </li>
         <li className={css.logo}>
