@@ -24,6 +24,10 @@
   border-bottom: none;
 }
 
+.categoryItem:last-child:hover {
+  border-bottom: 2px solid #f5c92a;
+}
+
 .categoryItem:first-child .categoryIcon {
   width: 0;
   height: 32px;
@@ -33,7 +37,7 @@
 .categoryButton {
   display: flex;
   align-items: center;
-  padding: 3px 0;
+  height: 38px;
   cursor: pointer;
 }
 .categoryIcon {
@@ -61,7 +65,23 @@
     width: 222px;
   }
 
+  .categoryButton {
+    height: 40px;
+    /* padding: 4px 0; */
+  }
+
   .name {
     line-height: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .categories {
+    /* flex-grow: 1; */
+    width: 302px;
+  }
+
+  .name {
+    font-size: 20px;
   }
 }

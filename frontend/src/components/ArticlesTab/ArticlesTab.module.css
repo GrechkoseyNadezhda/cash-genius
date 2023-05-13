@@ -11,13 +11,23 @@
 .finPageWrapper {
   display: flex;
   gap: 20px;
-  margin: 0 auto;
-  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
   .title {
     font-size: 32px;
+    padding-top: 120px;
     padding-bottom: 56px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .finPageWrapper {
+    gap: 28px;
+  }
+  .title {
+    font-size: 48px;
+    padding-top: 150px;
+    padding-bottom: 80px;
   }
 }

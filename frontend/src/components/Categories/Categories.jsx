@@ -65,8 +65,8 @@ export const Categories = ({ loadArticles, loadCategory }) => {
 
   const getArticlesByCategory = (num) => {
     const addActiveCategory = () => {
+      categoriesList.classList.add("selected");
       const listItems = categoriesList.getElementsByTagName("li");
-
       for (let i = 0; i < listItems.length; i++) {
         if (i === num) {
           listItems[i].classList.add("active");
@@ -77,7 +77,7 @@ export const Categories = ({ loadArticles, loadCategory }) => {
     };
     loader(requests[num]);
     loadCategory(keys[num]);
-    console.log(keys[num]);
+
     const screenWidth = window.innerWidth;
     const categoriesList = document.querySelector("[data-categories]");
     const articlesList = document.querySelector("[data-articles]");
@@ -87,8 +87,6 @@ export const Categories = ({ loadArticles, loadCategory }) => {
     }
     addActiveCategory(num);
   };
-
-  // const categoriesList = document.querySelector("[data-categories]");
 
   useEffect(() => {
     loader("financial_guide");
@@ -111,8 +109,6 @@ export const Categories = ({ loadArticles, loadCategory }) => {
     setWidth(screenWidth);
   }
 
-  // window.addEventListener("resize", handleResize);
-
   useEffect(() => {
     if (width >= 768) {
       const categoriesList = document.querySelector("[data-categories]");
@@ -122,7 +118,6 @@ export const Categories = ({ loadArticles, loadCategory }) => {
 
   return (
     <ul className={css.categories} data-categories>
-      {/* <p>{articles[0]}</p> */}
       {keys.map((key, i) => (
         <li
           key={i}
@@ -130,12 +125,10 @@ export const Categories = ({ loadArticles, loadCategory }) => {
           onClick={() => getArticlesByCategory(i)}
         >
           <div className={css.categoryButton}>
-            {/* <div className={css.iconName}> */}
             <svg className={css.categoryIcon}>
               <use href={`${icons}#${svgIcons[i]}`}></use>
             </svg>
             <span className={css.name}>{t(key)}</span>
-            {/* </div> */}
             <svg className={css.categoryArrow}>
               <use href={`${icons}#right-arrow`}></use>
             </svg>

@@ -7,30 +7,32 @@ import icons from "../../images/symbol-defs.svg";
 
 export const ArticlesList = ({ artList, category }) => {
   const { t } = useTranslation(["categories"]);
-  // console.log(category);
-  // console.log(artList);
   let screenWidth = window.innerWidth;
   const [width, setWidth] = useState(screenWidth);
+  window.addEventListener("resize", handleResize);
 
-  // Function to handle the resize event
   function handleResize() {
     screenWidth = window.innerWidth;
     setWidth(screenWidth);
-    // You can perform any additional logic or actions here
   }
-
-  // Add event listener for the resize event
-  window.addEventListener("resize", handleResize);
 
   useEffect(() => {
     const categoriesList = document.querySelector("[data-categories]");
-    const categHidden = categoriesList.classList.contains("visually-hidden");
+    const catIsSelected = categoriesList.classList.contains("selected");
     const articlesList = document.querySelector("[data-articles]");
     if (width >= 768) {
       articlesList.classList.remove("visually-hidden");
       categoriesList.classList.remove("visually-hidden");
-    } else if (categHidden) articlesList.classList.remove("visually-hidden");
-    else articlesList.classList.add("visually-hidden");
+    } else if (catIsSelected) {
+      articlesList.classList.remove("visually-hidden");
+      categoriesList.classList.add("visually-hidden");
+    } else {
+      articlesList.classList.add("visually-hidden");
+      categoriesList.classList.remove("visually-hidden");
+    }
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [width]);
 
   const backToCategories = () => {
@@ -42,15 +44,14 @@ export const ArticlesList = ({ artList, category }) => {
     }
     articlesList.classList.add("visually-hidden");
     categoriesList.classList.remove("visually-hidden");
+    categoriesList.classList.remove("selected");
   };
 
   return (
     <div className={css.articlesWrapper} data-articles>
-      {/* {width >= 768 && ( */}
       <svg className={css.backArrow} onClick={backToCategories}>
         <use href={`${icons}#left-arrow`}></use>
       </svg>
-
       <h2 className={css.title}>{t(category)}</h2>
       <ul className={css.articlesList}>
         {artList?.map((article) => (
@@ -66,8 +67,6 @@ export const ArticlesList = ({ artList, category }) => {
           </li>
         ))}
       </ul>
-      {/* )} */}
-      {}
     </div>
   );
 };
