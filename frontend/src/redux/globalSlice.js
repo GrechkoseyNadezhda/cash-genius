@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   lang: "ua",
   error: null,
-  pending: true,
+  pending: false,
   modalMenuOpened: false,
 };
 
