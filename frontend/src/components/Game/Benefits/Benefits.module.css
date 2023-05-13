@@ -1,0 +1,151 @@
+.benefits {
+  padding-top: 72px;
+}
+
+.title {
+  margin: 0 auto;
+  margin-bottom: 32px;
+  width: 270px;
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: calc(29 / 24);
+  text-align: center;
+  color: #1b1d1c;
+}
+
+.titleGradient {
+  background: radial-gradient(
+    84.31% 11232.3% at 69.03% 37.26%,
+    #f5c92a 0%,
+    #d99e28 42.71%,
+    #004835 87.52%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.benefitsList {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.benefitsItem {
+  box-sizing: border-box;
+  padding: 20px 15px;
+  width: 328px;
+  height: 228px;
+  display: table-cell;
+  border: 1px solid #d9d9d9;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.12));
+  text-align: center;
+}
+
+.benefitsIcon {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 20px;
+}
+
+.cardTitle {
+  margin-bottom: 16px;
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: calc(24 / 20);
+  color: #1b1d1c;
+}
+
+.cardDescr {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(20 / 14);
+  color: #4a4c4c;
+}
+
+@media screen and (min-width: 768px) {
+  .benefits {
+    padding-top: 120px;
+  }
+
+  .title {
+    width: auto;
+    margin-bottom: 56px;
+    font-size: 32px;
+    line-height: calc(39 / 32);
+  }
+
+  .benefitsList {
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .benefitsItem {
+    padding: 20px 18px;
+    width: 222px;
+    height: auto;
+  }
+
+  .benefitsIcon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 10px;
+  }
+
+  .cardTitle {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: calc(19 / 16);
+  }
+
+  .cardDescr {
+    line-height: calc(18 / 14);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .benefits {
+    padding-top: 150px;
+  }
+
+  .title {
+    margin-bottom: 80px;
+    font-size: 48px;
+    line-height: calc(58 / 48);
+  }
+
+  .benefitsList {
+    gap: 28px;
+  }
+
+  .benefitsItem {
+    padding: 23px 40px 32px 40px;
+    width: 416px;
+  }
+
+  .benefitsIcon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 32px;
+  }
+
+  .cardTitle {
+    margin-bottom: 16px;
+    font-size: 24px;
+    line-height: calc(29 / 24);
+  }
+
+  .cardDescr {
+    font-size: 16px;
+    line-height: calc(24 / 16);
+  }
+}
