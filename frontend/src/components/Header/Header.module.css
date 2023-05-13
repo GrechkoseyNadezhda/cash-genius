@@ -75,7 +75,7 @@
   .headContainer {
     height: 94px;
     padding: 12px 32px;
-    max-width: 100%;
+    /* max-width: 100%; */
   }
   .logo {
     font-size: 24px;
