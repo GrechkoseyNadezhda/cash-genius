@@ -40,17 +40,17 @@ export const AboutUsTab = () => {
                 <picture>
                   <source
                     media="(max-width: 767px)"
-                    srcset={src.m}
+                    srcSet={src.m}
                     width="116"
                   />
                   <source
                     media="(min-width: 768px) and (max-width: 1439px)"
-                    srcset={src.p}
+                    srcSet={src.p}
                     width="173"
                   />
                   <source
                     media="(min-width: 1440px)"
-                    srcset={src.d}
+                    srcSet={src.d}
                     width="312"
                   />
                   <img src={src.d} alt={name} />
@@ -79,17 +79,17 @@ export const AboutUsTab = () => {
                 <picture>
                   <source
                     media="(max-width: 767px)"
-                    srcset={src.m}
+                    srcSet={src.m}
                     width="116"
                   />
                   <source
                     media="(min-width: 768px) and (max-width: 1439px)"
-                    srcset={src.p}
+                    srcSet={src.p}
                     width="173"
                   />
                   <source
                     media="(min-width: 1440px)"
-                    srcset={src.d}
+                    srcSet={src.d}
                     width="312"
                   />
                   <img src={src.d} alt={name} />

@@ -17,12 +17,12 @@ export const Page404 = () => {
 
   const [aboutInfo, setAboutInfo] = useState("");
   const { lang, error, pending } = useSelector(selectGlobal);
-  const dispatch = useDispatch();
-  const loader = useMemo(
-    () => loadFromDB(getAboutInfo, setAboutInfo, ["statusText"], dispatch),
-    [dispatch]
-  );
-  useEffect(() => loader(), [loader]);
+  // const dispatch = useDispatch();
+  // const loader = useMemo(
+  //   () => loadFromDB(getAboutInfo, setAboutInfo, ["statusText"], dispatch),
+  //   [dispatch]
+  // );
+  // useEffect(() => loader(), [loader]);
   useEffect(() => {
     if (error) {
       toast.error(error);
