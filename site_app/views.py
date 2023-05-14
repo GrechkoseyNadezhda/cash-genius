@@ -29,10 +29,10 @@ def create_paginator_data(query, num_objects, page):
     try:
         paginator = Paginator(query, num_objects)
     except ValueError:  # Результат обробки винятку може бути змінений
-        num_articles = 10
+        num_objects = 10
         paginator = Paginator(query, num_objects)
     except TypeError:  # Результат обробки винятку може бути змінений
-        num_articles = 10
+        num_objects = 10
         paginator = Paginator(query, num_objects)
 
     page = request.GET.get('page')
