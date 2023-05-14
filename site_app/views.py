@@ -37,16 +37,14 @@ def financial_guide(request):
             data = paginator.page(paginator.num_pages)
 
         serializer = ArticleSerializer(data, context={'request': request}, many=True)
-        if data.has_next():
-            nextPage = data.next_page_number()
-        if data.has_previous():
-            previousPage = data.previous_page_number()
+        nextPage = data.has_next()
+        previousPage = data.has_previous()
 
         return Response({'data': serializer.data,
                          'count': paginator.count,
                          'numpages': paginator.num_pages,
-                         'nextlink': f'/posts/?page={nextPage}',
-                         'prevlink': f'/posts/?page={previousPage}'}
+                         'next_page_exists': nextPage,
+                         'prev_page_exists': previousPage}
                         )
 
 
