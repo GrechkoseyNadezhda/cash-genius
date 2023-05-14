@@ -17,6 +17,16 @@ def about(request):
     return Response()
 
 
+def create_paginator_data(query, num_objects):
+    """
+    Function for making paginator with flexible number of objects per page.
+    :param query: query that will be transformed into the page object
+    :param num_objects: number of objects per page
+    :return: django paginator object
+    """
+    pass
+
+
 @api_view(['GET'])
 def financial_guide(request):
     if request.method == 'GET':
