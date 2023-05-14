@@ -20,7 +20,12 @@ export const ModalMenu = () => {
     }
   };
 
-  const closeMenuModal = (e) => dispatch(closeModal());
+  const closeMenuModal = (e) => {
+    document
+      .querySelectorAll(".menu")
+      .forEach((item) => item.classList.remove("active"));
+    dispatch(closeModal());
+  };
   useEffect(() => {
     document.addEventListener("keydown", onEscapeHandler);
 
@@ -36,7 +41,7 @@ export const ModalMenu = () => {
       onClick={clickOnBackdropHandler}
     >
       <nav className={css.mobileNavigation}>
-        <ul>
+        <ul className="liItems">
           <li className={css.navMenuItems} onClick={closeMenuModal}>
             <Link to="/" className={css.link}>
               <svg className={`${css.icon} `} width="32" height="32">

@@ -7,13 +7,20 @@ import icons from "../../images/symbol-defs.svg";
 import { selectGlobal } from "../../redux/selectors";
 import { ModalMenu } from "../ModalMenu/ModalMenu";
 
-export const Header = ({ reset }) => {
+export const Header = () => {
   const { t, i18n } = useTranslation(["header"]);
   const dispatch = useDispatch();
   const { modalMenuOpened } = useSelector(selectGlobal);
 
   const openModalMenu = () => {
     dispatch(openModal());
+  };
+
+  const setActive = (e) => {
+    document
+      .querySelectorAll(".menu")
+      .forEach((item) => item.classList.remove("active"));
+    e.currentTarget.classList.add("active");
   };
 
   return (
@@ -24,17 +31,17 @@ export const Header = ({ reset }) => {
       </Link>
       <nav className={css.navigation}>
         <ul className={css.mainNav}>
-          <li>
+          <li className="menu" onClick={setActive}>
             <Link to="/" className={css.menuItem}>
               {t("game")}
             </Link>
           </li>
-          <li>
-            <Link to="/articles" className={css.menuItem} onClick={reset}>
+          <li className="menu" onClick={setActive}>
+            <Link to="/articles" className={css.menuItem}>
               {t("articles")}
             </Link>
           </li>
-          <li>
+          <li className="menu" onClick={setActive}>
             <Link to="/about" className={css.menuItem}>
               {t("about")}
             </Link>
