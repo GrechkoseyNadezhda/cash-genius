@@ -34,6 +34,8 @@ def create_paginator(query, num_objects):
         num_objects = 10
         paginator = Paginator(query, num_objects)
 
+    return paginator
+
 
 def get_page(page):
 
