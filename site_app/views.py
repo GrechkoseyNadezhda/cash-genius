@@ -26,8 +26,10 @@ def financial_guide(request):
             paginator = Paginator(articles, num_articles)
         except ValueError:
             num_articles = 10
+            paginator = Paginator(articles, num_articles)
         except TypeError:
             num_articles = 10
+            paginator = Paginator(articles, num_articles)
 
         page = request.GET.get('page')
 
