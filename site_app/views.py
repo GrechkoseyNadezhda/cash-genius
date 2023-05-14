@@ -17,14 +17,32 @@ def about(request):
     return Response()
 
 
-def create_paginator_data(query, num_objects):
+def create_paginator_data(query, num_objects, page):
     """
     Function for making paginator with flexible number of objects per page.
+    :param page:
     :param query: query that will be transformed into the page object
     :param num_objects: number of objects per page
     :return: django paginator object
     """
-    pass
+
+    try:
+        paginator = Paginator(query, num_objects)
+    except ValueError:  # Результат обробки винятку може бути змінений
+        num_articles = 10
+        paginator = Paginator(query, num_objects)
+    except TypeError:  # Результат обробки винятку може бути змінений
+        num_articles = 10
+        paginator = Paginator(query, num_objects)
+
+    page = request.GET.get('page')
+
+    try:
+        data = paginator.page(page)
+    except PageNotAnInteger:
+        data = paginator.page(1)
+    except EmptyPage:
+        data = paginator.page(paginator.num_pages)
 
 
 @api_view(['GET'])
@@ -32,23 +50,23 @@ def financial_guide(request):
     if request.method == 'GET':
         articles = Article.objects.all()
         num_articles = request.GET.get('num_articles')
-        try:
-            paginator = Paginator(articles, num_articles)
-        except ValueError:  # Результат обробки винятку може бути змінений
-            num_articles = 10
-            paginator = Paginator(articles, num_articles)
-        except TypeError:  # Результат обробки винятку може бути змінений
-            num_articles = 10
-            paginator = Paginator(articles, num_articles)
-
-        page = request.GET.get('page')
-
-        try:
-            data = paginator.page(page)
-        except PageNotAnInteger:
-            data = paginator.page(1)
-        except EmptyPage:
-            data = paginator.page(paginator.num_pages)
+        # try:
+        #     paginator = Paginator(articles, num_articles)
+        # except ValueError:  # Результат обробки винятку може бути змінений
+        #     num_articles = 10
+        #     paginator = Paginator(articles, num_articles)
+        # except TypeError:  # Результат обробки винятку може бути змінений
+        #     num_articles = 10
+        #     paginator = Paginator(articles, num_articles)
+        #
+        # page = request.GET.get('page')
+        #
+        # try:
+        #     data = paginator.page(page)
+        # except PageNotAnInteger:
+        #     data = paginator.page(1)
+        # except EmptyPage:
+        #     data = paginator.page(paginator.num_pages)
 
         serializer = ArticleSerializer(data, context={'request': request}, many=True)
         nextPage = data.has_next()
