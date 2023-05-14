@@ -37,14 +37,14 @@ def create_paginator(query, num_objects):
     return paginator
 
 
-def get_page(page):
+def get_page(paginator_obj, page):
 
     try:
-        data = paginator.page(page)
+        data = paginator_obj.page(page)
     except PageNotAnInteger:
-        data = paginator.page(1)
+        data = paginator_obj.page(1)
     except EmptyPage:
-        data = paginator.page(paginator.num_pages)
+        data = paginator_obj.page(paginator_obj.num_pages)
 
     return {
         'data': data,
