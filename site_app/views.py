@@ -52,7 +52,7 @@ def get_page(paginator_obj, page):
 @api_view(['GET'])
 def financial_guide(request):
     if request.method == 'GET':
-        articles = Article.objects.all()
+        articles = Article.objects.all().order_by('date_added')
         num_articles = request.GET.get('num_articles')
         page = request.GET.get('page')
 
