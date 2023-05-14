@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.views import Response
 from rest_framework.decorators import api_view
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import HttpResponse
+
 from .serializers import ArticleSerializer
 from .models import Article, Category
 
