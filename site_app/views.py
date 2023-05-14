@@ -17,7 +17,7 @@ def about(request):
     return Response()
 
 
-def create_paginator_data(query, num_objects):
+def create_paginator(query, num_objects):
     """
     Function for making paginator with flexible number of objects per page.
     :param query: query that will be transformed into the page object
