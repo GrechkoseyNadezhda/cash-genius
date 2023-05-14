@@ -29,11 +29,15 @@
   line-height: calc(24 / 20);
 }
 
-.date {
+.dateMobile {
   font-family: Georgia;
   font-size: 14px;
   line-height: 26px;
   margin-bottom: 12px;
+}
+
+.dateTablet {
+  display: none;
 }
 
 .artTitle {
@@ -69,4 +73,164 @@
 
 .backArrow:hover {
   color: #f5c92a;
+}
+
+.arrowText {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .pageTitle {
+    display: none;
+  }
+
+  .flexTitle {
+    display: flex;
+    margin-top: 120px;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .backNavigation {
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+    width: 222px;
+    align-self: flex-start;
+  }
+
+  .backToCategory {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 4px 8px;
+    font-family: Georgia;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .backArrow {
+    position: static;
+    padding: 9px 6.5px;
+  }
+
+  .arrowText {
+    display: block;
+  }
+
+  .titleField {
+    border: none;
+    border-radius: 0;
+    border-top: 2px solid #bdbdbd;
+    margin-bottom: 0;
+    font-family: Cormorant Garamond;
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .rightPosition {
+    width: 463px;
+  }
+
+  .artTitle {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 56px;
+  }
+
+  .dateMobile {
+    display: none;
+  }
+
+  .dateTablet {
+    display: block;
+    font-family: Georgia;
+    font-size: 14px;
+    line-height: 26px;
+    margin-bottom: 20px;
+  }
+
+  .mobileArrow {
+    display: none;
+  }
+
+  .content {
+    font-family: Georgia;
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .flexTitle {
+    margin-top: 150px;
+    gap: 24px;
+    margin-bottom: 150px;
+  }
+
+  .backNavigation {
+    width: 306px;
+  }
+
+  .backToCategory {
+    padding: 4px 16px;
+    font-family: Georgia;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .backArrow {
+    padding: 13px 10.5px;
+  }
+
+  .arrowText {
+    display: block;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .titleField {
+    gap: 16px;
+    justify-content: flex-start;
+    padding-left: 40px;
+  }
+
+  .categoryIcon {
+    height: 40px;
+    width: 40px;
+  }
+
+  .title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .rightPosition {
+    width: 966px;
+  }
+
+  .artTitle {
+    font-size: 48px;
+    line-height: 32px;
+    width: 966px;
+    margin-bottom: 80px;
+  }
+
+  .picture {
+    width: 966px;
+    margin-bottom: 40px;
+  }
+
+  .dateTablet {
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 24px;
+  }
+
+  .content {
+    font-family: Georgia;
+    font-size: 20px;
+    line-height: 26px;
+  }
 }

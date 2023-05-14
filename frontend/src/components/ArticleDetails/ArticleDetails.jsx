@@ -34,25 +34,38 @@ export const ArticleDetails = () => {
     loader();
   }, []);
 
-  const backToCategory = () => {};
-
   return (
     <div className="container">
       <p>{error}</p>
       {pending && <p>Loading data...</p>}
       <h1 className={css.pageTitle}>{t("title", { ns: "articles" })}</h1>
-      <h2 className={css.titleField}>
-        <svg className={css.categoryIcon}>
-          <use href={`${icons}#${svgIcons[iconIndex]}`}></use>
-        </svg>
-        <span className={css.title}>{t(`${category}`)}</span>
-      </h2>
-      <p className={css.date}>{article.date_added}</p>
-      <h3 className={css.artTitle}>{article.title}</h3>
-      <img className={css.picture} src={article.image} alt="" />
-      <p className={css.content}>{article.content}</p>
-      <Link to={location.state.from}>
-        <svg className={css.backArrow} onClick={backToCategory}>
+      <div className={css.flexTitle}>
+        <div className={css.backNavigation}>
+          <Link to={location.state.from}>
+            <div className={css.backToCategory}>
+              <svg className={css.backArrow}>
+                <use href={`${icons}#left-arrow`}></use>
+              </svg>
+              <div className={css.arrowText}>Назад до списку</div>
+            </div>
+            <h2 className={css.titleField}>
+              <svg className={css.categoryIcon}>
+                <use href={`${icons}#${svgIcons[iconIndex]}`}></use>
+              </svg>
+              <span className={css.title}>{t(`${category}`)}</span>
+            </h2>
+          </Link>
+        </div>
+        <div className={css.rightPosition}>
+          <p className={css.dateMobile}>{article.date_added}</p>
+          <h3 className={css.artTitle}>{article.title}</h3>
+          <p className={css.dateTablet}>{article.date_added}</p>
+          <img className={css.picture} src={article.image} alt="" />
+          <p className={css.content}>{article.content}</p>
+        </div>
+      </div>
+      <Link to={location.state.from} className={css.mobileArrow}>
+        <svg className={css.backArrow}>
           <use href={`${icons}#left-arrow`}></use>
         </svg>
       </Link>
