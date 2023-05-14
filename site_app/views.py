@@ -25,7 +25,7 @@ def financial_guide(request):
         nextPage = 1
         previousPage = 1
         articles = Article.objects.all()
-        num_articles = str(request.GET.get('num_articles'))
+        num_articles = request.GET.get('num_articles')
         paginator = Paginator(articles, num_articles)
         page = request.GET.get('page')
 
