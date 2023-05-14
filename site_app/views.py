@@ -20,10 +20,6 @@ def about(request):
 @api_view(['GET'])
 def financial_guide(request):
     if request.method == 'GET':
-
-        data = []
-        nextPage = 1
-        previousPage = 1
         articles = Article.objects.all()
         num_articles = request.GET.get('num_articles')
         paginator = Paginator(articles, num_articles)
