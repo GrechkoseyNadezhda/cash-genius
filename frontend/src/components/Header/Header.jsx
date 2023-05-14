@@ -6,32 +6,40 @@ import css from "./Header.module.css";
 import icons from "../../images/symbol-defs.svg";
 import { selectGlobal } from "../../redux/selectors";
 import { ModalMenu } from "../ModalMenu/ModalMenu";
+import { useEffect } from "react";
 
 export const Header = () => {
   const { t, i18n } = useTranslation(["header"]);
   const dispatch = useDispatch();
   const { modalMenuOpened } = useSelector(selectGlobal);
 
+  useEffect(() => {
+    document.getElementById("game").classList.add("active");
+  }, []);
+
   const openModalMenu = () => {
     dispatch(openModal());
   };
 
-  const setActive = (e) => {
+  const setActive = (e, id) => {
     document
       .querySelectorAll(".menu")
       .forEach((item) => item.classList.remove("active"));
-    e.currentTarget.classList.add("active");
+
+    if (id) {
+      document.getElementById(id).classList.add("active");
+    } else e.currentTarget.classList.add("active");
   };
 
   return (
     <header className={"container " + css.headContainer}>
       {modalMenuOpened && <ModalMenu />}
-      {/* <Link to="/" onClick={setActive}> */}
-      <span className={css.logo}>Cash Genius</span>
-      {/* </Link> */}
+      <Link to="/" onClick={(e) => setActive(e, "game")}>
+        <span className={css.logo}>Cash Genius</span>
+      </Link>
       <nav className={css.navigation}>
         <ul className={css.mainNav}>
-          <li className="menu" onClick={setActive}>
+          <li className="menu" onClick={setActive} id="game">
             <Link to="/" className={css.menuItem}>
               {t("game")}
             </Link>
