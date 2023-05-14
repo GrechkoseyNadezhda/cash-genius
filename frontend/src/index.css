@@ -77,3 +77,8 @@ body.modalOpen {
 .active svg {
   color: #f5c92a !important ;
 }
+
+.menu.active {
+  color: #f5c92a;
+  border-bottom: none !important;
+}
