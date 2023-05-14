@@ -54,23 +54,10 @@ def financial_guide(request):
     if request.method == 'GET':
         articles = Article.objects.all()
         num_articles = request.GET.get('num_articles')
-        # try:
-        #     paginator = Paginator(articles, num_articles)
-        # except ValueError:  # Результат обробки винятку може бути змінений
-        #     num_articles = 10
-        #     paginator = Paginator(articles, num_articles)
-        # except TypeError:  # Результат обробки винятку може бути змінений
-        #     num_articles = 10
-        #     paginator = Paginator(articles, num_articles)
-        #
-        # page = request.GET.get('page')
-        #
-        # try:
-        #     data = paginator.page(page)
-        # except PageNotAnInteger:
-        #     data = paginator.page(1)
-        # except EmptyPage:
-        #     data = paginator.page(paginator.num_pages)
+        page = request.GET.get('page')
+
+        paginator = create_paginator(articles, num_articles)
+        data = get_page(paginator, page)
 
         serializer = ArticleSerializer(data, context={'request': request}, many=True)
         nextPage = data.has_next()
