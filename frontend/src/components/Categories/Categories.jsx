@@ -54,12 +54,14 @@ export const Categories = ({ loadArticles }) => {
   ];
   const dispatch = useDispatch();
   const { categorySelected, isSelected } = useSelector(selectCategory);
-  let screenWidth = window.innerWidth;
-  const [width, setWidth] = useState(screenWidth);
+
+  const [width, setWidth] = useState(
+    window.innerWidth >= 768 ? "big" : "small"
+  );
 
   function handleResize() {
-    screenWidth = window.innerWidth;
-    setWidth(screenWidth);
+    if (window.innerWidth >= 768 && width === "small") setWidth("big");
+    else if (window.innerWidth < 768 && width === "big") setWidth("small");
   }
 
   const loader = (category) => {
@@ -102,30 +104,25 @@ export const Categories = ({ loadArticles }) => {
 
   useEffect(() => {
     const number = keys.indexOf(categorySelected);
-    console.log(number);
     loader(requests[number]);
-    if (screenWidth >= 768) addActiveCategory(number);
-    console.log("we starting");
+    if (width === "big") addActiveCategory(number);
     dispatch(setCategory(categorySelected));
-    console.log(categorySelected);
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
   }, []);
 
   useEffect(() => {
-    if (width >= 768) {
+    window.addEventListener("resize", handleResize);
+    if (width === "big") {
       const categoriesList = document.querySelector("[data-categories]");
       categoriesList.classList.remove("visually-hidden");
       if (!isSelected) {
         addActiveCategory(0);
-        console.log("added!!!");
         loader("financial_guide");
-        // loadCategory("all");
         dispatch(setCategory("all"));
       }
-    } //else if (!isSelected) removeActiveCategory();
+    }
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [width]);
 
   return (

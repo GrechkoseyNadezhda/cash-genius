@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import css from "./ArticlesList.module.css";
 import icons from "../../images/symbol-defs.svg";
 import { ArticlePreview } from "../ArticlePreview/ArticlePreview";
@@ -11,20 +10,25 @@ import { setCategory, setIsSelected } from "../../redux/categorySlice";
 
 export const ArticlesList = ({ artList, category }) => {
   const { t } = useTranslation(["categories"]);
-  let screenWidth = window.innerWidth;
-  const [width, setWidth] = useState(screenWidth);
-  window.addEventListener("resize", handleResize);
+  const [width, setWidth] = useState(window.innerWidth);
   const { isSelected } = useSelector(selectCategory);
   const dispatch = useDispatch();
 
   function handleResize() {
-    screenWidth = window.innerWidth;
-    setWidth(screenWidth);
+    setWidth(window.innerWidth);
   }
 
-  useEffect(() => {
+  const removeActive = () => {
     const categoriesList = document.querySelector("[data-categories]");
-    // const catIsSelected = categoriesList.classList.contains("selected");
+    const listItems = categoriesList.getElementsByTagName("li");
+    for (let i = 0; i < listItems.length; i++) {
+      listItems[i].classList.remove("active");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    const categoriesList = document.querySelector("[data-categories]");
     const articlesList = document.querySelector("[data-articles]");
     if (width >= 768) {
       articlesList.classList.remove("visually-hidden");
@@ -33,14 +37,9 @@ export const ArticlesList = ({ artList, category }) => {
       articlesList.classList.remove("visually-hidden");
       categoriesList.classList.add("visually-hidden");
     } else {
-      console.log("inside");
       articlesList.classList.add("visually-hidden");
       categoriesList.classList.remove("visually-hidden");
-      const listItems = categoriesList.getElementsByTagName("li");
-      for (let i = 0; i < listItems.length; i++) {
-        listItems[i].classList.remove("active");
-      }
-      console.log("removed!");
+      removeActive();
     }
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -50,13 +49,9 @@ export const ArticlesList = ({ artList, category }) => {
   const backToCategories = () => {
     const categoriesList = document.querySelector("[data-categories]");
     const articlesList = document.querySelector("[data-articles]");
-    const listItems = categoriesList.getElementsByTagName("li");
-    for (let i = 0; i < listItems.length; i++) {
-      listItems[i].classList.remove("active");
-    }
+    removeActive();
     articlesList.classList.add("visually-hidden");
     categoriesList.classList.remove("visually-hidden");
-    // categoriesList.classList.remove("selected");
     dispatch(setIsSelected(false));
     dispatch(setCategory("all"));
   };
