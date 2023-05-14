@@ -7,51 +7,13 @@ import { setCategory, setIsSelected } from "../../redux/categorySlice";
 import { getAllArticles } from "../../redux/operations";
 import { selectCategory } from "../../redux/selectors";
 import css from "./Categories.module.css";
+import { keys } from "../../categoriesList";
+import { requests } from "../../categoriesList";
+import { svgIcons } from "../../categoriesList";
 
 export const Categories = ({ loadArticles }) => {
   const { t } = useTranslation(["categories"]);
-  const keys = [
-    "all",
-    "overall",
-    "personal",
-    "family",
-    "deposit",
-    "stocks",
-    "insurance",
-    "addictions",
-    "taxes",
-    "help",
-    "dps",
-    "pf",
-  ];
-  const requests = [
-    "financial_guide",
-    "zagalni-pitannya",
-    "osobistij-byudzhet",
-    "simejnij-byudzhet",
-    "bankivskij-depozit",
-    "investiciyi-v-cinni-paperi",
-    "strahuvannya",
-    "shkidlivi-perekonannya",
-    "podatki-pilgi",
-    "dopomogi",
-    "dps-ukrayini",
-    "pfu",
-  ];
-  const svgIcons = [
-    "",
-    "icon-General",
-    "icon-Own-Budget",
-    "icon-Fam-Budget",
-    "icon-Deposit",
-    "icon-Bag",
-    "icon-Insurance",
-    "icon-Bad",
-    "icon-Tax",
-    "icon-Help",
-    "icon-STS-Ukr",
-    "icon-PFU",
-  ];
+
   const dispatch = useDispatch();
   const { categorySelected, isSelected } = useSelector(selectCategory);
 

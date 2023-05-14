@@ -7,12 +7,15 @@ import { ArticlePreview } from "../ArticlePreview/ArticlePreview";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCategory } from "../../redux/selectors";
 import { setCategory, setIsSelected } from "../../redux/categorySlice";
+import { keys, svgIcons } from "../../categoriesList";
 
 export const ArticlesList = ({ artList, category }) => {
   const { t } = useTranslation(["categories"]);
   const [width, setWidth] = useState(window.innerWidth);
   const { isSelected } = useSelector(selectCategory);
   const dispatch = useDispatch();
+
+  const iconIndex = keys.indexOf(category);
 
   function handleResize() {
     setWidth(window.innerWidth);
@@ -61,7 +64,12 @@ export const ArticlesList = ({ artList, category }) => {
       <svg className={css.backArrow} onClick={backToCategories}>
         <use href={`${icons}#left-arrow`}></use>
       </svg>
-      <h2 className={css.title}>{t(category)}</h2>
+      <h2 className={css.titleField}>
+        <svg className={css.categoryIcon}>
+          <use href={`${icons}#${svgIcons[iconIndex]}`}></use>
+        </svg>
+        <span className={css.title}>{t(category)}</span>
+      </h2>
       <ul className={css.articlesList}>
         {artList?.map((article) => (
           <li key={article.pk} className={css.artCard}>

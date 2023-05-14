@@ -20,7 +20,6 @@ export const ArticlesTab = () => {
     <div className="container">
       <p>{error}</p>
       {pending && <p>Loading data...</p>}
-
       <h1 className={css.title}>{t("title")}</h1>
       <div className={css.finPageWrapper}>
         <Categories loadArticles={updateArticles} />

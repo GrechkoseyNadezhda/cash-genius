@@ -5,21 +5,20 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { loadFromDB } from "../../loadFromDB";
 import { getArticleById } from "../../redux/operations";
 import { selectGlobal } from "../../redux/selectors";
+import icons from "../../images/symbol-defs.svg";
+import css from "./ArticleDetails.module.css";
+import { keys, svgIcons } from "../../categoriesList";
 
 export const ArticleDetails = () => {
   const [article, setArticle] = useState({});
   const { articleId } = useParams();
   const { category } = useParams();
   const location = useLocation();
-  const { t } = useTranslation();
+  const { t } = useTranslation(["categories", "articles"]);
   const dispatch = useDispatch();
   const { error, pending, lang } = useSelector(selectGlobal);
+  const iconIndex = keys.indexOf(category);
 
-  //   const loader = useMemo(
-  //     () =>
-  //       loadFromDB(getArticleById, setArtContent, ["data"], dispatch, articleId),
-  //     [articleId, dispatch]
-  //     );
   const loader = () => {
     const loady = loadFromDB(
       getArticleById,
@@ -35,16 +34,28 @@ export const ArticleDetails = () => {
     loader();
   }, []);
 
-  console.log(category);
+  const backToCategory = () => {};
 
   return (
-    <div>
+    <div className="container">
       <p>{error}</p>
       {pending && <p>Loading data...</p>}
-
-      <h1>{article.title}</h1>
-      <p>{article.content}</p>
-      <Link to={location.state.from}>{t("article.back")}</Link>
+      <h1 className={css.pageTitle}>{t("title", { ns: "articles" })}</h1>
+      <h2 className={css.titleField}>
+        <svg className={css.categoryIcon}>
+          <use href={`${icons}#${svgIcons[iconIndex]}`}></use>
+        </svg>
+        <span className={css.title}>{t(`${category}`)}</span>
+      </h2>
+      <p className={css.date}>{article.date_added}</p>
+      <h3 className={css.artTitle}>{article.title}</h3>
+      <img className={css.picture} src={article.image} alt="" />
+      <p className={css.content}>{article.content}</p>
+      <Link to={location.state.from}>
+        <svg className={css.backArrow} onClick={backToCategory}>
+          <use href={`${icons}#left-arrow`}></use>
+        </svg>
+      </Link>
     </div>
   );
 };
