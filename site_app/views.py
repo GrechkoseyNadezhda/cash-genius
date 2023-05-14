@@ -87,7 +87,12 @@ def category(request, category_slug=None):
             next_page = data.has_next()
             previous_page = data.has_previous()
 
-        return Response(serializer.data)
+            return Response({'data': serializer.data,
+                             'count': paginator.count,
+                             'num_pages': paginator.num_pages,
+                             'next_page_exists': next_page,
+                             'prev_page_exists': previous_page}
+                            )
 
 
 @api_view(['GET'])
