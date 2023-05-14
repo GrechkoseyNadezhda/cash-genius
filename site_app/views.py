@@ -60,15 +60,14 @@ def financial_guide(request):
         data = get_page(paginator, page)
 
         serializer = ArticleSerializer(data, context={'request': request}, many=True)
-        nextPage = data.has_next()
-        previousPage = data.has_previous()
+        next_page = data.has_next()
+        previous_page = data.has_previous()
 
         return Response({'data': serializer.data,
                          'count': paginator.count,
-                         'numpages': paginator.num_pages,
-                         'next_page_exists': nextPage,
-                         'prev_page_exists': previousPage
-                        }
+                         'num_pages': paginator.num_pages,
+                         'next_page_exists': next_page,
+                         'prev_page_exists': previous_page}
                         )
 
 
