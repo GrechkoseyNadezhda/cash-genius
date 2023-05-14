@@ -35,8 +35,6 @@ def create_paginator_data(query, num_objects, page):
         num_objects = 10
         paginator = Paginator(query, num_objects)
 
-    page = request.GET.get('page')
-
     try:
         data = paginator.page(page)
     except PageNotAnInteger:
