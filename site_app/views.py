@@ -46,11 +46,7 @@ def get_page(paginator_obj, page):
     except EmptyPage:
         data = paginator_obj.page(paginator_obj.num_pages)
 
-    return {
-        'data': data,
-        'count': paginator.count,
-        'num_pages': paginator.num_pages,
-    }
+    return data
 
 
 @api_view(['GET'])
