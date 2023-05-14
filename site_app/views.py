@@ -77,8 +77,15 @@ def category(request, category_slug=None):
         if category_slug:
             category = get_object_or_404(Category, slug=category_slug)
             articles = Article.objects.filter(category=category).order_by('-date_added')
+            num_articles = request.GET.get('num_articles')
+            page = request.GET.get('page')
+
+            paginator = create_paginator(articles, num_articles)
+            data = get_page(paginator, page)
 
             serializer = ArticleSerializer(articles, context={'request': request}, many=True)
+            next_page = data.has_next()
+            previous_page = data.has_previous()
 
         return Response(serializer.data)
 
