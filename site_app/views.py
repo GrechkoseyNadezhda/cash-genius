@@ -42,6 +42,12 @@ def create_paginator_data(query, num_objects, page):
     except EmptyPage:
         data = paginator.page(paginator.num_pages)
 
+    return {
+        'data': data,
+        'count': paginator.count,
+        'num_pages': paginator.num_pages,
+    }
+
 
 @api_view(['GET'])
 def financial_guide(request):
