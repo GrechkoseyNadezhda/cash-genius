@@ -35,6 +35,9 @@ def create_paginator_data(query, num_objects, page):
         num_objects = 10
         paginator = Paginator(query, num_objects)
 
+
+def get_page(page):
+
     try:
         data = paginator.page(page)
     except PageNotAnInteger:
@@ -80,7 +83,8 @@ def financial_guide(request):
                          'count': paginator.count,
                          'numpages': paginator.num_pages,
                          'next_page_exists': nextPage,
-                         'prev_page_exists': previousPage}
+                         'prev_page_exists': previousPage
+                        }
                         )
 
 
