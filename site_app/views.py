@@ -24,10 +24,10 @@ def financial_guide(request):
         num_articles = request.GET.get('num_articles')
         try:
             paginator = Paginator(articles, num_articles)
-        except ValueError:
+        except ValueError:  # Результат обробки винятку може бути змінений
             num_articles = 10
             paginator = Paginator(articles, num_articles)
-        except TypeError:
+        except TypeError:  # Результат обробки винятку може бути змінений
             num_articles = 10
             paginator = Paginator(articles, num_articles)
 
