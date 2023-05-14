@@ -75,7 +75,7 @@ def financial_guide(request):
 def category(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
-        articles = Article.objects.filter(category=category).order_by('date_added')
+        articles = Article.objects.filter(category=category).order_by('-date_added')
 
         serializer = ArticleSerializer(articles, context={'request': request}, many=True)
 
