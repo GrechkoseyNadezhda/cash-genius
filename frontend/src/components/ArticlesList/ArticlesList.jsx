@@ -4,12 +4,18 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import css from "./ArticlesList.module.css";
 import icons from "../../images/symbol-defs.svg";
+import { ArticlePreview } from "../ArticlePreview/ArticlePreview";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCategory } from "../../redux/selectors";
+import { setCategory, setIsSelected } from "../../redux/categorySlice";
 
 export const ArticlesList = ({ artList, category }) => {
   const { t } = useTranslation(["categories"]);
   let screenWidth = window.innerWidth;
   const [width, setWidth] = useState(screenWidth);
   window.addEventListener("resize", handleResize);
+  const { isSelected } = useSelector(selectCategory);
+  const dispatch = useDispatch();
 
   function handleResize() {
     screenWidth = window.innerWidth;
@@ -18,17 +24,23 @@ export const ArticlesList = ({ artList, category }) => {
 
   useEffect(() => {
     const categoriesList = document.querySelector("[data-categories]");
-    const catIsSelected = categoriesList.classList.contains("selected");
+    // const catIsSelected = categoriesList.classList.contains("selected");
     const articlesList = document.querySelector("[data-articles]");
     if (width >= 768) {
       articlesList.classList.remove("visually-hidden");
       categoriesList.classList.remove("visually-hidden");
-    } else if (catIsSelected) {
+    } else if (isSelected) {
       articlesList.classList.remove("visually-hidden");
       categoriesList.classList.add("visually-hidden");
     } else {
+      console.log("inside");
       articlesList.classList.add("visually-hidden");
       categoriesList.classList.remove("visually-hidden");
+      const listItems = categoriesList.getElementsByTagName("li");
+      for (let i = 0; i < listItems.length; i++) {
+        listItems[i].classList.remove("active");
+      }
+      console.log("removed!");
     }
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -44,7 +56,9 @@ export const ArticlesList = ({ artList, category }) => {
     }
     articlesList.classList.add("visually-hidden");
     categoriesList.classList.remove("visually-hidden");
-    categoriesList.classList.remove("selected");
+    // categoriesList.classList.remove("selected");
+    dispatch(setIsSelected(false));
+    dispatch(setCategory("all"));
   };
 
   return (
@@ -56,14 +70,7 @@ export const ArticlesList = ({ artList, category }) => {
       <ul className={css.articlesList}>
         {artList?.map((article) => (
           <li key={article.pk} className={css.artCard}>
-            <Link to={`/articles/${article.pk}`}>
-              <div>
-                <img src={article.image} alt="" className={css.picture} />
-                <p className={css.date}>{article.date_added}</p>
-                <h3 className={css.artTitle}>{article.title}</h3>
-                <p className={css.content}>{article.content}</p>
-              </div>
-            </Link>
+            <ArticlePreview article={article} category={category} />
           </li>
         ))}
       </ul>

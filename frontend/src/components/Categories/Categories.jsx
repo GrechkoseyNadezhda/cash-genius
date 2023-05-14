@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import icons from "../../images/symbol-defs.svg";
 import { loadFromDB } from "../../loadFromDB";
+import { setCategory, setIsSelected } from "../../redux/categorySlice";
 import { getAllArticles } from "../../redux/operations";
+import { selectCategory } from "../../redux/selectors";
 import css from "./Categories.module.css";
 
-export const Categories = ({ loadArticles, loadCategory }) => {
+export const Categories = ({ loadArticles }) => {
   const { t } = useTranslation(["categories"]);
   const keys = [
     "all",
@@ -50,57 +52,8 @@ export const Categories = ({ loadArticles, loadCategory }) => {
     "icon-STS-Ukr",
     "icon-PFU",
   ];
-  const [articles, setArticles] = useState([]);
   const dispatch = useDispatch();
-  const loader = (category) => {
-    const loady = loadFromDB(
-      getAllArticles,
-      category,
-      setArticles,
-      ["data"],
-      dispatch
-    );
-    loady();
-  };
-
-  const getArticlesByCategory = (num) => {
-    const addActiveCategory = () => {
-      categoriesList.classList.add("selected");
-      const listItems = categoriesList.getElementsByTagName("li");
-      for (let i = 0; i < listItems.length; i++) {
-        if (i === num) {
-          listItems[i].classList.add("active");
-        } else {
-          listItems[i].classList.remove("active");
-        }
-      }
-    };
-    loader(requests[num]);
-    loadCategory(keys[num]);
-
-    const screenWidth = window.innerWidth;
-    const categoriesList = document.querySelector("[data-categories]");
-    const articlesList = document.querySelector("[data-articles]");
-    if (screenWidth < 768) {
-      categoriesList.classList.add("visually-hidden");
-      articlesList.classList.remove("visually-hidden");
-    }
-    addActiveCategory(num);
-  };
-
-  useEffect(() => {
-    loader("financial_guide");
-    loadCategory("all");
-    document.addEventListener("resize", handleResize);
-    return () => {
-      document.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    loadArticles(articles);
-  }, [articles, loadArticles]);
-
+  const { categorySelected, isSelected } = useSelector(selectCategory);
   let screenWidth = window.innerWidth;
   const [width, setWidth] = useState(screenWidth);
 
@@ -109,11 +62,70 @@ export const Categories = ({ loadArticles, loadCategory }) => {
     setWidth(screenWidth);
   }
 
+  const loader = (category) => {
+    const loadContent = loadFromDB(
+      getAllArticles,
+      category,
+      loadArticles,
+      ["data"],
+      dispatch
+    );
+    loadContent();
+  };
+
+  const addActiveCategory = (num) => {
+    const categoriesList = document.querySelector("[data-categories]");
+    categoriesList.classList.add("selected");
+    const listItems = categoriesList.getElementsByTagName("li");
+    for (let i = 0; i < listItems.length; i++) {
+      if (i === num) {
+        listItems[i].classList.add("active");
+      } else {
+        listItems[i].classList.remove("active");
+      }
+    }
+  };
+
+  const getArticlesByCategory = (num) => {
+    const categoriesList = document.querySelector("[data-categories]");
+    const articlesList = document.querySelector("[data-articles]");
+    loader(requests[num]);
+    dispatch(setCategory(keys[num]));
+    dispatch(setIsSelected(true));
+    const screenWidth = window.innerWidth;
+    if (screenWidth < 768) {
+      categoriesList.classList.add("visually-hidden");
+      articlesList.classList.remove("visually-hidden");
+    }
+    addActiveCategory(num);
+  };
+
+  useEffect(() => {
+    const number = keys.indexOf(categorySelected);
+    console.log(number);
+    loader(requests[number]);
+    if (screenWidth >= 768) addActiveCategory(number);
+    console.log("we starting");
+    dispatch(setCategory(categorySelected));
+    console.log(categorySelected);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     if (width >= 768) {
       const categoriesList = document.querySelector("[data-categories]");
       categoriesList.classList.remove("visually-hidden");
-    }
+      if (!isSelected) {
+        addActiveCategory(0);
+        console.log("added!!!");
+        loader("financial_guide");
+        // loadCategory("all");
+        dispatch(setCategory("all"));
+      }
+    } //else if (!isSelected) removeActiveCategory();
   }, [width]);
 
   return (

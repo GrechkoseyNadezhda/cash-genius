@@ -13,7 +13,7 @@ export async function getAllArticles(category) {
 }
 
 export async function getArticleById(artId) {
-  return await axIstance.get(`posts/${artId}`);
+  return await axIstance.get(`article/${artId}`);
 }
 
 export async function getAboutInfo() {
