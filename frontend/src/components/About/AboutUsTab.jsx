@@ -18,11 +18,11 @@ export const AboutUsTab = () => {
   const [aboutInfo, setAboutInfo] = useState("");
   const { t } = useTranslation(["about"]);
   const { lang, error, pending } = useSelector(selectGlobal);
-  const dispatch = useDispatch();
-  const loader = useMemo(
-    () => loadFromDB(getAboutInfo, setAboutInfo, ["statusText"], dispatch),
-    [dispatch]
-  );
+  // const dispatch = useDispatch();
+  // const loader = useMemo(
+  //   () => loadFromDB(getAboutInfo, setAboutInfo, ["statusText"], dispatch),
+  //   [dispatch]
+  // );
   // useEffect(() => loader(), [loader]);
 
   return (
