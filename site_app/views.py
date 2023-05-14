@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.views import Response
 from rest_framework.decorators import api_view
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.http import HttpResponse
 from .serializers import ArticleSerializer
 from .models import Article, Category
 
@@ -19,29 +19,39 @@ def about(request):
 
 @api_view(['GET'])
 def financial_guide(request):
-    if request.method == 'GET':
-        articles = Article.objects.all()
-        num_articles = request.GET.get('num_articles')
-        paginator = Paginator(articles, num_articles)
-        page = request.GET.get('page')
+    try:
+        if request.method == 'GET':
+            articles = Article.objects.all()
+            num_articles = request.GET.get('num_articles')
+            try:
+                int(num_articles)
+            except ValueError:
+                num_articles = 10
+            except TypeError:
+                num_articles = 10
+            paginator = Paginator(articles, num_articles)
+            page = request.GET.get('page')
 
-        try:
-            data = paginator.page(page)
-        except PageNotAnInteger:
-            data = paginator.page(1)
-        except EmptyPage:
-            data = paginator.page(paginator.num_pages)
+            try:
+                data = paginator.page(page)
+            except PageNotAnInteger:
+                data = paginator.page(1)
+            except EmptyPage:
+                data = paginator.page(paginator.num_pages)
 
-        serializer = ArticleSerializer(data, context={'request': request}, many=True)
-        nextPage = data.has_next()
-        previousPage = data.has_previous()
+            serializer = ArticleSerializer(data, context={'request': request}, many=True)
+            nextPage = data.has_next()
+            previousPage = data.has_previous()
 
-        return Response({'data': serializer.data,
-                         'count': paginator.count,
-                         'numpages': paginator.num_pages,
-                         'next_page_exists': nextPage,
-                         'prev_page_exists': previousPage}
-                        )
+            return Response({'data': serializer.data,
+                             'count': paginator.count,
+                             'numpages': paginator.num_pages,
+                             'next_page_exists': nextPage,
+                             'prev_page_exists': previousPage}
+                            )
+    except ValueError as e:
+        print(e)
+        return HttpResponse(e)
 
 
 @api_view(['GET'])
