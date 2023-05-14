@@ -83,7 +83,7 @@ def category(request, category_slug=None):
             paginator = create_paginator(articles, num_articles)
             data = get_page(paginator, page)
 
-            serializer = ArticleSerializer(articles, context={'request': request}, many=True)
+            serializer = ArticleSerializer(data, context={'request': request}, many=True)
             next_page = data.has_next()
             previous_page = data.has_previous()
 
