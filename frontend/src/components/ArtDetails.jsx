@@ -6,6 +6,8 @@ import { loadFromDB } from "../loadFromDB";
 import { getArticleById } from "../redux/operations";
 import { selectGlobal } from "../redux/selectors";
 
+import { Loader } from "../components/Loader/Loader";
+
 export const ArtDetails = () => {
   const [artContent, setArtContent] = useState({});
   const { articleId } = useParams();
@@ -25,7 +27,8 @@ export const ArtDetails = () => {
   return (
     <div>
       <p>{error}</p>
-      {pending && <p>Loading data...</p>}
+      {/* {pending && <p>Loading data...</p>} */}
+      {pending && <Loader />}
       <p>Language: {lang}</p>
       <h1>{artContent.title}</h1>
       <h3>{artContent.author}</h3>
