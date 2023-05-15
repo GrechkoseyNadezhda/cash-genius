@@ -8,8 +8,8 @@ export async function getMainInfo() {
   return await axIstance.get("");
 }
 
-export async function getAllArticles(category) {
-  return await axIstance.get(category);
+export async function getAllArticles(category, params) {
+  return await axIstance.get(category, { params });
 }
 
 export async function getArticleById(artId) {

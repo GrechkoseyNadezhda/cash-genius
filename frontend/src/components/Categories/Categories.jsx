@@ -31,7 +31,7 @@ export const Categories = ({ loadArticles }) => {
       getAllArticles,
       category,
       loadArticles,
-      ["data"],
+      ["data", "data"],
       dispatch
     );
     loadContent();
