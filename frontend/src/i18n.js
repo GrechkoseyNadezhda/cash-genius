@@ -17,7 +17,7 @@ i18n
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
-    ns: ["header", "game", "articles", "about", "footer", "categories"],
+    ns: ["header", "game", "articles", "about", "footer"],
     backend: {
       loadPath: "/assets/locales/{{ns}}/{{lng}}.json",
     },

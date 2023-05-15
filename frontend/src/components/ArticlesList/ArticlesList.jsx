@@ -1,72 +1,82 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import css from "./ArticlesList.module.css";
 import icons from "../../images/symbol-defs.svg";
+import { ArticlePreview } from "../ArticlePreview/ArticlePreview";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCategory } from "../../redux/selectors";
+import { setCategory, setIsSelected } from "../../redux/categorySlice";
+import { keys, svgIcons } from "../../categoriesList";
 
 export const ArticlesList = ({ artList, category }) => {
-  const { t } = useTranslation(["categories"]);
-  // console.log(category);
-  // console.log(artList);
-  let screenWidth = window.innerWidth;
-  const [width, setWidth] = useState(screenWidth);
+  const { t } = useTranslation(["articles"]);
+  const [width, setWidth] = useState(window.innerWidth);
+  const { isSelected } = useSelector(selectCategory);
+  const dispatch = useDispatch();
 
-  // Function to handle the resize event
+  const iconIndex = keys.indexOf(category);
+
   function handleResize() {
-    screenWidth = window.innerWidth;
-    setWidth(screenWidth);
-    // You can perform any additional logic or actions here
+    setWidth(window.innerWidth);
   }
 
-  // Add event listener for the resize event
-  window.addEventListener("resize", handleResize);
+  const removeActive = () => {
+    const categoriesList = document.querySelector("[data-categories]");
+    const listItems = categoriesList.getElementsByTagName("li");
+    for (let i = 0; i < listItems.length; i++) {
+      listItems[i].classList.remove("active");
+    }
+  };
 
   useEffect(() => {
+    window.addEventListener("resize", handleResize);
     const categoriesList = document.querySelector("[data-categories]");
-    const categHidden = categoriesList.classList.contains("visually-hidden");
     const articlesList = document.querySelector("[data-articles]");
     if (width >= 768) {
       articlesList.classList.remove("visually-hidden");
       categoriesList.classList.remove("visually-hidden");
-    } else if (categHidden) articlesList.classList.remove("visually-hidden");
-    else articlesList.classList.add("visually-hidden");
+    } else if (isSelected) {
+      articlesList.classList.remove("visually-hidden");
+      categoriesList.classList.add("visually-hidden");
+    } else {
+      articlesList.classList.add("visually-hidden");
+      categoriesList.classList.remove("visually-hidden");
+      removeActive();
+    }
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [width]);
 
   const backToCategories = () => {
     const categoriesList = document.querySelector("[data-categories]");
-    //  const categHidden = categoriesList.classList.contains("visually-hidden");
     const articlesList = document.querySelector("[data-articles]");
-
+    removeActive();
     articlesList.classList.add("visually-hidden");
     categoriesList.classList.remove("visually-hidden");
+    dispatch(setIsSelected(false));
+    dispatch(setCategory("all"));
   };
 
-  // console.log(artList);
   return (
     <div className={css.articlesWrapper} data-articles>
-      {/* {width >= 768 && ( */}
       <svg className={css.backArrow} onClick={backToCategories}>
         <use href={`${icons}#left-arrow`}></use>
       </svg>
-
-      <h2 className={css.title}>{t(category)}</h2>
-
+      <h2 className={css.titleField}>
+        <svg className={css.categoryIcon}>
+          <use href={`${icons}#${svgIcons[iconIndex]}`}></use>
+        </svg>
+        <span className={css.title}>{t(category)}</span>
+      </h2>
       <ul className={css.articlesList}>
         {artList?.map((article) => (
           <li key={article.pk} className={css.artCard}>
-            <Link to={`/articles/${article.pk}`}>
-              <div>
-                <img src={article.image} alt="" className={css.picture} />
-                <p className={css.date}>{article.date_added}</p>
-                <h3 className={css.artTitle}>{article.title}</h3>
-              </div>
-            </Link>
+            <ArticlePreview article={article} category={category} />
           </li>
         ))}
       </ul>
-      {/* )} */}
-      {}
     </div>
   );
 };

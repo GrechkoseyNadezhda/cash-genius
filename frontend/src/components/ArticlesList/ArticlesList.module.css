@@ -4,20 +4,20 @@
   width: 100%;
 }
 
-@media screen and (min-width: 768px) {
-  .articlesList {
-    display: block;
-  }
+.titleField {
+  display: flex;
+  align-items: center;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 32px;
+  gap: 8px;
 }
 
 .title {
   font-family: Cormorant Garamond;
   font-size: 20px;
-  line-height: 24px;
-  border: 1px solid #bdbdbd;
-  border-radius: 4px;
-  padding: 16px 8px;
-  margin-bottom: 33px;
+  line-height: calc(24 / 20);
 }
 
 .backArrow {
@@ -49,26 +49,44 @@
   color: #f5c92a;
 }
 
-.picture {
-  display: block;
-  border-radius: 8px 8px 0px 0px;
-  margin-bottom: 12px;
+.categoryIcon {
+  height: 32px;
+  width: 32px;
 }
 
-.date {
-  margin-left: 12px;
-  margin-bottom: 12px;
-  font-family: Georgia;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 26px;
-  letter-spacing: 0em;
-  text-align: left;
+@media screen and (min-width: 768px) {
+  .articlesWrapper {
+    margin: 0;
+    width: 462px;
+  }
+
+  .titleField {
+    display: none;
+  }
+
+  .articlesList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .artCard {
+    width: 221px;
+    margin-bottom: 40px;
+  }
+
+  .backArrow {
+    display: none;
+  }
 }
 
-.artTitle {
-  font-family: Cormorant Garamond;
-  font-size: 20px;
-  line-height: 24px;
-  margin-left: 12px;
+@media screen and (min-width: 1440px) {
+  .articlesWrapper {
+    width: 966px;
+  }
+
+  .artCard {
+    width: 306px;
+    margin-bottom: 80px;
+  }
 }

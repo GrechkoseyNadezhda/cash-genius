@@ -4,7 +4,7 @@ import { getAboutInfo } from "../../redux/operations";
 import { selectGlobal } from "../../redux/selectors";
 import { loadFromDB } from "../../loadFromDB";
 
-// import { Loader } from "../../components/Loader/Loader";
+import { Loader } from "../../components/Loader/Loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -17,25 +17,25 @@ export const Page404 = () => {
 
   const [aboutInfo, setAboutInfo] = useState("");
   const { lang, error, pending } = useSelector(selectGlobal);
-  const dispatch = useDispatch();
-  const loader = useMemo(
-    () => loadFromDB(getAboutInfo, setAboutInfo, ["statusText"], dispatch),
-    [dispatch]
-  );
-  useEffect(() => loader(), [loader]);
+  // const dispatch = useDispatch();
+  // const loader = useMemo(
+  //   () => loadFromDB(getAboutInfo, setAboutInfo, ["statusText"], dispatch),
+  //   [dispatch]
+  // );
+  // useEffect(() => loader(), [loader]);
   useEffect(() => {
     if (error) {
-      toast(error);
+      toast.error(error);
     }
   }, [error]);
 
   return (
     <div className={css.container}>
+      {pending && <Loader />}
       <h1 className={css.title}>Cash Genius</h1>
       <p className={css.text}>{t("text1")}</p>
       <p className={css.text}> {t("text2")}</p>
       <img className={css.number} src={icon404} alt="icon404" />
-      {/* <Loader /> */}
 
       <ToastContainer
         position="top-right"
