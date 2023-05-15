@@ -1,0 +1,146 @@
+.headContainer {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 56px;
+  padding: 8px 16px;
+  background: white;
+  /* outline: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-family: Cormorant Garamond;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: calc(24 / 20);
+  color: #1b1d1c;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.logo::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  background-image: url("../../images/header/logo40x40.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-right: 12px;
+}
+
+.logo:hover,
+.menuItem:hover {
+  color: #f5c92a;
+}
+
+.navigation {
+  display: flex;
+}
+
+.mainNav {
+  display: none;
+}
+
+.langBurger {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.langBar {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  max-height: 16pc;
+}
+
+.flagsIcons {
+  display: block;
+  width: 20px;
+  height: 16px;
+  border-radius: 2px;
+}
+.icon {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .headContainer {
+    height: 94px;
+    padding: 12px 32px;
+    /* max-width: 100%; */
+  }
+  .logo {
+    font-size: 24px;
+  }
+
+  .logo::before {
+    content: "";
+    width: 70px;
+    height: 70px;
+    background-image: url("../../images/header/logo70x70.png");
+    margin-right: 16px;
+  }
+
+  .navigation {
+    gap: 32px;
+  }
+  .mainNav {
+    display: flex;
+    gap: 48px;
+    font-family: "Cormorant Garamond";
+    font-size: 20px;
+    font-weight: 700;
+    line-height: calc(24 / 20);
+  }
+
+  .langBar {
+    gap: 12px;
+  }
+
+  .flagsIcons {
+    width: 24px;
+    height: 20px;
+    border-radius: 4px;
+  }
+
+  .burger {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .headContainer {
+    height: 132px;
+    padding: 16px 72px;
+  }
+  .logo {
+    font-size: 40px;
+  }
+
+  .logo::before {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-image: url("../../images/header/logo100x100.png");
+  }
+
+  .navigation {
+    gap: 84px;
+  }
+
+  .mainNav {
+    gap: 108px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 39px;
+  }
+}

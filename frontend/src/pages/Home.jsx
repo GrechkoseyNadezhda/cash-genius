@@ -1,51 +1,21 @@
-import { Link, Outlet } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
-import { setLanguage } from "../redux/globalSlice";
-
-const lngs = {
-  en: { langName: "English" },
-  ua: { langName: "Українська" },
-};
+import { Outlet } from "react-router-dom";
+import { Header } from "../components/Header/Header";
+import { Footer } from "../components/Footer/Footer";
+import { Loader } from "../components/Loader/Loader";
+import { useSelector } from "react-redux";
+import { selectGlobal } from "../redux/selectors";
+import { Suspense } from "react";
 
 export const Home = () => {
-  const linkStyle = {
-    paddingRight: "12px",
-  };
-  const { t, i18n } = useTranslation();
-  const dispatch = useDispatch();
+  // const { pending } = useSelector(selectGlobal);
   return (
     <>
-      <header>
-        <nav>
-          <Link style={linkStyle} to="/">
-            {t("navigation.game")}
-          </Link>
-          <Link style={linkStyle} to="/articles">
-            {t("navigation.articles")}
-          </Link>
-          <Link to="/about"> {t("navigation.about")}</Link>
-        </nav>
-        <div>
-          {Object.keys(lngs).map((lng) => (
-            <button
-              key={lng}
-              style={{
-                fontWeight: i18n.resolvedLanguage === lng ? "bold" : "normal",
-              }}
-              type="submit"
-              onClick={() => {
-                i18n.changeLanguage(lng);
-                dispatch(setLanguage(lng));
-              }}
-            >
-              {lngs[lng].langName}
-            </button>
-          ))}
-        </div>
-      </header>
-      <Outlet />
-      <footer>FOOTER</footer>
+      <Header />
+      {/* {pending && <Loader />} */}
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
+      <Footer />
     </>
   );
 };

@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "cash-genius",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,13 +8,20 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
+    "classnames": "^2.3.2",
+    "i18next": "^22.4.15",
     "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-http-backend": "^2.2.0",
+    "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.2.2",
+    "react-loader-spinner": "^5.3.4",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.2",
+    "toastify": "^2.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

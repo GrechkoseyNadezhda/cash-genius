@@ -1,0 +1,142 @@
+.characters {
+  padding-top: 72px;
+  padding-bottom: 72px;
+  box-sizing: border-box;
+}
+
+.title {
+  margin-bottom: 32px;
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: calc(29 / 24);
+  color: #1b1d1c;
+  text-align: center;
+}
+
+.characterList {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.characterItem {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.imageWrap {
+  width: 122px;
+  height: 216px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.characterInfo {
+  width: 137px;
+}
+
+.characterName {
+  margin-bottom: 12px;
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: calc(24 / 20);
+  text-align: center;
+  color: #1b1d1c;
+}
+
+.characterInfoItem {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(16 / 14);
+  color: #4a4c4c;
+}
+.characterInfoItem:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .characters {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  .title {
+    margin-bottom: 56px;
+    font-size: 32px;
+    line-height: calc(39 / 32);
+  }
+
+  .characterList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .characterItem {
+    width: 341px;
+    padding: 16px;
+    gap: 34px;
+  }
+
+  .imageWrap {
+    width: 136px;
+    height: 250px;
+  }
+
+  .characterName {
+    margin-bottom: 8px;
+  }
+
+  .characterInfoItem {
+    line-height: calc(20 / 14);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .characters {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+
+  .title {
+    margin-bottom: 80px;
+    font-size: 48px;
+    line-height: calc(58 / 48);
+  }
+
+  .characterList {
+    gap: 24px;
+  }
+
+  .characterItem {
+    width: 416px;
+    padding: 24px;
+    gap: 26px;
+  }
+
+  .imageWrap {
+    height: 272px;
+  }
+  .characterInfo {
+    width: 208px;
+  }
+
+  .characterInfoItem {
+    font-size: 16px;
+    line-height: calc(24 / 16);
+  }
+}

@@ -1,0 +1,32 @@
+.td,
+.th {
+  padding: 7px 4px;
+  border: 1px solid #828282;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: calc(18 / 16);
+  color: #1b1d1c;
+}
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+}
+.th {
+  background-color: #d9d9d9;
+}
+.td {
+  width: calc(100% / 3);
+  height: 100%;
+}
+
+@media screen and (min-width: 1440px) {
+  .td,
+  .th {
+    padding: 9px 8px 8px 8px;
+    font-size: 20px;
+    line-height: calc(23 / 20);
+  }
+}

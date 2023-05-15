@@ -1,0 +1,92 @@
+.articlesWrapper {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.titleField {
+  display: flex;
+  align-items: center;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 32px;
+  gap: 8px;
+}
+
+.title {
+  font-family: Cormorant Garamond;
+  font-size: 20px;
+  line-height: calc(24 / 20);
+}
+
+.backArrow {
+  position: absolute;
+  top: 86px;
+  left: 27px;
+  cursor: pointer;
+  width: 19px;
+  height: 14px;
+  color: #4a4c4c;
+}
+
+.backArrow:hover {
+  color: #f5c92a;
+}
+
+.artCard {
+  display: block;
+  border: 1px solid #bdbdbd;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+.artCard:hover {
+  border: 1px solid #f5c92a;
+}
+
+.artCard:hover .artTitle {
+  color: #f5c92a;
+}
+
+.categoryIcon {
+  height: 32px;
+  width: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .articlesWrapper {
+    margin: 0;
+    width: 462px;
+  }
+
+  .titleField {
+    display: none;
+  }
+
+  .articlesList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .artCard {
+    width: 221px;
+    margin-bottom: 40px;
+  }
+
+  .backArrow {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .articlesWrapper {
+    width: 966px;
+  }
+
+  .artCard {
+    width: 306px;
+    margin-bottom: 80px;
+  }
+}

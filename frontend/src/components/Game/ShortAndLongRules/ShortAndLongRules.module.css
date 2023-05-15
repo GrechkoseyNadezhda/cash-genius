@@ -1,0 +1,107 @@
+.blockTitle {
+  margin: 32px 0;
+}
+
+.subtitle,
+.subtitleParagraph,
+.paragraph,
+.blockTitle {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(26 / 16);
+  color: #4a4c4c;
+}
+
+.paragraph {
+  font-weight: 400;
+}
+
+.lifeStandardItem:not(:last-child),
+.balanceItem:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.cards,
+.cardsLine {
+  margin: 16px 0;
+}
+
+.card:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.mobile {
+  display: none;
+}
+
+.openRulesBtn {
+  margin-left: auto;
+  cursor: pointer;
+  margin-top: 8px;
+
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: calc(26 / 20);
+  color: #1b1d1c;
+}
+
+@media screen and (min-width: 768px) {
+  .subtitle,
+  .subtitleParagraph,
+  .paragraph,
+  .blockTitle {
+    font-family: "Georgia";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: calc(26 / 16);
+    color: #4a4c4c;
+  }
+
+  .paragraph {
+    font-weight: 400;
+  }
+
+  .mobile {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .subtitle,
+  .subtitleParagraph,
+  .paragraph,
+  .blockTitle {
+    font-size: 20px;
+    line-height: calc(30 / 20);
+  }
+
+  .cards,
+  .cardsLine {
+    margin: 32px 0;
+  }
+
+  .cards .card:not(:last-child) {
+    margin-bottom: 32px;
+  }
+
+  .cardsLine .card {
+    width: 50%;
+    margin-bottom: 0;
+  }
+
+  .cardsLine {
+    display: flex;
+  }
+
+  .openRulesBtn {
+    margin-top: 24px;
+
+    font-size: 24px;
+    line-height: calc(27 / 24);
+  }
+}

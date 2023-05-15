@@ -1,13 +1,84 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import-normalize;
+@import "./stylesheet/fonts.css";
+@import "./stylesheet/reset.css";
+
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: #e7eaf2;
+  scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Cormorant Garamond", "Georgia", sans-serif;
+  text-decoration: none;
+  margin: 0;
+  padding: 0 0 0 0;
+  background: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+body.modalOpen {
+  position: fixed;
+}
+
+#root {
+  margin: 0;
+  padding-top: 56px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 768px) {
+  #root {
+    padding-top: 94px;
+  }
+  .container {
+    padding: 0 32px;
+    max-width: 768px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  #root {
+    padding-top: 132px;
+  }
+  .container {
+    padding: 0 72px;
+    max-width: 1440px;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 0;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.active {
+  border-bottom: 2px solid #f5c92a !important ;
+}
+
+.active svg {
+  color: #f5c92a !important ;
+}
+
+.menu.active {
+  color: #f5c92a;
+  border-bottom: none !important;
 }
