@@ -1,8 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAboutInfo } from "../../redux/operations";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { selectGlobal } from "../../redux/selectors";
-import { loadFromDB } from "../../loadFromDB";
 
 import { Loader } from "../../components/Loader/Loader";
 import { ToastContainer, toast } from "react-toastify";
@@ -15,14 +13,8 @@ import icon404 from "../../images/partners/404.svg";
 export const Page404 = () => {
   const { t } = useTranslation(["page404"]);
 
-  const [aboutInfo, setAboutInfo] = useState("");
-  const { lang, error, pending } = useSelector(selectGlobal);
-  // const dispatch = useDispatch();
-  // const loader = useMemo(
-  //   () => loadFromDB(getAboutInfo, setAboutInfo, ["statusText"], dispatch),
-  //   [dispatch]
-  // );
-  // useEffect(() => loader(), [loader]);
+  const { error, pending } = useSelector(selectGlobal);
+
   useEffect(() => {
     if (error) {
       toast.error(error);
