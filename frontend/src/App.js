@@ -4,26 +4,22 @@ import { ArticlesTab } from "./components/ArticlesTab/ArticlesTab.jsx";
 import { GameTab } from "./components/GameTab";
 import { Home } from "./pages/Home";
 import { Page404 } from "./pages/Page404/Page404";
-// import { ArtDetails } from "./components/ArtDetails";
-import { Suspense } from "react";
 import { ArticleDetails } from "./components/ArticleDetails/ArticleDetails";
 
 export const App = () => {
   return (
-    <Suspense fallback={<div>Loading data...</div>}>
-      <Routes>
-        <Route path="/" element={<Home />}>
-          <Route index element={<GameTab />} />
-          <Route path="articles" element={<ArticlesTab />} />
-          <Route path="about" element={<AboutUsTab />} />
-          <Route
-            path="/articles/:category/:articleId"
-            element={<ArticleDetails />}
-          />
-          <Route path="*" element={<Page404 />} />
-        </Route>
-      </Routes>
-    </Suspense>
+    <Routes>
+      <Route path="/" element={<Home />}>
+        <Route index element={<GameTab />} />
+        <Route path="articles" element={<ArticlesTab />} />
+        <Route path="about" element={<AboutUsTab />} />
+        <Route
+          path="/articles/:category/:articleId"
+          element={<ArticleDetails />}
+        />
+        <Route path="*" element={<Page404 />} />
+      </Route>
+    </Routes>
   );
 };
 export default App;
