@@ -9,7 +9,7 @@ export const loadFromDB = (
   params = { page: 1, num_articles: 100 }
 ) => {
   const loadData = () => {
-    // console.log(category);
+    console.log("hi");
     dispatch(setPending(true));
     dispatch(setError(null));
     promiseFromDB(category, params)

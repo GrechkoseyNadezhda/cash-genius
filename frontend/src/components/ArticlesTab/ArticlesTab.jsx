@@ -15,7 +15,9 @@ export const ArticlesTab = () => {
   const [articles, setArticles] = useState([]);
 
   const updateArticles = (newArticles) => {
-    setArticles(newArticles);
+    setArticles((articles) => [...articles, ...newArticles]);
+    // console.log([...articles, ...newArticles]);
+    // setArticles(newArticles);
   };
 
   return (
@@ -26,7 +28,11 @@ export const ArticlesTab = () => {
       <div className={css.finPageWrapper}>
         <Categories loadArticles={updateArticles} />
         {articles.length > 0 && (
-          <ArticlesList artList={articles} category={categorySelected} />
+          <ArticlesList
+            artList={articles}
+            category={categorySelected}
+            loadArticles={updateArticles}
+          />
         )}
       </div>
     </div>
