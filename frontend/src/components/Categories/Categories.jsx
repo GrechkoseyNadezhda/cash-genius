@@ -26,13 +26,17 @@ export const Categories = ({ loadArticles }) => {
     else if (window.innerWidth < 768 && width === "big") setWidth("small");
   }
 
-  const loader = (category) => {
+  const loader = (
+    category,
+    params = { params: { page: 1, num_articles: 6 } }
+  ) => {
     const loadContent = loadFromDB(
       getAllArticles,
       category,
       loadArticles,
       ["data", "data"],
-      dispatch
+      dispatch,
+      params
     );
     loadContent();
   };
@@ -53,7 +57,7 @@ export const Categories = ({ loadArticles }) => {
   const getArticlesByCategory = (num) => {
     const categoriesList = document.querySelector("[data-categories]");
     const articlesList = document.querySelector("[data-articles]");
-    loader(requests[num]);
+    loader(requests[num], { params: { page: 1, num_articles: 6 } });
     dispatch(setCategory(keys[num]));
     dispatch(setIsSelected(true));
     const screenWidth = window.innerWidth;
@@ -66,7 +70,7 @@ export const Categories = ({ loadArticles }) => {
 
   useEffect(() => {
     const number = keys.indexOf(categorySelected);
-    loader(requests[number]);
+    loader(requests[number], { params: { page: 1, num_articles: 6 } });
     if (width === "big") addActiveCategory(number);
     dispatch(setCategory(categorySelected));
   }, []);
@@ -78,7 +82,7 @@ export const Categories = ({ loadArticles }) => {
       categoriesList.classList.remove("visually-hidden");
       if (!isSelected) {
         addActiveCategory(0);
-        loader("financial_guide");
+        loader("financial_guide", { params: { page: 1, num_articles: 6 } });
         dispatch(setCategory("all"));
       }
     }

@@ -9,7 +9,8 @@ export async function getMainInfo() {
 }
 
 export async function getAllArticles(category, params) {
-  return await axIstance.get(category, { params });
+  // console.log(params);
+  return await axIstance.get(category, params);
 }
 
 export async function getArticleById(artId) {

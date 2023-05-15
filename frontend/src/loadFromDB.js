@@ -6,7 +6,7 @@ export const loadFromDB = (
   setState,
   fields,
   dispatch,
-  params = { page: 1, num_articles: 6 }
+  params = { page: 1, num_articles: 100 }
 ) => {
   const loadData = () => {
     // console.log(category);
