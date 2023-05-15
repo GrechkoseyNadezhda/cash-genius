@@ -5,13 +5,14 @@
   "subtitle": "A real-life simulator for mastering time and money management skills",
   "link": "Play in Telegram",
   "benefits": {
-    "title": "Empty",
-    "titleCard1": "Empty",
-    "titleCard2": "Empty",
-    "titleCard3": "Empty",
-    "descriptionCard1": "Empty",
-    "descriptionCard2": "Empty",
-    "descriptionCard3": "Empty"
+    "title1": "What does the financial game ",
+    "title2": " teach us",
+    "titleCard1": "Be financially literate",
+    "titleCard2": "Manage your time",
+    "titleCard3": "Earn money",
+    "descriptionCard1": "You will learn the basics of investing, principles, situations and timing.",
+    "descriptionCard2": "You will understand where your time is going. Where to get it? What is better to spend on?",
+    "descriptionCard3": "You can try different life strategies: career, freelance, startups, business, real estate, shares, venture investments."
   },
   "charactersTitle": "Characters",
   "character0": {

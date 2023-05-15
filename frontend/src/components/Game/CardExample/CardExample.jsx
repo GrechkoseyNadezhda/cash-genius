@@ -5,7 +5,7 @@ export const CardExample = ({ title, text1, text2, text3 }) => {
     <table className={css.table}>
       <thead className={css.thead}>
         <tr className={css.tr}>
-          <th className={css.th} colspan="3">
+          <th className={css.th} colSpan="3">
             {title}
           </th>
         </tr>
