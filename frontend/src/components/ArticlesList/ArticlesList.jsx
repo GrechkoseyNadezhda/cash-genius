@@ -10,7 +10,7 @@ import { setCategory, setIsSelected } from "../../redux/categorySlice";
 import { keys, svgIcons } from "../../categoriesList";
 
 export const ArticlesList = ({ artList, category }) => {
-  const { t } = useTranslation(["categories"]);
+  const { t } = useTranslation(["articles"]);
   const [width, setWidth] = useState(window.innerWidth);
   const { isSelected } = useSelector(selectCategory);
   const dispatch = useDispatch();

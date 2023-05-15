@@ -14,7 +14,7 @@ export const ArticleDetails = () => {
   const { articleId } = useParams();
   const { category } = useParams();
   const location = useLocation();
-  const { t } = useTranslation(["categories", "articles"]);
+  const { t } = useTranslation(["articles"]);
   const dispatch = useDispatch();
   const { error, pending, lang } = useSelector(selectGlobal);
   const iconIndex = keys.indexOf(category);
@@ -37,8 +37,8 @@ export const ArticleDetails = () => {
   return (
     <div className="container">
       <p>{error}</p>
-      {pending && <p>Loading data...</p>}
-      <h1 className={css.pageTitle}>{t("title", { ns: "articles" })}</h1>
+      {/* {pending && <p>Loading data...</p>} */}
+      <h1 className={css.pageTitle}>{t("title")}</h1>
       <div className={css.flexTitle}>
         <div className={css.backNavigation}>
           <Link to={location.state.from}>
@@ -46,7 +46,7 @@ export const ArticleDetails = () => {
               <svg className={css.backArrow}>
                 <use href={`${icons}#left-arrow`}></use>
               </svg>
-              <div className={css.arrowText}>Назад до списку</div>
+              <div className={css.arrowText}>{t("back")}</div>
             </div>
             <h2 className={css.titleField}>
               <svg className={css.categoryIcon}>
