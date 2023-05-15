@@ -11,7 +11,6 @@ export const Loader = () => {
         width: "100vw",
         height: "100vh",
         overflow: "hidden",
-        // background: "rgba(0, 0, 0, 0.2)",
         display: "flex",
         alignItems: "flexStart",
         justifyContent: "center",
