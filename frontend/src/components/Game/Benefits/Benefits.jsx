@@ -27,8 +27,9 @@ export const Benefits = () => {
     <section className={css.benefits}>
       <div className="container">
         <h2 className={css.title}>
-          {t("benefits.title")}{" "}
+          {t("benefits.title1")}{" "}
           <span className={css.titleGradient}>Cash Genius</span>
+          {t("benefits.title2")}
         </h2>
 
         <ul className={css.benefitsList}>

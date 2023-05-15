@@ -124,7 +124,13 @@ export const LongRules = () => {
             <ul className={css.cards}>
               <li className={css.card}>
                 <CardExample
-                  title={t("rules.work.cardsExample.card1.title")}
+                  title={
+                    <>
+                      {t("rules.work.cardsExample.card1.title")}
+                      <br />
+                      {t("rules.work.cardsExample.card1.subtitle")}
+                    </>
+                  }
                   text1={t("rules.work.cardsExample.card1.text1")}
                   text2={t("rules.work.cardsExample.card1.text2")}
                   text3={t("rules.work.cardsExample.card1.text3")}
@@ -132,7 +138,13 @@ export const LongRules = () => {
               </li>
               <li className={css.card}>
                 <CardExample
-                  title={t("rules.work.cardsExample.card2.title")}
+                  title={
+                    <>
+                      {t("rules.work.cardsExample.card2.title")}
+                      <br />
+                      {t("rules.work.cardsExample.card2.subtitle")}
+                    </>
+                  }
                   text1={t("rules.work.cardsExample.card2.text1")}
                   text2={t("rules.work.cardsExample.card2.text2")}
                   text3={t("rules.work.cardsExample.card2.text3")}
@@ -140,7 +152,13 @@ export const LongRules = () => {
               </li>
               <li className={css.card}>
                 <CardExample
-                  title={t("rules.work.cardsExample.card3.title")}
+                  title={
+                    <>
+                      {t("rules.work.cardsExample.card3.title")}
+                      <br />
+                      {t("rules.work.cardsExample.card3.subtitle")}
+                    </>
+                  }
                   text1={t("rules.work.cardsExample.card3.text1")}
                   text2={t("rules.work.cardsExample.card3.text2")}
                   text3={t("rules.work.cardsExample.card3.text3")}
