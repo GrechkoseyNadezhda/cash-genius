@@ -12,7 +12,7 @@ import { requests } from "../../categoriesList";
 import { svgIcons } from "../../categoriesList";
 
 export const Categories = ({ loadArticles }) => {
-  const { t } = useTranslation(["categories"]);
+  const { t } = useTranslation(["articles"]);
 
   const dispatch = useDispatch();
   const { categorySelected, isSelected } = useSelector(selectCategory);
