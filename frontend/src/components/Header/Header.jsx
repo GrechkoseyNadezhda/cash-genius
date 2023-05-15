@@ -12,44 +12,40 @@ export const Header = () => {
   const { t, i18n } = useTranslation(["header"]);
   const dispatch = useDispatch();
   const { modalMenuOpened } = useSelector(selectGlobal);
-  const currentTab = useLocation().pathname;
+  let currentPath = useLocation().pathname.split("/")[1];
+  currentPath = currentPath.length > 0 ? currentPath : "game";
 
   useEffect(() => {
-    if (!["/", "/articles", "/about"].includes(currentTab)) return;
-    let currentMenuId = currentTab.slice(1);
-    if (currentMenuId.length === 0) currentMenuId = "game";
-    document.getElementById(currentMenuId).classList.add("active");
-  }, [currentTab]);
+    if (!["game", "articles", "about"].includes(currentPath)) return;
+    document
+      .querySelectorAll(".menu")
+      .forEach((item) => item.classList.remove("active"));
+    document.getElementById(currentPath).classList.add("active");
+  }, [currentPath]);
 
   const openModalMenu = () => {
     dispatch(openModal());
   };
 
-  const clearActive = (e) => {
-    document
-      .querySelectorAll(".menu")
-      .forEach((item) => item.classList.remove("active"));
-  };
-
   return (
     <header className={"container " + css.headContainer}>
       {modalMenuOpened && <ModalMenu />}
-      <Link to="/" onClick={clearActive} id="logo">
+      <Link to="/" id="logo">
         <span className={css.logo}>Cash Genius</span>
       </Link>
       <nav className={css.navigation}>
         <ul className={css.mainNav}>
-          <li className="menu" onClick={clearActive} id="game">
+          <li className="menu" id="game">
             <Link to="/" className={css.menuItem}>
               {t("game")}
             </Link>
           </li>
-          <li className="menu" onClick={clearActive} id="articles">
+          <li className="menu" id="articles">
             <Link to="/articles" className={css.menuItem}>
               {t("articles")}
             </Link>
           </li>
-          <li className="menu" onClick={clearActive} id="about">
+          <li className="menu" id="about">
             <Link to="/about" className={css.menuItem}>
               {t("about")}
             </Link>
