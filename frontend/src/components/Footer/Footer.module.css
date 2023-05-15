@@ -38,6 +38,11 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  transition: all 500ms ease;
+}
+
+.contactLink:hover .contactMail {
+  color: #f5c92a;
 }
 
 .contactIcon {
@@ -72,6 +77,7 @@
     width: 70px;
     height: 70px;
     margin-right: 16px;
+    background-image: url("../../images/header/logo70x70.png");
   }
 
   .contactIcon {
@@ -90,6 +96,7 @@
     width: 70px;
     height: 70px;
     margin-right: 16px;
+    background-image: url("../../images/header/logo100x100.png");
   }
 
   .contactLink {
