@@ -37,11 +37,12 @@
 
 .link {
   display: block;
-  width: 143px;
+  width: 139px;
   padding: 8px 0;
   background: #f5c92a;
   border-radius: 4px;
   text-align: center;
+  border: 2px solid #f5c92a;
 
   font-family: "Cormorant Garamond";
   font-style: normal;
@@ -49,6 +50,13 @@
   font-size: 16px;
   line-height: calc(19 / 16);
   color: #1b1d1c;
+
+  transition: all 500ms ease;
+}
+
+.link:hover {
+  background: transparent;
+  color: #f5f5f5;
 }
 
 @media screen and (min-width: 768px) {
