@@ -8,12 +8,13 @@ export async function getMainInfo() {
   return await axIstance.get("");
 }
 
-export async function getAllArticles(page) {
-  return await axIstance.get("financial_guide");
+export async function getAllArticles(category, params) {
+  // console.log(params);
+  return await axIstance.get(category, params);
 }
 
 export async function getArticleById(artId) {
-  return await axIstance.get(`posts/${artId}`);
+  return await axIstance.get(`article/${artId}`);
 }
 
 export async function getAboutInfo() {

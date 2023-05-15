@@ -4,6 +4,7 @@ const initialState = {
   lang: "ua",
   error: null,
   pending: false,
+  modalMenuOpened: false,
 };
 
 const globalSlice = createSlice({
@@ -19,8 +20,17 @@ const globalSlice = createSlice({
     setPending(state, { payload }) {
       state.pending = payload;
     },
+    openModal(state) {
+      document.body.classList.add("modalOpen");
+      state.modalMenuOpened = true;
+    },
+    closeModal(state) {
+      document.body.classList.remove("modalOpen");
+      state.modalMenuOpened = false;
+    },
   },
 });
 
-export const { setLanguage, setError, setPending } = globalSlice.actions;
+export const { setLanguage, setError, setPending, openModal, closeModal } =
+  globalSlice.actions;
 export const globalReducer = globalSlice.reducer;
