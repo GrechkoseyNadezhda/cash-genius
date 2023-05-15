@@ -5,15 +5,15 @@ export const Loader = () => {
     <div
       style={{
         position: "fixed",
-        top: "0",
+        top: "100",
         left: "0",
-        zIndex: "2",
+        zIndex: "200",
         width: "100vw",
         height: "100vh",
         overflow: "hidden",
-        background: "rgba(0, 0, 0, 0.2)",
+        // background: "rgba(0, 0, 0, 0.2)",
         display: "flex",
-        alignItems: "center",
+        alignItems: "flexStart",
         justifyContent: "center",
       }}
     >
