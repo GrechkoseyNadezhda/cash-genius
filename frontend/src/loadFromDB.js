@@ -6,13 +6,13 @@ export const loadFromDB = (
   setState,
   fields,
   dispatch,
-  param = ""
+  params = { page: 1, num_articles: 100 }
 ) => {
   const loadData = () => {
     // console.log(category);
     dispatch(setPending(true));
     dispatch(setError(null));
-    promiseFromDB(category, param)
+    promiseFromDB(category, params)
       .then((res) => {
         let result = res;
         for (let field of fields) result = result[field];

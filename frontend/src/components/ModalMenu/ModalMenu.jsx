@@ -21,9 +21,6 @@ export const ModalMenu = () => {
   };
 
   const closeMenuModal = (e) => {
-    document
-      .querySelectorAll(".menu")
-      .forEach((item) => item.classList.remove("active"));
     dispatch(closeModal());
   };
   useEffect(() => {
