@@ -82,7 +82,7 @@ export const Categories = ({ loadArticles }) => {
       categoriesList.classList.remove("visually-hidden");
       if (!isSelected) {
         addActiveCategory(0);
-        loader("financial_guide", { params: { page: 1, num_articles: 6 } });
+        // loader("financial_guide", { params: { page: 1, num_articles: 6 } });
         dispatch(setCategory("all"));
       }
     }
