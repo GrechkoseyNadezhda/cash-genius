@@ -20,10 +20,8 @@ export const ArticlesList = ({ artList, category, loadArticles }) => {
   const [width, setWidth] = useState(window.innerWidth);
   const { isSelected } = useSelector(selectCategory);
   const { currentPage, morePages } = useSelector(selectCategory);
-  console.log(artList);
 
   const dispatch = useDispatch();
-
   const iconIndex = keys.indexOf(category);
 
   function handleResize() {
@@ -84,9 +82,7 @@ export const ArticlesList = ({ artList, category, loadArticles }) => {
   };
 
   const loadNextPage = () => {
-    console.log(currentPage + 1);
     const requestIndex = keys.indexOf(category);
-    // if (morePages)
     loader(requests[requestIndex], {
       params: { page: currentPage + 1, num_articles: 6 },
     });
