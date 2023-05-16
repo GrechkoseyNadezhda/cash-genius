@@ -71,12 +71,11 @@
   font-family: Cormorant Garamond;
   font-size: 16px;
   line-height: 32px;
+  border: 2px solid #f5c92a;
 }
 
 .moreButton:hover {
   background: none;
-  border: 2px solid #f5c92a;
-  padding: 10px 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -92,7 +91,6 @@
   .articlesList {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
     margin-bottom: 16px;
     gap: 14px;
   }
@@ -114,10 +112,6 @@
     font-size: 24px;
     line-height: 29px;
   }
-
-  .moreButton:hover {
-    padding: 14px 0;
-  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -133,5 +127,12 @@
   .artCard:last-child {
     width: 306px;
     margin-bottom: 80px;
+  }
+
+  .moreButton {
+    padding: 24px;
+    width: 338px;
+    font-size: 32px;
+    line-height: 32px;
   }
 }
