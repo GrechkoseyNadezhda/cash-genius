@@ -84,13 +84,13 @@ export const ArticlesList = ({ artList, category, loadArticles }) => {
   };
 
   const loadNextPage = () => {
-    console.log(currentPage);
+    console.log(currentPage + 1);
     const requestIndex = keys.indexOf(category);
     // if (morePages)
     loader(requests[requestIndex], {
       params: { page: currentPage + 1, num_articles: 6 },
     });
-    dispatch(setCurrentPage());
+    dispatch(setCurrentPage(currentPage + 1));
   };
 
   return (
@@ -111,9 +111,11 @@ export const ArticlesList = ({ artList, category, loadArticles }) => {
           </li>
         ))}
       </ul>
-      <button type="button" onClick={loadNextPage}>
-        LOAD MORE!!!
-      </button>
+      {morePages && (
+        <button type="button" className={css.moreButton} onClick={loadNextPage}>
+          {t("more")}
+        </button>
+      )}
     </div>
   );
 };

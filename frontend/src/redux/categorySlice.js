@@ -16,12 +16,15 @@ const categorySlice = createSlice({
     setIsSelected(state, { payload }) {
       state.isSelected = payload;
     },
-    setCurrentPage(state) {
-      state.currentPage += 1;
+    setCurrentPage(state, { payload }) {
+      state.currentPage = payload;
+    },
+    setMorePages(state, { payload }) {
+      state.morePages = payload;
     },
   },
 });
 
-export const { setCategory, setIsSelected, setCurrentPage } =
+export const { setCategory, setIsSelected, setCurrentPage, setMorePages } =
   categorySlice.actions;
 export const categoryReducer = categorySlice.reducer;
