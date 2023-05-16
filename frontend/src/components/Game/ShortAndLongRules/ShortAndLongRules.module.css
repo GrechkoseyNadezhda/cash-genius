@@ -47,6 +47,12 @@
   font-size: 20px;
   line-height: calc(26 / 20);
   color: #1b1d1c;
+
+  transition: all 500ms ease;
+}
+
+.openRulesBtn:hover {
+  color: #f5c92a;
 }
 
 @media screen and (min-width: 768px) {
@@ -54,39 +60,8 @@
   .subtitleParagraph,
   .paragraph,
   .blockTitle {
-    font-family: "Georgia";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: calc(26 / 16);
-    color: #4a4c4c;
-  }
-
-  .paragraph {
-    font-weight: 400;
-  }
-
-  .mobile {
-    display: block;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .subtitle,
-  .subtitleParagraph,
-  .paragraph,
-  .blockTitle {
     font-size: 20px;
     line-height: calc(30 / 20);
-  }
-
-  .cards,
-  .cardsLine {
-    margin: 32px 0;
-  }
-
-  .cards .card:not(:last-child) {
-    margin-bottom: 32px;
   }
 
   .cardsLine .card {
@@ -98,10 +73,45 @@
     display: flex;
   }
 
+  .cards,
+  .cardsLine {
+    margin: 24px 0;
+  }
+
+  .cards .card:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  .paragraph {
+    font-weight: 400;
+  }
+
+  .mobile {
+    display: block;
+  }
+  .tablet {
+    display: none;
+  }
+
   .openRulesBtn {
     margin-top: 24px;
 
     font-size: 24px;
     line-height: calc(27 / 24);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .cards,
+  .cardsLine {
+    margin: 32px 0;
+  }
+
+  .cards .card:not(:last-child) {
+    margin-bottom: 32px;
+  }
+
+  .tablet {
+    display: block;
   }
 }

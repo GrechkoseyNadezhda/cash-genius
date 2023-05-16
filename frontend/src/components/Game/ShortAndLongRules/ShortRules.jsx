@@ -49,10 +49,12 @@ export const ShortRules = ({ handleClick }) => {
           </span>
           {t("rules.gameProcess.text1")}
         </p>
-        <br />
-        <p className={css.paragraph}>{t("rules.gameProcess.text2")}</p>
-        <p className={css.paragraph}>{t("rules.gameProcess.text3")}</p>
-        <p className={css.paragraph}>{t("rules.gameProcess.text4")}</p>
+        <div className={css.tablet}>
+          <br />
+          <p className={css.paragraph}>{t("rules.gameProcess.text2")}</p>
+          <p className={css.paragraph}>{t("rules.gameProcess.text3")}</p>
+          <p className={css.paragraph}>{t("rules.gameProcess.text4")}</p>
+        </div>
       </div>
       <button className={css.openRulesBtn} onClick={handleClick}>
         {t("rules.button")}

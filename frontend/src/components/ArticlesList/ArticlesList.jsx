@@ -6,15 +6,22 @@ import icons from "../../images/symbol-defs.svg";
 import { ArticlePreview } from "../ArticlePreview/ArticlePreview";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCategory } from "../../redux/selectors";
-import { setCategory, setIsSelected } from "../../redux/categorySlice";
-import { keys, svgIcons } from "../../categoriesList";
+import {
+  setCategory,
+  setCurrentPage,
+  setIsSelected,
+} from "../../redux/categorySlice";
+import { keys, requests, svgIcons } from "../../categoriesList";
+import { loadFromDB } from "../../loadFromDB";
+import { getAllArticles } from "../../redux/operations";
 
-export const ArticlesList = ({ artList, category }) => {
+export const ArticlesList = ({ artList, category, loadArticles }) => {
   const { t } = useTranslation(["articles"]);
   const [width, setWidth] = useState(window.innerWidth);
   const { isSelected } = useSelector(selectCategory);
-  const dispatch = useDispatch();
+  const { currentPage, morePages } = useSelector(selectCategory);
 
+  const dispatch = useDispatch();
   const iconIndex = keys.indexOf(category);
 
   function handleResize() {
@@ -59,6 +66,29 @@ export const ArticlesList = ({ artList, category }) => {
     dispatch(setCategory("all"));
   };
 
+  const loader = (
+    category,
+    params = { params: { page: 1, num_articles: 6 } }
+  ) => {
+    const loadContent = loadFromDB(
+      getAllArticles,
+      category,
+      loadArticles,
+      ["data", "data"],
+      dispatch,
+      params
+    );
+    loadContent();
+  };
+
+  const loadNextPage = () => {
+    const requestIndex = keys.indexOf(category);
+    loader(requests[requestIndex], {
+      params: { page: currentPage + 1, num_articles: 6 },
+    });
+    dispatch(setCurrentPage(currentPage + 1));
+  };
+
   return (
     <div className={css.articlesWrapper} data-articles>
       <svg className={css.backArrow} onClick={backToCategories}>
@@ -77,6 +107,11 @@ export const ArticlesList = ({ artList, category }) => {
           </li>
         ))}
       </ul>
+      {morePages && (
+        <button type="button" className={css.moreButton} onClick={loadNextPage}>
+          {t("more")}
+        </button>
+      )}
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import { setMorePages } from "./redux/categorySlice";
 import { setError, setPending } from "./redux/globalSlice";
 
 export const loadFromDB = (
@@ -9,15 +10,15 @@ export const loadFromDB = (
   params = { page: 1, num_articles: 100 }
 ) => {
   const loadData = () => {
-    // console.log(category);
     dispatch(setPending(true));
     dispatch(setError(null));
     promiseFromDB(category, params)
       .then((res) => {
-        let result = res;
-        for (let field of fields) result = result[field];
-        setState(result);
-        // console.log(res);
+        const nextPageExists = res.data.next_page_exists;
+        if (typeof nextPageExists !== "undefined")
+          dispatch(setMorePages(nextPageExists));
+        for (let field of fields) res = res[field];
+        setState(res);
       })
       .catch((err) => dispatch(setError(err.message)))
       .finally(() => dispatch(setPending(false)));

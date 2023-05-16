@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import { getAboutInfo } from "../../redux/operations";
+import { useSelector } from "react-redux";
 import { selectGlobal } from "../../redux/selectors";
-import { loadFromDB } from "../../loadFromDB";
 import { Loader } from "../../components/Loader/Loader";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { team, teamUkr } from "./teamMembers.js";
 import css from "./About.module.css";
@@ -15,19 +16,30 @@ import iconOlearis from "../../images/partners/olearis.svg";
 import icons from "../../images/symbol-defs.svg";
 
 export const AboutUsTab = () => {
-  const [aboutInfo, setAboutInfo] = useState("");
   const { t } = useTranslation(["about"]);
   const { lang, error, pending } = useSelector(selectGlobal);
-  // const dispatch = useDispatch();
-  // const loader = useMemo(
-  //   () => loadFromDB(getAboutInfo, setAboutInfo, ["statusText"], dispatch),
-  //   [dispatch]
-  // );
-  // useEffect(() => loader(), [loader]);
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+  }, [error]);
 
   return (
     <div className={css.container}>
       {pending && <Loader />}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <h2 className={css.teamTitle}> {t("title1")}</h2>
       <p className={css.teamText}> {t("text")}</p>
       <h2 className={css.teamTitle}> {t("title2")}</h2>
@@ -125,11 +137,6 @@ export const AboutUsTab = () => {
           <img src={iconOlearis} alt="iconGoIt" width="156" height="71" />
         </li>
       </ul>
-      {/* <p>{error}</p>
-
-      {pending && <p>Loading data...</p>}
-      <p>Data from server: {aboutInfo}</p>
-      <p>Language: {lang}</p> */}
     </div>
   );
 };
