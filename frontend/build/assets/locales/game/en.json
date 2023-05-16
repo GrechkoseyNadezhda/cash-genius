@@ -1,0 +1,290 @@
+{
+  "title": "ALL ABOUT THE GAME",
+  "language": "Language",
+  "mainTitle": "Game",
+  "subtitle": "A real-life simulator for mastering time and money management skills",
+  "link": "Play in Telegram",
+  "benefits": {
+    "title1": "What does the financial game ",
+    "title2": " teach us",
+    "titleCard1": "Be financially literate",
+    "titleCard2": "Manage your time",
+    "titleCard3": "Earn money",
+    "descriptionCard1": "You will learn the basics of investing, principles, situations and timing.",
+    "descriptionCard2": "You will understand where your time is going. Where to get it? What is better to spend on?",
+    "descriptionCard3": "You can try different life strategies: career, freelance, startups, business, real estate, shares, venture investments."
+  },
+  "charactersTitle": "Characters",
+  "character0": {
+    "name": "Adele",
+    "description": "Rich kid",
+    "level": "Easy level",
+    "family": "Rich family",
+    "friends": "Many friends",
+    "money": "Pocket money: UAH 5,000",
+    "property": "Property: smartphone, laptop",
+    "strength": "Strength: family support"
+  },
+  "character1": {
+    "name": "Eugene",
+    "description": "Regular guy",
+    "level": "Medium level",
+    "family": "Regular family",
+    "friends": "Several friends",
+    "money": "Pocket money: UAH 1,500",
+    "property": "Property: laptop",
+    "strength": "Strength: health"
+  },
+  "character2": {
+    "name": "Michael",
+    "description": "Poor kid",
+    "level": "Hard level",
+    "family": "Poor single-parent family",
+    "friends": "One friend",
+    "money": "Pocket money: UAH 400",
+    "property": "Property: cellphone",
+    "strength": "Strength: motivation"
+  },
+
+  "rules": {
+    "title": "Game rules",
+    "about": {
+      "title": "Cash Genius ",
+      "text1": "is a financial simulator that allows you to test different life strategies and find out which of them lead to the desired result. In this game, you choose the future of your character and guide them through their life journey.",
+      "text2": "At the beginning of the game, you set the goals and determine the values of the character. You receive cards and choose from various actions indicated on the cards those which might help the character to live the life they dream about. Every step has impact on the quality of life and shapes the history.",
+      "text3": "By playing this game, you develop your decision-making skills to make better choices in real life."
+    },
+
+    "goal": {
+      "title": "Goal of the game. ",
+      "text1": "The goal of the game is to obtain financial result and reach the quality of life as close as possible to the goals and values chosen at the beginning of the game."
+    },
+
+    "gameplay": {
+      "title": "Gameplay. ",
+      "text1": "The player accepts or declines offers to invest available time and money in 1 of 6 spheres of life and deals with random events, which may result from their decisions or simply happen regardless of their will."
+    },
+
+    "start": {
+      "title": "Start of the game.",
+      "subtitle": "The player creates a new game and chooses a character according to the complexity of the game:",
+      "characters": {
+        "text1": "Adel is a rich kid (easy level);",
+        "text2": "Eugene is a regular guy (middle level);",
+        "text3": "Michael is a poor guy from a one-parent family (hard level)."
+      },
+      "text1": "The player sets goals and determines values for character’s life after 60 years: enters the amount of money per month that they consider to be an adequate monthly pension and sets priorities, i.e. what they consider to be the best life balance (for example, their main priority may be career, family and friends, or money and health).",
+      "text2": "At the beginning of the game, all characters are 14 years old.",
+      "text3": "The system sets the initial values of parameters depending on the chosen level of complexity."
+    },
+
+    "gameProcess": {
+      "title": "Gameplay.",
+      "time": "Time. ",
+      "text1": "After choosing the character, setting the goals and viewing the initial balance, the clock starts ticking. Time is counted from 14 to 60 years of the character with 1-month step. At the end of each month regular income (salary, income from businesses, interest on savings) and expenses (repayment of loans, business expenses, education fees, life expenses) accrue.",
+      "text2": "When the character reaches certain age, they get more options.",
+      "text3": "When the character is 14 years old, they can work no more than 4 hours per day and no more than 24 hours per week, and need parental consent.",
+      "text4": "When the character turns 15 years old, they can work no more than 5 hours per day and no more than 24 hours per week.",
+      "text5": "When the character turns 16 years old, they can work no more than 36 hours per week, parental consent is not needed. They can also open their own business.",
+      "text6": "When the character turns 18 years old, they finish school and can work without restrictions. Also, they can trade in securities and use bank loans if they have sufficient cash flow. They can get married and start a family.",
+      "text7": "Minors must spend 120 hours per month to attend school, characters of all ages must sleep for 240 hours and spend at least 20 hours on household chores."
+    },
+
+    "lifeStandard": {
+      "title": "Living standards.",
+      "text1": "When the character turns 18 or if they move before this date, they have to rent or buy accommodation and maintain themselves. Cost of living is indicated without details in the article “Consumer basket” and may grow over time, with changes in family size or ambitions. Life abroad is more expensive."
+    },
+
+    "cardTypes": {
+      "title": "Card types. ",
+      "text1": "Players randomly receive from 1 to 3 cards during one in-game month , i. e. up to 18 cards per year. The cards are divided into two categories: offers and random events. The offer cards give the player an opportunity to make decisions in such areas as employment, investments, education, friends, family, and health. Each decision changes from 1 to 5 parameters — time, money, family relations, relationships with friends, health, motivation, and skills. Example of offer card:",
+      "text2": "If the player gets an offer, they are not able to accept because of the lack of any resource, the chat bot shows appropriate warning. Some resources can be released immediately through the balance sheet, for example the character may leave current job if they are offered a better one.",
+      "text3": "Random events can result from the decisions or simply happen.",
+      "text4": "Example of random event card:",
+      "text5": "Random events simply change the values of corresponding parameters, the player cannot reject them.",
+      "text6": "Cards of all types are drawn from sets “Minor” (14–17) and “Adult” (18–60).",
+      "cardsExample": {
+        "card1": {
+          "title": "You noticed a poster saying that waiting staff is needed in a coffee shop near your place.",
+          "text1": "salary: + UAH 50 per hour",
+          "text2": "time: - 80 hours per month",
+          "text3": "skill: communications"
+        },
+        "card2": {
+          "title": "Your friend is in trouble. He needs financial assistance.",
+          "text1": "cash: - UAH 1,000",
+          "text2": "relationships with friends: +10",
+          "text3": ""
+        },
+        "card3": {
+          "title": "You received a present",
+          "text1": "cash: +100% of the salary",
+          "text2": "motivation: +15",
+          "text3": ""
+        }
+      }
+    },
+
+    "work": {
+      "title": "Employment. ",
+      "text1": "The player can build the character’s career by developing their skills. Some cards with career offers can only be accepted if the character has required skills. As the character gains work experience, their skills improve —  +1 level for each full year worked in the industry. For example:",
+      "text2": "Employment is shown in the balance sheet as income, time expenditures and skills. The player may terminate employment any time through the balance sheet, but they will need to wait for a job offer to get another job.",
+      "cardsExample": {
+        "card1": {
+          "title": "Junior Developer",
+          "subtitle": "Required skills: programming or technical skills",
+          "text1": "salary: UAH 70,000 per month",
+          "text2": "time: - 160 hours per month",
+          "text3": "skill: programming +1 level in a year"
+        },
+        "card2": {
+          "title": "Developer",
+          "subtitle": "Required skills: programming+1",
+          "text1": "salary: UAH 100,000 per month",
+          "text2": "time: - 160 hours per month",
+          "text3": "skill: programming +1 level in a year"
+        },
+        "card3": {
+          "title": "Senior Developer",
+          "subtitle": "Required skills: programming+3",
+          "text1": "salary: UAH 150,000 per month",
+          "text2": "time: - 180 hours per month",
+          "text3": "skill: programming +1 level in a year"
+        }
+      }
+    },
+
+    "education": {
+      "title": "Education. ",
+      "text1": "The other ways to acquire skills are  education and hobby.",
+      "cardsExample": {
+        "card1": {
+          "title": "Enter the technical faculty (first education)",
+          "text1": "time: - 120 hours per month for 5 years",
+          "text2": "skill: technical skills +3 in 5 years",
+          "text3": ""
+        },
+        "card2": {
+          "title": "Take programming courses",
+          "text1": "time: - 40 hours per month for 10 months",
+          "text2": "cost: UAH 40,000",
+          "text3": "skill: programming in 10 months"
+        }
+      }
+    },
+
+    "business": {
+      "title": "Business. ",
+      "text1": "The character can open their own business or buy an existing business if they get such offer. Every business requires certain investments at the start and regular expenses of money and time. The character must have certain skills to run some businesses. An existing business generates profit from day 1, in case of own business you may need to wait for some time.",
+      "text2": "Initial capital is deducted from cash, regular time expenses are added to the time balance, profit is indicated under the name of the business from appropriate month, the value of business gradually increases or decreases depending on the events and your decisions and is shown as an asset.",
+      "text3": "Business can be sold at your own discretion for 80% of the value within 6 months or for 50% of the value urgently if you are under the threat of bankruptcy.",
+      "cardsExample": {
+        "card1": {
+          "title": "You have got an idea to make jewelry and sell it on Etsy. You need to take several workshops and to promote your profile",
+          "text1": "initial capital: UAH 3,000",
+          "text2": "time: - 40 hours per month",
+          "text3": "profit: UAH 3,000 per month in 1 month"
+        },
+        "card2": {
+          "title": "Buy a well-established jewelry business with schemes, profiles and warm clients",
+          "text1": "cost: UAH 50,000",
+          "text2": "time: - 60 hours per month",
+          "text3": "profit: UAH 8,000 per month"
+        }
+      }
+    },
+
+    "property": {
+      "title": "Property. ",
+      "text1": "The player may buy property that can be sold immediately for 50% of its value if it is meant for the character’s own use or for its current value within 6 months if it is an investment property. You may sell the property any time through the balance sheet. The value of real estate changes randomly unless a fire or other casualty happens. Personal property depreciates by 10% each year.",
+      "text2": "Example:",
+      "text3": "Initial capital is deducted from cash, regular time expenses are added to the time balance, profit is added to the income from appropriate month, the value gradually increases or decreases depending on random events and your decisions and is shown as an asset.",
+      "cardsExample": {
+        "card1": {
+          "title": "You decided to buy an apartment for rent",
+          "text1": "price: UAH 800,000",
+          "text2": "income: UAH 10,000 per month",
+          "text3": "time: - 2 hours per month"
+        }
+      }
+    },
+
+    "health": {
+      "title": "Health and motivation.",
+      "text1": "To achieve success, the character must maintain their health and motivation, have enough rest, add useful habits and get rid of bad habits, practice sports, communicate with family and friends, and experience positive emotions. If the character is burned out or tired, they have to rest. The maximum value of these parameters is 100%."
+    },
+
+    "relationships": {
+      "title": "Relationships",
+      "text1": "The character can maintain relations with friends and family if they have time and desire. The better the relationships are, the more support the character gets. But they have to invest in relationships – meet people, help them, show care, and spend resources. The maximum value of these parameters is 100%."
+    },
+
+    "bankAndExchange": {
+      "title": "Bank and stock exchange",
+      "bank": {
+        "title": "Bank. ",
+        "text1": "The player can access the bank any time (including when they need more resources to accept an offer) and obtains access to stock exchange when they turn 18.",
+        "text2": "The Bank accepts deposits (saving account: 7% per annum with free top-up and withdrawal, term deposit: 13% per annum for 1 year, no withdrawal), grants loans to individuals of full age if the cash flow exceeds the monthly loan payment (cash loan: 30% per annum for 12 months, early repayment allowed, or mortgage: 7% per annum for 20 years, only for real estate, early repayment allowed). Interest on deposits will be added to regular income during the term of deposit and will be paid at the end of the month in cash form, the principal amount of deposit will be deducted from cash at the beginning of the term and will be returned to cash at the end, and reflected in the balance sheet as an asset. The principal amount of loan will be added to cash at the beginning of the term and repaid in equal installments at the end of respective months, interest accrues on the outstanding amount and is to be paid at the end of the month as well. The outstanding amount may be reduced by partial early repayment. The amount of debt is shown in the balance sheet as a liability, loan interest is shown as regular expenses."
+      },
+      "exchange": {
+        "title": "Stock exchange. ",
+        "text1": "The player may buy or sell 5 types of securities, the current market price of which will be growing or falling randomly. Two types of securities allow to receive dividends in the amount of 3% of the share price at the end of the year in April of each year. Profit or loss is calculated as the difference between the sale price and the purchase price. The current value of shares in the portfolio is calculated as the current price*number and is reflected in the balance sheet as an asset."
+      },
+      "bookKeeping": {
+        "title": "Book keeping. ",
+        "text1": "The system constantly records time, money, health, relationships with family and friends. Example of balance sheet:"
+      },
+
+      "examplesOfBalance": {
+        "list1": {
+          "item1": "Cash: UAH 30,000",
+          "item2": "Cash flow: UAH 500 (income - expenditures)",
+          "item3": "Income: UAH 31,000",
+          "item4": "Salary: UAH 30,000 per month",
+          "item5": "Interest on deposits: UAH 1,000 per month"
+        },
+        "list2": {
+          "item1": "Expenses:",
+          "item2": "Rent: UAH 10,000",
+          "item3": "Consumer basket: UAH 10,000",
+          "item4": "Sports: UAH 1,500",
+          "item5": "Time with friends: UAH 4,000",
+          "item6": "Dating UAH 5,000"
+        },
+        "list3": {
+          "item1": "Assets:",
+          "item2": "Securities UAH 20,000",
+          "item3": "Deposit UAH 171,428"
+        },
+        "list4": {
+          "item1": "Free time: 102 hours per month",
+          "item2": "Household chores -20 hours",
+          "item3": "Work as a Tutor -120 hours",
+          "item4": "Workout: -16 hours",
+          "item5": "Time with friends -30 hours",
+          "item6": "Dating -40 hours",
+          "item7": "Helping parents -32 hours",
+          "item8": "Walks -30 hours",
+          "item9": "Social networks -90 hours",
+          "item10": "Litter picking in the forest -10 hours"
+        },
+        "list5": {
+          "item1": "Motivation: 80",
+          "item2": "Health: 80",
+          "item3": "Relations with the family: 90",
+          "item4": "Relationships with friends: 90"
+        }
+      }
+    },
+
+    "endGame": {
+      "title": "End of the game",
+      "text1": "The game ends when a character turns 60 or generates passive income (cash flow - income from employments) in the amount of desired pension — in this case the result is calculated and the system checks whether the player has reached the desired balance of life, i.e. high values of the chosen parameters. If desired passive income is less than current expenses at the time of its achievement, the player is offered to adjust the desired amount or get rid of unnecessary expenses.",
+      "text2": "When the character completely loses motivation, they commit suicide.",
+      "text3": "When expenses exceed income and the player cannot cover the difference by sale of property, the character goes bankrupt.",
+      "text4": "When the character completely loses health, they die."
+    },
+
+    "button": "Read more"
+  }
+}
