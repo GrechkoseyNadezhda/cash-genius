@@ -19,7 +19,7 @@ i18n
     },
     ns: ["header", "game", "articles", "about", "footer"],
     backend: {
-      loadPath: "/cash-genius/assets/locales/{{ns}}/{{lng}}.json",
+      loadPath: "/Cash-Genius/assets/locales/{{ns}}/{{lng}}.json",
     },
   });
 export default i18n;
