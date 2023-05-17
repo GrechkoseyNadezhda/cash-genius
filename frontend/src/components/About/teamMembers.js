@@ -98,7 +98,7 @@ export const team = [
       p: images.SofinskaP,
       d: images.SofinskaD,
     },
-    ln: "https://www.linkedin.com/in/viktoriya-sofinska",
+    ln: "https://www.linkedin.com/in/viktoriya-sofinska-41b367252/",
   },
   {
     id: 10,
@@ -255,7 +255,7 @@ export const teamUkr = [
       p: images.SofinskaP,
       d: images.SofinskaD,
     },
-    ln: "https://www.linkedin.com/in/viktoriya-sofinska",
+    ln: "https://www.linkedin.com/in/viktoriya-sofinska-41b367252/",
   },
   {
     id: 10,
