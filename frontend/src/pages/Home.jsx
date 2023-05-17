@@ -4,14 +4,32 @@ import { Footer } from "../components/Footer/Footer";
 import { Loader } from "../components/Loader/Loader";
 import { useSelector } from "react-redux";
 import { selectGlobal } from "../redux/selectors";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 export const Home = () => {
-  // const { pending } = useSelector(selectGlobal);
+  const { error } = useSelector(selectGlobal);
+  useEffect(() => {
+    if (error) {
+      console.log(error);
+      toast.error(error);
+    }
+  }, [error]);
   return (
     <>
       <Header />
-      {/* {pending && <Loader />} */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>

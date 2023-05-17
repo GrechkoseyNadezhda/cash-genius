@@ -18,7 +18,7 @@ export const loadFromDB = (
         if (typeof nextPageExists !== "undefined")
           dispatch(setMorePages(nextPageExists));
         for (let field of fields) res = res[field];
-        setState(res);
+        if (res) setState(res);
       })
       .catch((err) => dispatch(setError(err.message)))
       .finally(() => dispatch(setPending(false)));
