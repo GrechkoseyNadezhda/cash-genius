@@ -1,5 +1,6 @@
 {
   "files": {
+
     "main.css": "/Cash-Genius/static/css/main.288c6eee.css",
     "main.js": "/Cash-Genius/static/js/main.05fd0195.js",
     "static/js/787.074db138.chunk.js": "/Cash-Genius/static/js/787.074db138.chunk.js",
@@ -73,5 +74,6 @@
   "entrypoints": [
     "static/css/main.288c6eee.css",
     "static/js/main.05fd0195.js"
+
   ]
 }
