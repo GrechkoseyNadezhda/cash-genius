@@ -19,8 +19,7 @@ i18n
     },
     ns: ["header", "game", "articles", "about", "footer"],
     backend: {
-      loadPath:
-        "https://bandydan.pythonanywhere.com/assets/locales/{{ns}}/{{lng}}.json",
+      loadPath: "/assets/locales/{{ns}}/{{lng}}.json",
     },
   });
 export default i18n;

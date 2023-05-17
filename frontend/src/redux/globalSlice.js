@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   lang: "ua",
-  error: null,
+  error: false,
   pending: false,
   modalMenuOpened: false,
 };
