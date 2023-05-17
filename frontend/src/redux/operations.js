@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const axIstance = axios.create({
-  baseURL: "http://127.0.0.1:8000/",
-  // baseURL: "https://bandydan.pythonanywhere.com/",
+  // baseURL: "http://127.0.0.1:8000/",
+  baseURL: "https://bandydan.pythonanywhere.com/",
 });
 
 export async function getMainInfo() {

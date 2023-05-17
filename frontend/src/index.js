@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
-    <BrowserRouter basename="/Cash-Genius">
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </Provider>
