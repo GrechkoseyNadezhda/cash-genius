@@ -1,13 +1,13 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { loadFromDB } from "../../loadFromDB";
 import { getArticleById } from "../../redux/operations";
-import { selectGlobal } from "../../redux/selectors";
 import icons from "../../images/symbol-defs.svg";
 import css from "./ArticleDetails.module.css";
 import { keys, svgIcons } from "../../categoriesList";
+import DOMPurify from "dompurify";
 
 export const ArticleDetails = () => {
   const [article, setArticle] = useState({});
@@ -16,7 +16,6 @@ export const ArticleDetails = () => {
   const location = useLocation();
   const { t } = useTranslation(["articles"]);
   const dispatch = useDispatch();
-  const { error, pending, lang } = useSelector(selectGlobal);
   const iconIndex = keys.indexOf(category);
 
   const loader = () => {
@@ -36,8 +35,6 @@ export const ArticleDetails = () => {
 
   return (
     <div className="container">
-      <p>{error}</p>
-      {/* {pending && <p>Loading data...</p>} */}
       <h1 className={css.pageTitle}>{t("title")}</h1>
       <div className={css.flexTitle}>
         <div className={css.backNavigation}>
@@ -61,7 +58,12 @@ export const ArticleDetails = () => {
           <h3 className={css.artTitle}>{article.title}</h3>
           <p className={css.dateTablet}>{article.date_added}</p>
           <img className={css.picture} src={article.image} alt="" />
-          <p className={css.content}>{article.content}</p>
+          <p
+            className={css.content}
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(article.content),
+            }}
+          ></p>
         </div>
       </div>
       <Link to={location.state.from} className={css.mobileArrow}>
