@@ -16,7 +16,7 @@ export const ArticleDetails = () => {
   const location = useLocation();
   const { t } = useTranslation(["articles"]);
   const dispatch = useDispatch();
-  const { error, pending, lang } = useSelector(selectGlobal);
+  const { error } = useSelector(selectGlobal);
   const iconIndex = keys.indexOf(category);
 
   const loader = () => {
