@@ -1,18 +1,20 @@
-.headContainer {
+.headerSection {
   position: fixed;
   z-index: 20;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
+  left: 50vw;
+  transform: translateX(-50vw);
+  width: 100vw;
   height: 56px;
-  padding: 8px 16px;
+  padding: 8px 0;
+  box-sizing: border-box;
   background: white;
-  /* outline: 1px solid red; */
+}
+
+.headContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-sizing: border-box;
 }
 
 .logo {
@@ -73,10 +75,9 @@
 }
 
 @media screen and (min-width: 768px) {
-  .headContainer {
+  .headerSection {
     height: 94px;
-    padding: 12px 32px;
-    /* max-width: 100%; */
+    padding: 12px 0;
   }
   .logo {
     font-size: 24px;
@@ -118,9 +119,9 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .headContainer {
+  .headerSection {
     height: 132px;
-    padding: 16px 72px;
+    padding: 16px 0;
   }
   .logo {
     font-size: 40px;
