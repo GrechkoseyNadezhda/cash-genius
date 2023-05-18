@@ -1,4 +1,4 @@
-.headContainer {
+.headerSection {
   position: fixed;
   z-index: 20;
   top: 0;
@@ -8,7 +8,10 @@
   height: 56px;
   padding: 8px 16px;
   background: white;
-  /* outline: 1px solid red; */
+}
+
+.headContainer {
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -73,10 +76,9 @@
 }
 
 @media screen and (min-width: 768px) {
-  .headContainer {
+  .headerSection {
     height: 94px;
     padding: 12px 32px;
-    /* max-width: 100%; */
   }
   .logo {
     font-size: 24px;
@@ -118,7 +120,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .headContainer {
+  .headerSection {
     height: 132px;
     padding: 16px 72px;
   }
