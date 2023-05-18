@@ -1,17 +1,14 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCategory, selectGlobal } from "../../redux/selectors";
+import { selectCategory } from "../../redux/selectors";
 import { Categories } from "../Categories/Categories";
 import { ArticlesList } from "../ArticlesList/ArticlesList";
 import css from "./ArticlesTab.module.css";
-
-import { Loader } from "../../components/Loader/Loader";
 import { setCurrentPage } from "../../redux/categorySlice";
 
 export const ArticlesTab = () => {
   const { t } = useTranslation(["articles"]);
-  const { error, pending } = useSelector(selectGlobal);
   const { categorySelected } = useSelector(selectCategory);
   const [articles, setArticles] = useState([]);
   const dispatch = useDispatch();
@@ -26,19 +23,20 @@ export const ArticlesTab = () => {
   };
 
   return (
-    <div className="container">
-      {pending && <Loader />}
-      <h1 className={css.title}>{t("title")}</h1>
-      <div className={css.finPageWrapper}>
-        <Categories loadArticles={resetArticles} />
-        {articles.length > 0 && (
-          <ArticlesList
-            artList={articles}
-            category={categorySelected}
-            loadArticles={updateArticles}
-          />
-        )}
+    <section className={css.articlesTabSection}>
+      <div className="container">
+        <h1 className={css.title}>{t("title")}</h1>
+        <div className={css.finPageWrapper}>
+          <Categories loadArticles={resetArticles} />
+          {articles.length > 0 && (
+            <ArticlesList
+              artList={articles}
+              category={categorySelected}
+              loadArticles={updateArticles}
+            />
+          )}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
