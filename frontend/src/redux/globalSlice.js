@@ -5,6 +5,7 @@ const initialState = {
   error: false,
   pending: false,
   modalMenuOpened: false,
+  emptyResult: "",
 };
 
 const globalSlice = createSlice({
@@ -28,9 +29,18 @@ const globalSlice = createSlice({
       document.body.classList.remove("modalOpen");
       state.modalMenuOpened = false;
     },
+    setEmptyResult(state, { payload }) {
+      state.emptyResult = payload;
+    },
   },
 });
 
-export const { setLanguage, setError, setPending, openModal, closeModal } =
-  globalSlice.actions;
+export const {
+  setLanguage,
+  setError,
+  setPending,
+  openModal,
+  closeModal,
+  setEmptyResult,
+} = globalSlice.actions;
 export const globalReducer = globalSlice.reducer;

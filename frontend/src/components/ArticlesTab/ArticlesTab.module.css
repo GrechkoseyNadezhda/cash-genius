@@ -18,6 +18,10 @@
   margin-bottom: 72px;
 }
 
+.emptyMessage {
+  text-align: center;
+}
+
 @media screen and (min-width: 768px) {
   .finPageWrapper {
     margin-bottom: 120px;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { loadFromDB } from "../../loadFromDB";
 import { getArticleById } from "../../redux/operations";
@@ -8,6 +8,7 @@ import icons from "../../images/symbol-defs.svg";
 import css from "./ArticleDetails.module.css";
 import { keys, svgIcons } from "../../categoriesList";
 import { TextFormatted } from "../TextFormatted/TextFormatted";
+import { selectGlobal } from "../../redux/selectors";
 
 export const ArticleDetails = () => {
   const [article, setArticle] = useState({});
@@ -17,6 +18,7 @@ export const ArticleDetails = () => {
   const { t } = useTranslation(["articles"]);
   const dispatch = useDispatch();
   const iconIndex = keys.indexOf(category);
+  const { pending, emptyResult } = useSelector(selectGlobal);
 
   const loader = () => {
     const loady = loadFromDB(
@@ -54,7 +56,7 @@ export const ArticleDetails = () => {
           </Link>
         </div>
         <div className={css.rightPosition}>
-          {Object.keys(article).length === 0 && <p>ТАКОЇ СТАТТІ НЕМАЄ!!!</p>}
+          <p className={css.emptyMessage}>{emptyResult}</p>
           <p className={css.dateMobile}>{article.date_added}</p>
           <h3 className={css.artTitle}>{article.title}</h3>
           <p className={css.dateTablet}>{article.date_added}</p>
