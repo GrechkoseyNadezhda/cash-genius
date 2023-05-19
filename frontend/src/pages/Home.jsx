@@ -4,7 +4,7 @@ import { Footer } from "../components/Footer/Footer";
 import { Loader } from "../components/Loader/Loader";
 import { useSelector } from "react-redux";
 import { selectGlobal } from "../redux/selectors";
-import { Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 export const Home = () => {
@@ -31,9 +31,7 @@ export const Home = () => {
         theme="light"
       />
       {pending && <Loader />}
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+      <Outlet />
       <Footer />
     </>
   );

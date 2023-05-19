@@ -7,7 +7,7 @@ import { getArticleById } from "../../redux/operations";
 import icons from "../../images/symbol-defs.svg";
 import css from "./ArticleDetails.module.css";
 import { keys, svgIcons } from "../../categoriesList";
-import DOMPurify from "dompurify";
+import { TextFormatted } from "../TextFormatted/TextFormatted";
 
 export const ArticleDetails = () => {
   const [article, setArticle] = useState({});
@@ -38,7 +38,7 @@ export const ArticleDetails = () => {
       <h1 className={css.pageTitle}>{t("title")}</h1>
       <div className={css.flexTitle}>
         <div className={css.backNavigation}>
-          <Link to={location.state.from}>
+          <Link to={location.state?.from ?? "/articles"}>
             <div className={css.backToCategory}>
               <svg className={css.backArrow}>
                 <use href={`${icons}#left-arrow`}></use>
@@ -54,19 +54,18 @@ export const ArticleDetails = () => {
           </Link>
         </div>
         <div className={css.rightPosition}>
+          {Object.keys(article).length === 0 && <p>ТАКОЇ СТАТТІ НЕМАЄ!!!</p>}
           <p className={css.dateMobile}>{article.date_added}</p>
           <h3 className={css.artTitle}>{article.title}</h3>
           <p className={css.dateTablet}>{article.date_added}</p>
           <img className={css.picture} src={article.image} alt="" />
-          <p
-            className={css.content}
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(article.content),
-            }}
-          ></p>
+          <TextFormatted content={article.content} />
         </div>
       </div>
-      <Link to={location.state.from} className={css.mobileArrow}>
+      <Link
+        to={location.state?.from ?? "/articles"}
+        className={css.mobileArrow}
+      >
         <svg className={css.backArrow}>
           <use href={`${icons}#left-arrow`}></use>
         </svg>

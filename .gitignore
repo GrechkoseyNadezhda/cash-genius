@@ -1,6 +1,7 @@
 env/
 __pycache__/
 .idea
-# db.sqlite3
-# ../db.sqlite3
-# ./db.sqlite3
+db.sqlite3
+../db.sqlite3
+./db.sqlite3
+
