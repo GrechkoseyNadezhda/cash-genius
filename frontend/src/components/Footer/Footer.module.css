@@ -19,7 +19,7 @@
   content: "";
   width: 40px;
   height: 40px;
-  background-image: url("../../images/header/logo40x40.png");
+  background-image: url("../../images/header/logo100x100.png");
   background-size: cover;
   background-repeat: no-repeat;
   margin-right: 12px;
@@ -80,7 +80,7 @@
     width: 70px;
     height: 70px;
     margin-right: 16px;
-    background-image: url("../../images/header/logo70x70.png");
+    background-image: url("../../images/header/logo100x100.png");
   }
 
   .contactIcon {

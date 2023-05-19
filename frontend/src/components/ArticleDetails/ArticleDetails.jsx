@@ -8,6 +8,7 @@ import icons from "../../images/symbol-defs.svg";
 import css from "./ArticleDetails.module.css";
 import { keys, svgIcons } from "../../categoriesList";
 import DOMPurify from "dompurify";
+import { TextFormatted } from "../TextFormatted/TextFormatted";
 
 export const ArticleDetails = () => {
   const [article, setArticle] = useState({});
@@ -58,12 +59,13 @@ export const ArticleDetails = () => {
           <h3 className={css.artTitle}>{article.title}</h3>
           <p className={css.dateTablet}>{article.date_added}</p>
           <img className={css.picture} src={article.image} alt="" />
-          <p
+          <TextFormatted content={article.content} />
+          {/* <p
             className={css.content}
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(article.content),
             }}
-          ></p>
+          ></p> */}
         </div>
       </div>
       <Link to={location.state.from} className={css.mobileArrow}>
