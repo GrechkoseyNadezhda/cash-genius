@@ -19,11 +19,15 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.urls import path, include
+from django.urls import re_path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic import TemplateView, RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('site_app.urls')),
+    re_path(r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico')),
+    re_path(r'^manifest\.json$', RedirectView.as_view(url='/static/manifest.json')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
