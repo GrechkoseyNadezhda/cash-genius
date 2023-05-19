@@ -90,15 +90,16 @@
   .characters ::-webkit-scrollbar {
     height: 10px;
     width: 30px;
-    background-color: #4a4c4c33;
+    background-color: #d9d9d9;
 
-    border-radius: 3px;
+    border-radius: 20px;
   }
 
   .characters ::-webkit-scrollbar-thumb {
     background-color: #f5c92a;
     border-radius: 3px;
     box-shadow: inset 1px 1px 10px #f3faf7;
+    border-radius: 20px;
   }
   .characterItem {
     width: 341px;
