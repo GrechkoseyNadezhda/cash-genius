@@ -1,0 +1,46 @@
+.articleParagraph,
+.articleOrderedList,
+.articleSubtitle,
+.articleUnOrderedList,
+.articleText {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: calc(26 / 16);
+  color: #4a4c4c;
+}
+
+.articleSubtitle {
+  text-align: center;
+}
+
+.articleParagraph {
+  text-indent: 20px;
+}
+
+.articleUnOrderedList {
+  padding-left: 40px;
+}
+
+.articleOrderedList {
+  list-style-type: decimal;
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.articleOrderedItem {
+  padding-left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .articleParagraph,
+  .articleOrderedList,
+  .articleSubtitle,
+  .articleUnOrderedList,
+  .articleText {
+    font-size: 20px;
+    line-height: calc(30 / 20);
+  }
+}
