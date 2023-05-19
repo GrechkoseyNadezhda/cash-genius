@@ -7,7 +7,6 @@ import { getArticleById } from "../../redux/operations";
 import icons from "../../images/symbol-defs.svg";
 import css from "./ArticleDetails.module.css";
 import { keys, svgIcons } from "../../categoriesList";
-import DOMPurify from "dompurify";
 import { TextFormatted } from "../TextFormatted/TextFormatted";
 
 export const ArticleDetails = () => {
@@ -55,6 +54,7 @@ export const ArticleDetails = () => {
           </Link>
         </div>
         <div className={css.rightPosition}>
+          {Object.keys(article).length === 0 && <p>ТАКОЇ СТАТТІ НЕМАЄ!!!</p>}
           <p className={css.dateMobile}>{article.date_added}</p>
           <h3 className={css.artTitle}>{article.title}</h3>
           <p className={css.dateTablet}>{article.date_added}</p>

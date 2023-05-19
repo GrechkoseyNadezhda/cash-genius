@@ -20,7 +20,10 @@ export const loadFromDB = (
         for (let field of fields) res = res[field];
         if (res) setState(res);
       })
-      .catch((err) => dispatch(setError(err.message)))
+      .catch((err) => {
+        if (err.code !== "ERR_BAD_REQUEST") dispatch(setError(err.message));
+        console.log(err);
+      })
       .finally(() => dispatch(setPending(false)));
   };
   return loadData;

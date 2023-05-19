@@ -28,6 +28,7 @@ export const ArticlesTab = () => {
         <h1 className={css.title}>{t("title")}</h1>
         <div className={css.finPageWrapper}>
           <Categories loadArticles={resetArticles} />
+          {articles.length === 0 && <p>ТАКИХ СТАТЕЙ НЕМАЄ!!!</p>}
           {articles.length > 0 && (
             <ArticlesList
               artList={articles}
