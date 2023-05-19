@@ -28,6 +28,8 @@ urlpatterns = [
     path('api/', include('site_app.urls')),
     re_path(r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico')),
     re_path(r'^manifest\.json$', RedirectView.as_view(url='/static/manifest.json')),
+    path("", TemplateView.as_view(template_name="index.html")),   # це додамо після зміни ендпоінтів
+    # re_path(r".*", TemplateView.as_view(template_name="index.html")),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
@@ -37,5 +39,6 @@ if settings.DEBUG:
 
 urlpatterns += i18n_patterns(
     path("i18n/", include("django.conf.urls.i18n")),
+    # re_path(r".*", TemplateView.as_view(template_name="index.html")),
     prefix_default_language=False,
 )
