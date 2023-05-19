@@ -62,7 +62,10 @@ export const ArticleDetails = () => {
           <TextFormatted content={article.content} />
         </div>
       </div>
-      <Link to={location.state.from} className={css.mobileArrow}>
+      <Link
+        to={location.state?.from ?? "/articles"}
+        className={css.mobileArrow}
+      >
         <svg className={css.backArrow}>
           <use href={`${icons}#left-arrow`}></use>
         </svg>
