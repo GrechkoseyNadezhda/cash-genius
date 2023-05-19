@@ -11,7 +11,6 @@ export const Home = () => {
   const { error, pending } = useSelector(selectGlobal);
   useEffect(() => {
     if (error) {
-      console.log(error);
       toast.error(error);
     }
   }, [error]);

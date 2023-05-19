@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCategory } from "../../redux/selectors";
+import { selectCategory, selectGlobal } from "../../redux/selectors";
 import { Categories } from "../Categories/Categories";
 import { ArticlesList } from "../ArticlesList/ArticlesList";
 import css from "./ArticlesTab.module.css";
@@ -10,6 +10,7 @@ import { setCurrentPage } from "../../redux/categorySlice";
 export const ArticlesTab = () => {
   const { t } = useTranslation(["articles"]);
   const { categorySelected } = useSelector(selectCategory);
+  const { emptyResult } = useSelector(selectGlobal);
   const [articles, setArticles] = useState([]);
   const dispatch = useDispatch();
 
@@ -26,9 +27,9 @@ export const ArticlesTab = () => {
     <section className={css.articlesTabSection}>
       <div className="container">
         <h1 className={css.title}>{t("title")}</h1>
+        <p className={css.emptyMessage}>{emptyResult}</p>
         <div className={css.finPageWrapper}>
           <Categories loadArticles={resetArticles} />
-          {articles.length === 0 && <p>ТАКИХ СТАТЕЙ НЕМАЄ!!!</p>}
           {articles.length > 0 && (
             <ArticlesList
               artList={articles}
