@@ -39,7 +39,7 @@ export const ArticleDetails = () => {
       <h1 className={css.pageTitle}>{t("title")}</h1>
       <div className={css.flexTitle}>
         <div className={css.backNavigation}>
-          <Link to={location.state.from}>
+          <Link to={location.state?.from ?? "/articles"}>
             <div className={css.backToCategory}>
               <svg className={css.backArrow}>
                 <use href={`${icons}#left-arrow`}></use>
@@ -60,12 +60,6 @@ export const ArticleDetails = () => {
           <p className={css.dateTablet}>{article.date_added}</p>
           <img className={css.picture} src={article.image} alt="" />
           <TextFormatted content={article.content} />
-          {/* <p
-            className={css.content}
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(article.content),
-            }}
-          ></p> */}
         </div>
       </div>
       <Link to={location.state.from} className={css.mobileArrow}>

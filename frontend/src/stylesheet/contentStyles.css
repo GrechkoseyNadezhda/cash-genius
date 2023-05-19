@@ -44,3 +44,18 @@
     line-height: calc(30 / 20);
   }
 }
+
+@media screen and (min-width: 768px) {
+  p > .articleText > .articleParagraph {
+    font-family: Georgia;
+    font-size: 14px;
+    line-height: calc(20 / 14);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  p > .articleText > .articleParagraph {
+    font-size: 16px;
+    line-height: calc(26 / 16);
+  }
+}

@@ -10,13 +10,11 @@ export const ArticlePreview = ({ category, article }) => {
         <p className={css.date}>{article.date_added}</p>
         <h3 className={css.artTitle}>{article.title}</h3>
         <p
-          className={css.content}
+          className={css.contentWrapper}
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(article.content),
           }}
-        >
-          {/* {article.content} */}
-        </p>
+        ></p>
       </div>
     </Link>
   );

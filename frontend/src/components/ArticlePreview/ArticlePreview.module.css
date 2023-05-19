@@ -20,7 +20,7 @@
   padding: 0 12px 12px;
 }
 
-.content {
+.contentWrapper {
   display: none;
 }
 
@@ -38,17 +38,13 @@
     line-height: 20px;
   }
 
-  .content {
-    font-family: Georgia;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
+  .contentWrapper {
     margin: 0 12px 16px 12px;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: calc(1.43em * 2);
+    max-height: calc(1.43em * 10);
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Number of lines to show */
+    -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
   }
 }
@@ -64,10 +60,9 @@
     line-height: 27px;
   }
 
-  .content {
-    font-size: 16px;
-    line-height: 26px;
+  .contentWrapper {
     margin: 0 12px 16px 12px;
-    max-height: calc(1.625em * 2);
+    max-height: calc(1.3em * 10);
+    -webkit-line-clamp: 10;
   }
 }
