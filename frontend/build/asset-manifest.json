@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.629b6498.css",
-    "main.js": "/static/js/main.51c15415.js",
+    "main.js": "/static/js/main.c9318050.js",
     "static/js/787.074db138.chunk.js": "/static/js/787.074db138.chunk.js",
     "static/media/CormorantGaramond-Bold.ttf": "/static/media/CormorantGaramond-Bold.baa49dd6bbfc40f18cc9.ttf",
     "static/media/hero-bg-desk@2x.jpg": "/static/media/hero-bg-desk@2x.fb4fd504158105129d45.jpg",
@@ -67,11 +67,11 @@
     "index.html": "/index.html",
     "static/media/getFetch.cjs": "/static/media/getFetch.40f37ddea2378391108f.cjs",
     "main.629b6498.css.map": "/static/css/main.629b6498.css.map",
-    "main.51c15415.js.map": "/static/js/main.51c15415.js.map",
+    "main.c9318050.js.map": "/static/js/main.c9318050.js.map",
     "787.074db138.chunk.js.map": "/static/js/787.074db138.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.629b6498.css",
-    "static/js/main.51c15415.js"
+    "static/js/main.c9318050.js"
   ]
 }
