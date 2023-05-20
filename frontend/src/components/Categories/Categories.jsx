@@ -7,9 +7,9 @@ import { setCategory, setIsSelected } from "../../redux/categorySlice";
 import { getAllArticles } from "../../redux/operations";
 import { selectCategory } from "../../redux/selectors";
 import css from "./Categories.module.css";
-import { keys } from "../../categoriesList";
-import { requests } from "../../categoriesList";
-import { svgIcons } from "../../categoriesList";
+import { keys, requests, svgIcons } from "../../categoriesList";
+// import { requests } from "../../categoriesList";
+// import { svgIcons } from "../../categoriesList";
 
 export const Categories = ({ loadArticles }) => {
   const { t } = useTranslation(["articles"]);
