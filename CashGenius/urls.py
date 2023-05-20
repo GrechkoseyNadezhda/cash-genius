@@ -19,16 +19,26 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.urls import path, include
+from django.urls import re_path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic import TemplateView, RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('site_app.urls')),
+    re_path(r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico')),
+    re_path(r'^manifest\.json$', RedirectView.as_view(url='/static/manifest.json')),
+    path("", TemplateView.as_view(template_name="index.html")),   # це додамо після зміни ендпоінтів
+    # re_path(r".*", TemplateView.as_view(template_name="index.html")),
 ]
 
-urlpatterns += i18n_patterns(
-    path("i18n/", include("django.conf.urls.i18n")),
-    path('', include('site_app.urls')),
-    prefix_default_language=False,
-)
+urlpatterns += staticfiles_urlpatterns()
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += i18n_patterns(
+    path("i18n/", include("django.conf.urls.i18n")),
+    # re_path(r".*", TemplateView.as_view(template_name="index.html")),
+    prefix_default_language=False,
+)
