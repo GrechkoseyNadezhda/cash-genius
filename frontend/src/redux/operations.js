@@ -6,7 +6,7 @@ const axIstance = axios.create({
 });
 
 export async function getAllArticles(category, params) {
-  return await axIstance.get(category, params);
+  return await axIstance.get(`category/${category}`, params);
 }
 
 export async function getArticleById(artId) {
