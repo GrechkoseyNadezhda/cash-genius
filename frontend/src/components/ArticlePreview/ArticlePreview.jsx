@@ -3,6 +3,7 @@ import css from "./ArticlePreview.module.css";
 import DOMPurify from "dompurify";
 import { useSelector } from "react-redux";
 import { selectGlobal } from "../../redux/selectors";
+
 export const ArticlePreview = ({ category, article }) => {
   const location = useLocation();
   const { lang } = useSelector(selectGlobal);
