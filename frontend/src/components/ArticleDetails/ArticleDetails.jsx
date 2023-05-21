@@ -20,9 +20,9 @@ export const ArticleDetails = () => {
   const iconIndex = keys.indexOf(category);
   const { pending, emptyResult } = useSelector(selectGlobal);
   const { lang } = useSelector(selectGlobal);
-  const title = lang === "ua" ? article.title : article.english_version.title;
+  const title = lang === "ua" ? article.title : article.english_version?.title;
   const content =
-    lang === "ua" ? article.content : article.english_version.content;
+    lang === "ua" ? article.content : article.english_version?.content;
 
   const loader = () => {
     const loady = loadFromDB(

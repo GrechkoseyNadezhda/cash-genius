@@ -7,9 +7,10 @@ import { selectGlobal } from "../../redux/selectors";
 export const ArticlePreview = ({ category, article }) => {
   const location = useLocation();
   const { lang } = useSelector(selectGlobal);
-  const title = lang === "ua" ? article.title : article.english_version.title;
+  const title = lang === "ua" ? article.title : article.english_version?.title;
   const content =
-    lang === "ua" ? article.content : article.english_version.content;
+    lang === "ua" ? article.content : article.english_version?.content;
+  console.log(content);
   return (
     <Link to={`/articles/${category}/${article.pk}`} state={{ from: location }}>
       <div>

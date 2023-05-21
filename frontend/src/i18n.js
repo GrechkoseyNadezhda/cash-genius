@@ -19,7 +19,7 @@ i18n
     },
     ns: ["header", "game", "articles", "about", "footer"],
     backend: {
-      loadPath: "/static/assets/locales/{{ns}}/{{lng}}.json",
+      loadPath: "/assets/locales/{{ns}}/{{lng}}.json",
     },
   });
 export default i18n;
