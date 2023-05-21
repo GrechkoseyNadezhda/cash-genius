@@ -18,7 +18,11 @@ export const ArticleDetails = () => {
   const { t } = useTranslation(["articles"]);
   const dispatch = useDispatch();
   const iconIndex = keys.indexOf(category);
-  const { pending, emptyResult } = useSelector(selectGlobal);
+  const { emptyResult } = useSelector(selectGlobal);
+  const { lang } = useSelector(selectGlobal);
+  const title = lang === "ua" ? article.title : article.english_version?.title;
+  const content =
+    lang === "ua" ? article.content : article.english_version?.content;
 
   const loader = () => {
     const loady = loadFromDB(
@@ -58,10 +62,10 @@ export const ArticleDetails = () => {
         <div className={css.rightPosition}>
           <p className={css.emptyMessage}>{emptyResult}</p>
           <p className={css.dateMobile}>{article.date_added}</p>
-          <h3 className={css.artTitle}>{article.title}</h3>
+          <h3 className={css.artTitle}>{title}</h3>
           <p className={css.dateTablet}>{article.date_added}</p>
           <img className={css.picture} src={article.image} alt="" />
-          <TextFormatted content={article.content} />
+          <TextFormatted content={content} />
         </div>
       </div>
       <Link
