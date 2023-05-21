@@ -18,7 +18,7 @@ export const ArticleDetails = () => {
   const { t } = useTranslation(["articles"]);
   const dispatch = useDispatch();
   const iconIndex = keys.indexOf(category);
-  const { pending, emptyResult } = useSelector(selectGlobal);
+  const { emptyResult } = useSelector(selectGlobal);
   const { lang } = useSelector(selectGlobal);
   const title = lang === "ua" ? article.title : article.english_version?.title;
   const content =
