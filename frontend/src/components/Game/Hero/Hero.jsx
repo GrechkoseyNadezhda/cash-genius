@@ -10,7 +10,7 @@ export const Hero = () => {
         <div className={css.wrap}>
           <h1 className={css.title}>{t("mainTitle")} Cash Genius</h1>
           <p className={css.subtitle}>{t("subtitle")}</p>
-          <a className={css.link} href="mailto:cashgenius23@gmail.com">
+          <a className={css.link} href="https://t.me/Cash_Genius_Bot">
             {t("link")}
           </a>
         </div>
