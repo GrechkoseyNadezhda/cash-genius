@@ -40,7 +40,7 @@ body.modalOpen {
 
 @media screen and (min-width: 768px) {
   #root {
-    padding-top: 94px;
+    padding-top: 86px;
   }
   .container {
     padding: 0 32px;
@@ -49,7 +49,7 @@ body.modalOpen {
 }
 @media screen and (min-width: 1440px) {
   #root {
-    padding-top: 132px;
+    padding-top: 116px;
   }
   .container {
     padding: 0 72px;

@@ -10,7 +10,6 @@ export const ArticlePreview = ({ category, article }) => {
   const title = lang === "ua" ? article.title : article.english_version?.title;
   const content =
     lang === "ua" ? article.content : article.english_version?.content;
-  console.log(content);
   return (
     <Link to={`/articles/${category}/${article.pk}`} state={{ from: location }}>
       <div>

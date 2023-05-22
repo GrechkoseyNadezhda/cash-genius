@@ -76,8 +76,8 @@
 
 @media screen and (min-width: 768px) {
   .headerSection {
-    height: 94px;
-    padding: 12px 0;
+    height: 86px;
+    /* padding: 12px 0; */
   }
   .logo {
     font-size: 24px;
@@ -120,8 +120,8 @@
 
 @media screen and (min-width: 1440px) {
   .headerSection {
-    height: 132px;
-    padding: 16px 0;
+    height: 116px;
+    /* padding: 16px 0; */
   }
   .logo {
     font-size: 40px;
