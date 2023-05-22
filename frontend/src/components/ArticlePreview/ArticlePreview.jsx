@@ -11,7 +11,7 @@ export const ArticlePreview = ({ category, article }) => {
   const content =
     lang === "ua" ? article.content : article.english_version?.content;
   return (
-    <li key={article.pk} className={css.artCard}>
+    <li className={css.artCard}>
       <Link
         to={`/articles/${category}/${article.pk}`}
         state={{ from: location }}
