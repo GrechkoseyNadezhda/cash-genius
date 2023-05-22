@@ -12,6 +12,7 @@ i18n
     detection: {
       order: ["localStorage", "navigator"],
       caches: ["localStorage"],
+      lookupLocalStorage: "ua",
     },
     fallbackLng: "ua",
     interpolation: {
