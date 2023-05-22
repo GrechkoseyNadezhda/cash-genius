@@ -102,9 +102,7 @@ export const ArticlesList = ({ artList, category, loadArticles }) => {
       </h2>
       <ul className={css.articlesList}>
         {artList?.map((article) => (
-          <li key={article.pk} className={css.artCard}>
-            <ArticlePreview article={article} category={category} />
-          </li>
+          <ArticlePreview article={article} category={category} />
         ))}
       </ul>
       {morePages && (

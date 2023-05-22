@@ -38,25 +38,6 @@
   margin-bottom: 28px;
 }
 
-.artCard {
-  display: block;
-  border: 1px solid #bdbdbd;
-  border-radius: 8px;
-  margin-bottom: 32px;
-}
-
-.artCard:last-child {
-  margin-bottom: 0;
-}
-
-.artCard:hover {
-  border: 1px solid #f5c92a;
-}
-
-.artCard:hover .artTitle {
-  color: #f5c92a;
-}
-
 .categoryIcon {
   height: 32px;
   width: 32px;
@@ -95,12 +76,6 @@
     gap: 14px;
   }
 
-  .artCard,
-  .artCard:last-child {
-    width: 221px;
-    margin-bottom: 40px;
-  }
-
   .backArrow {
     display: none;
   }
@@ -121,12 +96,6 @@
 
   .articlesList {
     gap: 20px;
-  }
-
-  .artCard,
-  .artCard:last-child {
-    width: 306px;
-    margin-bottom: 80px;
   }
 
   .moreButton {

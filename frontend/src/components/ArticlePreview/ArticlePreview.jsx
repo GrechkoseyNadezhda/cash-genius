@@ -11,18 +11,23 @@ export const ArticlePreview = ({ category, article }) => {
   const content =
     lang === "ua" ? article.content : article.english_version?.content;
   return (
-    <Link to={`/articles/${category}/${article.pk}`} state={{ from: location }}>
-      <div>
-        <img src={article.image} alt="" className={css.picture} />
-        <p className={css.date}>{article.date_added}</p>
-        <h3 className={css.artTitle}>{title}</h3>
-        <p
-          className={css.contentWrapper}
-          dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(content),
-          }}
-        ></p>
-      </div>
-    </Link>
+    <li key={article.pk} className={css.artCard}>
+      <Link
+        to={`/articles/${category}/${article.pk}`}
+        state={{ from: location }}
+      >
+        <div>
+          <img src={article.image} alt="" className={css.picture} />
+          <p className={css.date}>{article.date_added}</p>
+          <h3 className={css.artTitle}>{title}</h3>
+          <p
+            className={css.contentWrapper}
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(content),
+            }}
+          ></p>
+        </div>
+      </Link>
+    </li>
   );
 };
