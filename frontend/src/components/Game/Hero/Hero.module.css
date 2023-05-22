@@ -98,9 +98,6 @@
   .hero {
     padding-top: 262px;
     padding-bottom: 263px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
 
     background-image: url("../../../images/game/hero/hero-bg-desk.jpg");
 

@@ -122,11 +122,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .characters {
-    padding-top: 150px;
-    padding-bottom: 150px;
-  }
-
   .title {
     margin-bottom: 80px;
     font-size: 48px;

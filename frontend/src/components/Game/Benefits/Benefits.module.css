@@ -113,10 +113,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .benefits {
-    padding-top: 150px;
-  }
-
   .title {
     margin-bottom: 80px;
     font-size: 48px;
