@@ -13,7 +13,9 @@ i18n
       order: ["localStorage", "navigator"],
       caches: ["localStorage"],
       lookupLocalStorage: "ua",
+      checkWhitelist: true,
     },
+    whitelist: ["ua", "en"],
     fallbackLng: "ua",
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
