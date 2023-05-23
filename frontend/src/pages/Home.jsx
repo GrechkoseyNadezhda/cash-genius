@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { selectGlobal } from "../redux/selectors";
 import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { ButtonUp } from "../components/ButtonUp/ButtonUp";
 
 export const Home = () => {
   const { error, pending } = useSelector(selectGlobal);
@@ -31,6 +32,7 @@ export const Home = () => {
       />
       {pending && <Loader />}
       <Outlet />
+      <ButtonUp />
       <Footer />
     </>
   );

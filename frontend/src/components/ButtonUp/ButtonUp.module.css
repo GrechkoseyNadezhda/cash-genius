@@ -1,0 +1,35 @@
+.buttonUp {
+  display: block;
+  margin-left: auto;
+
+  margin-bottom: 16px;
+}
+
+.iconUp {
+  width: 24px;
+  height: 24px;
+}
+
+.iconUp use {
+  stroke: #004835;
+  fill: none;
+}
+
+.iconUp:hover use {
+  fill: #004835;
+  stroke: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .iconUp {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .iconUp {
+    width: 48px;
+    height: 48px;
+  }
+}
