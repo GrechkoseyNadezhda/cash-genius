@@ -65,12 +65,16 @@
 
   .contentWrapper {
     margin: 0 12px 16px 12px;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* text-overflow: ellipsis; */
     /* max-height: calc(1.5em * 10); */
-    display: -webkit-box;
+    /* display: -webkit-box;
     -webkit-line-clamp: 10;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: vertical; */
+    display: block;
+    font-family: Georgia;
+    font-size: 14px;
+    line-height: 20px;
   }
 }
 
@@ -91,7 +95,8 @@
     line-height: 27px;
   }
 
-  /* .contentWrapper {
-    max-height: calc(1.7em * 10);
-  } */
+  .contentWrapper {
+    /* max-height: calc(1.7em * 10); */
+    line-height: 26px;
+  }
 }
