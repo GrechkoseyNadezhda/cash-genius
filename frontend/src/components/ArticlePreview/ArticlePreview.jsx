@@ -8,8 +8,10 @@ export const ArticlePreview = ({ category, article }) => {
   const location = useLocation();
   const { lang } = useSelector(selectGlobal);
   const title = lang === "ua" ? article.title : article.english_version?.title;
-  const content =
-    lang === "ua" ? article.content : article.english_version?.content;
+  // const content =
+  //   lang === "ua" ? article.content : article.english_version?.content;
+  const description =
+    lang === "ua" ? article.description : article.english_version?.description;
   return (
     <li className={css.artCard}>
       <Link
@@ -23,7 +25,7 @@ export const ArticlePreview = ({ category, article }) => {
           <p
             className={css.contentWrapper}
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(content),
+              __html: DOMPurify.sanitize(description),
             }}
           ></p>
         </div>
