@@ -1,8 +1,7 @@
-.articleParagraph,
-.articleOrderedList,
 .articleSubtitle,
-.articleUnOrderedList,
-.articleText {
+.articleText,
+.articleTable td,
+.articleTable th {
   font-family: "Georgia";
   font-style: normal;
   font-weight: 400;
@@ -13,25 +12,46 @@
 
 .articleSubtitle {
   text-align: center;
+  font-weight: 700;
 }
 
 .articleParagraph {
-  text-indent: 20px;
+  text-indent: 30px;
 }
 
-.articleUnOrderedList {
-  padding-left: 40px;
+.articleTable {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-collapse: collapse;
 }
 
-.articleOrderedList {
-  list-style-type: decimal;
-  padding-left: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.articleTableSecondColumn {
+  width: 40%;
 }
-.articleOrderedItem {
-  padding-left: 10px;
+.articleTableFirstColumn {
+  width: 60%;
+}
+.articleTable td,
+.articleTable th {
+  padding: 7px 4px;
+  border: 1px solid #828282;
+}
+
+.articleTableHead th,
+.articleTableFoot td {
+  font-weight: 700;
+  text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+  .articleSubtitle,
+  .articleText,
+  .articleTable td,
+  .articleTable th {
+    font-size: 20px;
+    line-height: calc(30 / 20);
+  }
 }
 
 @media screen and (min-width: 768px) {
