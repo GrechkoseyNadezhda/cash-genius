@@ -236,6 +236,7 @@ export const LongRules = () => {
               </span>
               {t("rules.property.text1")}
             </p>
+            <p className={css.paragraph}>{t("rules.property.text2")}</p>
             <ul className={css.cards}>
               <li className={css.card}>
                 <CardExample
@@ -247,7 +248,6 @@ export const LongRules = () => {
               </li>
             </ul>
 
-            <p className={css.paragraph}>{t("rules.property.text2")}</p>
             <p className={css.paragraph}>{t("rules.property.text3")}</p>
           </li>
         </ul>

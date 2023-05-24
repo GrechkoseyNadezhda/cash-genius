@@ -8,7 +8,7 @@ export const Hero = () => {
     <section className={css.hero}>
       <div className="container">
         <div className={css.wrap}>
-          <h1 className={css.title}>{t("mainTitle")} Cash Genius</h1>
+          <h1 className={css.title}>Cash Genius {t("mainTitle")}</h1>
           <p className={css.subtitle}>{t("subtitle")}</p>
           <a className={css.link} href="https://t.me/Cash_Genius_Bot">
             {t("link")}
